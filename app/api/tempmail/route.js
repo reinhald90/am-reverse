@@ -1,20 +1,13 @@
 /**
- * Temp Mail API Proxy — mail.tm
+ * Temp Mail API — mail.tm Proxy
  * Route: /api/tempmail?action=xxx
- * 
- * Actions:
- *   - domains  : GET list domain aktif
- *   - create   : POST generate inbox baru
- *   - messages : GET list pesan di inbox (butuh auth)
- *   - message  : GET detail 1 pesan (butuh ?id=xxx)
- *   - delete   : DELETE account
  */
 
 const MAILTM_API = 'https://api.mail.tm'
 
-/* ==========================================
- *           CORS HEADERS
- * ========================================== */
+/* ══════════════════════════════════════════
+   CORS HEADERS
+   ══════════════════════════════════════════ */
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -22,45 +15,43 @@ const CORS = {
   'Access-Control-Allow-Headers': 'Content-Type, Authorization'
 }
 
-/* ==========================================
- *           OPTIONS (preflight)
- * ========================================== */
+/* ══════════════════════════════════════════
+   OPTIONS (CORS preflight)
+   ══════════════════════════════════════════ */
 
 export async function OPTIONS() {
   return new Response(null, { status: 204, headers: CORS })
 }
 
-/* ==========================================
- *           GET — domains, messages, message
- * ========================================== */
+/* ══════════════════════════════════════════
+   GET — domains, messages, message
+   ══════════════════════════════════════════ */
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url)
   const action = searchParams.get('action')
 
   try {
-    /* ---------- 1. DOMAINS ---------- */
+    // --- DOMAINS ---
     if (action === 'domains') {
       const r = await fetch(`${MAILTM_API}/domains?page=1`)
       const data = await r.json()
       return Response.json(data, { status: r.status, headers: CORS })
     }
 
-    /* ---------- 2. MESSAGES ---------- */
+    // --- MESSAGES ---
     if (action === 'messages') {
       const auth = request.headers.get('authorization')
       if (!auth) {
         return Response.json(
-          { success: false, error: 'Missing auth header' },
+          { success: false, error: 'Missing auth' },
           { status: 401, headers: CORS }
         )
       }
-
       const r = await fetch(`${MAILTM_API}/messages?page=1`, {
         headers: { Authorization: auth }
       })
       const data = await r.json()
-
       return Response.json({
         success: true,
         messages: data['hydra:member'] || [],
@@ -68,60 +59,55 @@ export async function GET(request) {
       }, { status: r.status, headers: CORS })
     }
 
-    /* ---------- 3. MESSAGE DETAIL ---------- */
+    // --- MESSAGE DETAIL ---
     if (action === 'message') {
       const auth = request.headers.get('authorization')
       const id = searchParams.get('id')
-
       if (!auth || !id) {
         return Response.json(
           { success: false, error: 'Missing auth or id' },
           { status: 400, headers: CORS }
         )
       }
-
       const r = await fetch(`${MAILTM_API}/messages/${id}`, {
         headers: { Authorization: auth }
       })
       const data = await r.json()
-
-      return Response.json({
-        success: true,
-        message: data
-      }, { status: r.status, headers: CORS })
+      return Response.json(
+        { success: true, message: data },
+        { status: r.status, headers: CORS }
+      )
     }
 
-    /* ---------- DEFAULT ---------- */
     return Response.json(
-      { success: false, error: 'Invalid action' },
+      { success: false, error: 'Invalid action', available: ['domains', 'messages', 'message'] },
       { status: 400, headers: CORS }
     )
 
   } catch (error) {
-    console.error('[tempmail GET] Error:', error)
     return Response.json(
-      { success: false, error: error.message || 'Server error' },
+      { success: false, error: error.message },
       { status: 500, headers: CORS }
     )
   }
 }
 
-/* ==========================================
- *           POST — create inbox
- * ========================================== */
+/* ══════════════════════════════════════════
+   POST — create inbox
+   ══════════════════════════════════════════ */
 
 export async function POST(request) {
   const { searchParams } = new URL(request.url)
   const action = searchParams.get('action')
 
   try {
-    /* ---------- CREATE INBOX ---------- */
+    // --- CREATE INBOX ---
     if (action === 'create') {
       // 1. Ambil domain aktif
       const domainsRes = await fetch(`${MAILTM_API}/domains?page=1`)
       const domainsData = await domainsRes.json()
-
       const domain = domainsData['hydra:member']?.[0]?.domain
+
       if (!domain) {
         return Response.json(
           { success: false, error: 'Tidak ada domain aktif' },
@@ -149,13 +135,12 @@ export async function POST(request) {
         }, { status: createRes.status, headers: CORS })
       }
 
-      // 4. Login untuk dapat token
+      // 4. Login untuk token
       const loginRes = await fetch(`${MAILTM_API}/token`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ address: email, password })
       })
-
       const loginData = await loginRes.json()
 
       if (!loginData.token) {
@@ -175,22 +160,21 @@ export async function POST(request) {
     }
 
     return Response.json(
-      { success: false, error: 'Invalid POST action' },
+      { success: false, error: 'Invalid action', available: ['create'] },
       { status: 400, headers: CORS }
     )
 
   } catch (error) {
-    console.error('[tempmail POST] Error:', error)
     return Response.json(
-      { success: false, error: error.message || 'Server error' },
+      { success: false, error: error.message },
       { status: 500, headers: CORS }
     )
   }
 }
 
-/* ==========================================
- *           DELETE — delete account
- * ========================================== */
+/* ══════════════════════════════════════════
+   DELETE — delete account
+   ══════════════════════════════════════════ */
 
 export async function DELETE(request) {
   const { searchParams } = new URL(request.url)
@@ -204,18 +188,15 @@ export async function DELETE(request) {
         { status: 400, headers: CORS }
       )
     }
-
     const r = await fetch(`${MAILTM_API}/accounts/${id}`, {
       method: 'DELETE',
       headers: { Authorization: auth }
     })
-
     return Response.json({ success: r.ok }, { status: r.status, headers: CORS })
-
   } catch (error) {
     return Response.json(
       { success: false, error: error.message },
       { status: 500, headers: CORS }
     )
   }
-        }
+}
