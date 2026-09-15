@@ -1,17 +1,17 @@
 /**
- * Temp Mail API — mail.tm Proxy
+ * Temp Mail API — Maildrop.cc GraphQL Proxy
  * Route: /api/tempmail?action=xxx
  *
- * PERBAIKAN dari versi asal:
- * 1. safeFetchJson() — validasi status + content-type sebelum parse JSON,
- *    supaya gak throw "Unexpected token <" saat mail.tm balikin HTML/error page.
- * 2. Timeout per-request (AbortController) — biar gak nyangkut sampai
- *    Vercel function timeout (10s di Hobby plan).
- * 3. Validasi domain kosong sebelum lanjut create account.
- * 4. Error message lebih jelas biar gampang di-debug dari log Vercel.
+ * Maildrop tidak butuh akun/password/token seperti mail.tm.
+ * Semua mailbox pakai domain tetap "maildrop.cc", dan kamu bebas
+ * pilih nama mailbox sendiri (mis. random string) — begitu ada yang
+ * kirim email ke <mailbox>@maildrop.cc, otomatis bisa langsung dibaca
+ * lewat query GraphQL di bawah, tanpa perlu "create" akun dulu.
+ *
+ * Referensi: https://maildrop.cc/api.html
  */
 
-const MAILTM_API = 'https://api.mail.tm'
+const MAILDROP_API = 'https://api.maildrop.cc/graphql'
 const FETCH_TIMEOUT_MS = 8000 // di bawah limit 10s Vercel Hobby
 
 /* ══════════════════════════════════════════
@@ -25,46 +25,53 @@ const CORS = {
 }
 
 /* ══════════════════════════════════════════
-   HELPER — fetch dengan timeout + safe JSON parse
+   HELPER — GraphQL request dengan timeout + safe JSON parse
    ══════════════════════════════════════════ */
 
-async function safeFetchJson(url, options = {}) {
+async function graphql(query, variables = {}) {
   const controller = new AbortController()
   const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS)
 
   let res
   try {
-    res = await fetch(url, { ...options, signal: controller.signal })
+    res = await fetch(MAILDROP_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query, variables }),
+      signal: controller.signal
+    })
   } catch (err) {
     clearTimeout(timer)
     if (err.name === 'AbortError') {
-      throw new Error(`Timeout: ${url} tidak merespons dalam ${FETCH_TIMEOUT_MS}ms`)
+      throw new Error(`Timeout: maildrop.cc tidak merespons dalam ${FETCH_TIMEOUT_MS}ms`)
     }
-    throw new Error(`Network error saat fetch ${url}: ${err.message}`)
+    throw new Error(`Network error saat menghubungi maildrop.cc: ${err.message}`)
   }
   clearTimeout(timer)
 
   const contentType = res.headers.get('content-type') || ''
   const raw = await res.text()
 
-  // mail.tm kadang balikin HTML (error page / rate limit / cloudflare block)
-  // alih-alih JSON. Tangkap ini sebelum JSON.parse supaya errornya jelas.
-  if (!contentType.includes('application/json') && !contentType.includes('application/ld+json')) {
+  if (!contentType.includes('application/json')) {
     throw new Error(
-      `Response bukan JSON dari ${url} (status ${res.status}). ` +
-      `Kemungkinan mail.tm memblokir IP Vercel atau sedang down. ` +
+      `Response bukan JSON dari maildrop.cc (status ${res.status}). ` +
       `Cuplikan response: ${raw.slice(0, 150)}`
     )
   }
 
-  let data
+  let body
   try {
-    data = raw ? JSON.parse(raw) : {}
+    body = raw ? JSON.parse(raw) : {}
   } catch (err) {
-    throw new Error(`Gagal parse JSON dari ${url}: ${err.message}. Raw: ${raw.slice(0, 150)}`)
+    throw new Error(`Gagal parse JSON dari maildrop.cc: ${err.message}. Raw: ${raw.slice(0, 150)}`)
   }
 
-  return { ok: res.ok, status: res.status, data }
+  // GraphQL selalu balas 200 walau ada error — errornya ada di body.errors
+  if (body.errors && body.errors.length > 0) {
+    throw new Error(`GraphQL error: ${body.errors.map(e => e.message).join('; ')}`)
+  }
+
+  return body.data
 }
 
 /* ══════════════════════════════════════════
@@ -76,7 +83,7 @@ export async function OPTIONS() {
 }
 
 /* ══════════════════════════════════════════
-   GET — domains, messages, message
+   GET — messages (inbox), message (detail)
    ══════════════════════════════════════════ */
 
 export async function GET(request) {
@@ -84,52 +91,70 @@ export async function GET(request) {
   const action = searchParams.get('action')
 
   try {
-    // --- DOMAINS ---
-    if (action === 'domains') {
-      const { status, data } = await safeFetchJson(`${MAILTM_API}/domains?page=1`)
-      return Response.json(data, { status, headers: CORS })
-    }
-
-    // --- MESSAGES ---
+    // --- LIST INBOX ---
     if (action === 'messages') {
-      const auth = request.headers.get('authorization')
-      if (!auth) {
+      const mailbox = searchParams.get('mailbox')
+      if (!mailbox) {
         return Response.json(
-          { success: false, error: 'Missing auth' },
-          { status: 401, headers: CORS }
+          { success: false, error: 'Missing mailbox' },
+          { status: 400, headers: CORS }
         )
       }
-      const { status, data } = await safeFetchJson(`${MAILTM_API}/messages?page=1`, {
-        headers: { Authorization: auth }
-      })
+
+      const data = await graphql(
+        `query Inbox($mailbox: String!) {
+          inbox(mailbox: $mailbox) {
+            id
+            mailfrom
+            headerfrom
+            subject
+            date
+          }
+        }`,
+        { mailbox }
+      )
+
       return Response.json({
         success: true,
-        messages: data['hydra:member'] || [],
-        total: data['hydra:totalItems'] || 0
-      }, { status, headers: CORS })
+        messages: data.inbox || [],
+        total: (data.inbox || []).length
+      }, { headers: CORS })
     }
 
     // --- MESSAGE DETAIL ---
     if (action === 'message') {
-      const auth = request.headers.get('authorization')
+      const mailbox = searchParams.get('mailbox')
       const id = searchParams.get('id')
-      if (!auth || !id) {
+      if (!mailbox || !id) {
         return Response.json(
-          { success: false, error: 'Missing auth or id' },
+          { success: false, error: 'Missing mailbox or id' },
           { status: 400, headers: CORS }
         )
       }
-      const { status, data } = await safeFetchJson(`${MAILTM_API}/messages/${id}`, {
-        headers: { Authorization: auth }
-      })
+
+      const data = await graphql(
+        `query Message($mailbox: String!, $id: String!) {
+          message(mailbox: $mailbox, id: $id) {
+            id
+            mailfrom
+            headerfrom
+            subject
+            date
+            html
+            text
+          }
+        }`,
+        { mailbox, id }
+      )
+
       return Response.json(
-        { success: true, message: data },
-        { status, headers: CORS }
+        { success: true, message: data.message },
+        { headers: CORS }
       )
     }
 
     return Response.json(
-      { success: false, error: 'Invalid action', available: ['domains', 'messages', 'message'] },
+      { success: false, error: 'Invalid action', available: ['messages', 'message'] },
       { status: 400, headers: CORS }
     )
 
@@ -143,7 +168,8 @@ export async function GET(request) {
 }
 
 /* ══════════════════════════════════════════
-   POST — create inbox
+   POST — create mailbox (tidak butuh akun beneran,
+   cukup "pilih" nama mailbox baru & pastikan domain hidup)
    ══════════════════════════════════════════ */
 
 export async function POST(request) {
@@ -151,59 +177,30 @@ export async function POST(request) {
   const action = searchParams.get('action')
 
   try {
-    // --- CREATE INBOX ---
+    // --- CREATE MAILBOX ---
     if (action === 'create') {
-      // 1. Ambil domain aktif
-      const { data: domainsData } = await safeFetchJson(`${MAILTM_API}/domains?page=1`)
-      const domain = domainsData['hydra:member']?.[0]?.domain
+      // Maildrop gak punya endpoint "buat akun" — mailbox otomatis aktif
+      // begitu ada yang kirim email. Kita cukup generate nama random dan
+      // pastikan API-nya hidup lewat query "ping".
+      const pingData = await graphql(
+        `query Ping($msg: String!) { ping(message: $msg) }`,
+        { msg: 'health-check' }
+      )
 
-      if (!domain) {
+      if (!pingData || pingData.ping === undefined) {
         return Response.json(
-          { success: false, error: 'Tidak ada domain aktif dari mail.tm — coba lagi beberapa saat' },
+          { success: false, error: 'Maildrop API tidak merespons dengan benar' },
           { status: 502, headers: CORS }
         )
       }
 
-      // 2. Generate username & password (dipastikan cukup panjang)
-      const username = 'am' + Math.random().toString(36).slice(2, 11)
-      const email = `${username}@${domain}`
-      const password = Math.random().toString(36).slice(2, 15).padEnd(10, '0') + 'Aa1!'
-
-      // 3. Create account
-      const createResult = await safeFetchJson(`${MAILTM_API}/accounts`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ address: email, password })
-      })
-
-      if (!createResult.ok) {
-        const err = createResult.data
-        return Response.json({
-          success: false,
-          error: err.message || err['hydra:description'] || `Gagal buat inbox (status ${createResult.status})`
-        }, { status: createResult.status, headers: CORS })
-      }
-
-      // 4. Login untuk token
-      const loginResult = await safeFetchJson(`${MAILTM_API}/token`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ address: email, password })
-      })
-
-      if (!loginResult.data.token) {
-        return Response.json(
-          { success: false, error: 'Akun berhasil dibuat tapi gagal login untuk ambil token' },
-          { status: 502, headers: CORS }
-        )
-      }
+      const mailbox = 'am' + Math.random().toString(36).slice(2, 11)
+      const email = `${mailbox}@maildrop.cc`
 
       return Response.json({
         success: true,
         email,
-        password,
-        token: loginResult.data.token,
-        accountId: loginResult.data.id
+        mailbox // simpan ini di client — dipakai untuk query messages/message/delete
       }, { headers: CORS })
     }
 
@@ -222,26 +219,34 @@ export async function POST(request) {
 }
 
 /* ══════════════════════════════════════════
-   DELETE — delete account
+   DELETE — hapus satu pesan dari mailbox
+   (Maildrop tidak punya konsep "hapus akun" seperti mail.tm,
+   yang ada cuma hapus pesan individual)
    ══════════════════════════════════════════ */
 
 export async function DELETE(request) {
   const { searchParams } = new URL(request.url)
+  const mailbox = searchParams.get('mailbox')
   const id = searchParams.get('id')
-  const auth = request.headers.get('authorization')
 
   try {
-    if (!auth || !id) {
+    if (!mailbox || !id) {
       return Response.json(
-        { success: false, error: 'Missing auth or id' },
+        { success: false, error: 'Missing mailbox or id' },
         { status: 400, headers: CORS }
       )
     }
-    const { status, ok } = await safeFetchJson(`${MAILTM_API}/accounts/${id}`, {
-      method: 'DELETE',
-      headers: { Authorization: auth }
-    })
-    return Response.json({ success: ok }, { status, headers: CORS })
+
+    const data = await graphql(
+      `mutation DeleteMessage($mailbox: String!, $id: String!) {
+        deleteMessage(mailbox: $mailbox, id: $id) {
+          id
+        }
+      }`,
+      { mailbox, id }
+    )
+
+    return Response.json({ success: !!data.deleteMessage }, { headers: CORS })
   } catch (error) {
     console.error('[tempmail DELETE error]', error)
     return Response.json(
