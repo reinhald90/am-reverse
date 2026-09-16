@@ -307,6 +307,26 @@ body.locked{overflow:hidden}
 .inbox-item__arrow{color:var(--txt-4);flex:none;align-self:center}
 .inbox-item__arrow svg{width:14px;height:14px}
 .inbox-empty{padding:24px 16px;text-align:center;font-size:12px;color:var(--txt-4);font-style:italic;background:rgba(0,0,0,.15);border:1px dashed var(--border);border-radius:var(--radius-sm)}
+/* EMAIL PREVIEW */
+.inbox-back{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;margin-bottom:12px;border-radius:100px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--txt-2);font-size:11px;font-weight:600;cursor:pointer;transition:all .2s ease;font-family:inherit}
+.inbox-back:hover{background:rgba(255,255,255,.08);color:var(--txt)}
+.inbox-back svg{width:12px;height:12px}
+.email-view{font-family:var(--mono);font-size:12px;color:var(--txt);background:#050508;border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden}
+.email-view__head{padding:14px 16px;background:rgba(255,255,255,.02);border-bottom:1px dashed var(--border)}
+.email-view__subject{font-size:14px;font-weight:700;color:var(--acc);margin-bottom:12px;font-family:var(--mono);word-break:break-word;line-height:1.4}
+.email-view__row{display:flex;gap:8px;font-size:11px;margin-bottom:5px;line-height:1.5}
+.email-view__row:last-child{margin-bottom:0}
+.email-view__row-label{flex:none;width:55px;color:var(--txt-3);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.email-view__row-value{flex:1;color:var(--txt-2);word-break:break-all}
+.email-view__divider{height:1px;background-image:linear-gradient(90deg,var(--border) 50%,transparent 50%);background-size:8px 1px;background-repeat:repeat-x;margin:0 16px}
+.email-view__body{padding:16px;font-family:var(--font);font-size:13px;line-height:1.7;max-height:240px;overflow-y:auto;background:#ffffff;color:#1a1a1a;word-wrap:break-word}
+.email-view__body *{max-width:100%!important;word-break:break-word!important}
+.email-view__body a{color:#0066cc;text-decoration:underline;word-break:break-all}
+.email-view__body img{max-width:100%;height:auto}
+.email-view__body::-webkit-scrollbar{width:6px}
+.email-view__body::-webkit-scrollbar-thumb{background:rgba(0,0,0,.2);border-radius:3px}
+.email-view__actions{padding:12px 16px;background:rgba(255,255,255,.02);border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.email-view__actions .btn{margin-top:0;padding:11px 14px;font-size:12px;border-radius:var(--radius-sm)}
 .footer{position:relative;margin-top:40px;padding-top:24px;text-align:center;font-size:11px;color:var(--txt-4);letter-spacing:.06em;line-height:1.7}
 .footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--border-hover),transparent)}
 .footer b{color:var(--acc);font-weight:600;opacity:.7}
@@ -381,7 +401,7 @@ body.locked{overflow:hidden}
   <div class="drawer__profile">
     <div class="drawer__avatar"><img src="https://files.catbox.moe/i51c0y.jpg" alt="AM"></div>
     <div class="drawer__info">
-      <h3>AM Activate</h3><p>Premium Activator v7.1</p>
+      <h3>AM Activate</h3><p>Premium Activator v7.2</p>
       <div class="drawer__badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>FREE ACCESS</div>
     </div>
   </div>
@@ -403,7 +423,7 @@ body.locked{overflow:hidden}
     <div class="drawer__label">Lainnya</div>
     <button class="drawer__item" id="menuClearHistory"><div class="drawer__item-icon red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><div class="drawer__item-text">Hapus Riwayat<span>Reset semua data</span></div></button>
   </div>
-  <div class="drawer__footer">v7.1 · Made by <b style="color:var(--acc)">Azure</b></div>
+  <div class="drawer__footer">v7.2 · Made by <b style="color:var(--acc)">Azure</b></div>
 </aside>
 
 <div class="modal-overlay" id="modalOverlay">
@@ -659,7 +679,7 @@ body.locked{overflow:hidden}
 
 <script>
 /* ═══════════════════════════════════════════
-   AM ACTIVATE v7.1 — DUCKZMAIL + INBOX
+   AM ACTIVATE v7.2 — EMAIL PREVIEW EDITION
    ═══════════════════════════════════════════ */
 
 const $ = id => document.getElementById(id)
@@ -785,9 +805,9 @@ $('terminalToggle').addEventListener('click', () => { const v = Terminal.toggle(
     else setTimeout(() => {
       loader.classList.add('done'); container.classList.add('ready'); document.body.classList.remove('locked')
       SoundFX.whoosh()
-      setTimeout(() => { SoundFX.notify(); Toast.show('Welcome!', 'AM Activate v7.1 ready') }, 500)
+      setTimeout(() => { SoundFX.notify(); Toast.show('Welcome!', 'AM Activate v7.2 ready') }, 500)
       Terminal.log('SYS', 'Application initialized', 'ok')
-      Terminal.log('SYS', 'Version: 7.1.0 (Duckzmail + Inbox)', 'info')
+      Terminal.log('SYS', 'Version: 7.2.0 (Email Preview Edition)', 'info')
       Terminal.setStatus('Ready', 'ok')
     }, 450)
   }
@@ -810,9 +830,9 @@ $('modalClose').addEventListener('click', closeModal)
 modal.addEventListener('click', e => { if (e.target === modal) closeModal() })
 
 const MODALS = {
-  about: { title: '📖 Tentang Web', html: `<h4>AM Activate Premium v7.1</h4><p>Web activator Alight Motion Premium dengan email generator <strong>duckzmail.com</strong>.</p><h4>Cara Kerja</h4><ul><li>Masukkan email Alight Motion</li><li>Sistem kirim magic link</li><li>Verifikasi link</li><li>Premium aktif! 🎉</li></ul><h4>Keamanan</h4><p>Tidak menyimpan data. Semua proses di browser.</p><h4>Disclaimer</h4><p>Layanan unofficial. Gunakan dengan risiko sendiri.</p>` },
-  features: { title: '⭐ Fitur Keren', html: `<p>Semua yang bisa kamu lakukan:</p><div class="feature-grid"><div class="feature-card"><div class="feature-card__icon green">📬</div><div class="feature-card__title">Inbox Viewer</div><div class="feature-card__desc">Cek email langsung di web</div></div><div class="feature-card"><div class="feature-card__icon blue">🎲</div><div class="feature-card__title">Generate Email</div><div class="feature-card__desc">4+ domain duckzmail</div></div><div class="feature-card"><div class="feature-card__icon violet">📋</div><div class="feature-card__title">Auto-Copy Link</div><div class="feature-card__desc">Link auto-copy ke clipboard</div></div><div class="feature-card"><div class="feature-card__icon amber">🖥️</div><div class="feature-card__title">Terminal Log</div><div class="feature-card__desc">Proses real-time kayak CLI</div></div><div class="feature-card"><div class="feature-card__icon green">📬</div><div class="feature-card__title">Auto-Verify</div><div class="feature-card__desc">Tanpa buka email</div></div><div class="feature-card"><div class="feature-card__icon blue">📤</div><div class="feature-card__title">Share Hasil</div><div class="feature-card__desc">Ke sosmed / WA</div></div><div class="feature-card"><div class="feature-card__icon violet">💾</div><div class="feature-card__title">Riwayat</div><div class="feature-card__desc">10 aktivasi terakhir</div></div><div class="feature-card"><div class="feature-card__icon amber">⌨️</div><div class="feature-card__title">Shortcut</div><div class="feature-card__desc">Ctrl+K, Ctrl+G, dll</div></div></div>` },
-  help: { title: '❓ Bantuan', html: `<h4>Cara Pakai</h4><ul><li>Pilih mode email</li><li>Klik Generate (kalau random)</li><li>Klik Kirim Link</li><li>Cek inbox</li><li>Paste link → Verifikasi</li></ul><h4>Cara Pakai Inbox</h4><ul><li>Klik garis 3 → Inbox</li><li>Atau tombol "Buka Inbox" di Home</li><li>Klik email untuk auto-extract link</li></ul><h4>Email Tidak Masuk?</h4><ul><li>Buka Inbox → Refresh</li><li>Tunggu 1-2 menit</li><li>Kirim ulang</li></ul>` },
+  about: { title: '📖 Tentang Web', html: `<h4>AM Activate Premium v7.2</h4><p>Web activator Alight Motion Premium dengan email generator <strong>duckzmail.com</strong> + preview email.</p><h4>Cara Kerja</h4><ul><li>Masukkan email Alight Motion</li><li>Sistem kirim magic link</li><li>Verifikasi link</li><li>Premium aktif! 🎉</li></ul><h4>Keamanan</h4><p>Tidak menyimpan data. Semua proses di browser.</p><h4>Disclaimer</h4><p>Layanan unofficial. Gunakan dengan risiko sendiri.</p>` },
+  features: { title: '⭐ Fitur Keren', html: `<p>Semua yang bisa kamu lakukan:</p><div class="feature-grid"><div class="feature-card"><div class="feature-card__icon green">📬</div><div class="feature-card__title">Inbox Viewer</div><div class="feature-card__desc">Cek email langsung</div></div><div class="feature-card"><div class="feature-card__icon blue">📧</div><div class="feature-card__title">Email Preview</div><div class="feature-card__desc">Lihat surat lengkap</div></div><div class="feature-card"><div class="feature-card__icon violet">⚡</div><div class="feature-card__title">Auto-Verify</div><div class="feature-card__desc">1 klik langsung aktif</div></div><div class="feature-card"><div class="feature-card__icon amber">📋</div><div class="feature-card__title">Auto-Copy Link</div><div class="feature-card__desc">Link auto-copy</div></div><div class="feature-card"><div class="feature-card__icon green">🎲</div><div class="feature-card__title">Generate Email</div><div class="feature-card__desc">4+ domain duckzmail</div></div><div class="feature-card"><div class="feature-card__icon blue">🖥️</div><div class="feature-card__title">Terminal Log</div><div class="feature-card__desc">Proses real-time</div></div></div>` },
+  help: { title: '❓ Bantuan', html: `<h4>Cara Pakai</h4><ul><li>Pilih mode email</li><li>Klik Generate (kalau random)</li><li>Klik Kirim Link</li><li>Cek Inbox → klik email → preview muncul</li><li>Klik Auto-Verify → DONE!</li></ul><h4>Cara Pakai Inbox</h4><ul><li>Klik garis 3 → Inbox</li><li>Atau tombol "Buka Inbox" di Home</li><li>Klik email → preview surat lengkap</li><li>Klik Auto-Verify di preview</li></ul><h4>Email Tidak Masuk?</h4><ul><li>Buka Inbox → Refresh</li><li>Tunggu 1-2 menit</li><li>Kirim ulang</li></ul>` },
   shortcut: { title: '⌨️ Shortcut', html: `<p>Shortcut power user 💪</p><ul><li><span class="kbd">Ctrl</span> + <span class="kbd">K</span> — Focus email</li><li><span class="kbd">Ctrl</span> + <span class="kbd">G</span> — Generate random</li><li><span class="kbd">Ctrl</span> + <span class="kbd">M</span> — Toggle menu</li><li><span class="kbd">Ctrl</span> + <span class="kbd">T</span> — Toggle terminal</li><li><span class="kbd">Ctrl</span> + <span class="kbd">I</span> — Open Inbox</li><li><span class="kbd">Ctrl</span> + <span class="kbd">Enter</span> — Submit</li><li><span class="kbd">Esc</span> — Back / Close</li></ul>` }
 }
 $('menuAbout').addEventListener('click', () => { closeDrawer(); setTimeout(() => openModal(MODALS.about.title, MODALS.about.html), 200) })
@@ -829,14 +849,16 @@ $('brandHome').addEventListener('click', () => window.scrollTo({ top: 0, behavio
 /* ═══ INBOX ═══ */
 const inboxModal = $('inboxModalOverlay')
 let inboxPollInterval = null
+let inboxCurrentView = 'list'
 
 function openInbox() {
   inboxModal.classList.add('open')
   document.body.classList.add('locked')
+  inboxCurrentView = 'list'
   renderInboxEmail()
   loadInbox()
   if (inboxPollInterval) clearInterval(inboxPollInterval)
-  inboxPollInterval = setInterval(loadInbox, 5000)
+  inboxPollInterval = setInterval(() => { if (inboxCurrentView === 'list') loadInbox() }, 5000)
   SoundFX.tap()
 }
 
@@ -852,6 +874,7 @@ function renderInboxEmail() {
 }
 
 async function loadInbox() {
+  inboxCurrentView = 'list'
   const recipient = randomEmailData?.email || emInput.value.trim()
   if (!recipient) {
     $('inboxList').innerHTML = '<div class="inbox-empty">Belum ada email aktif. Generate dulu di Home.</div>'
@@ -873,9 +896,9 @@ async function loadInbox() {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
         </div>
         <div class="inbox-item__content">
-          <div class="inbox-item__sender">${m.sender || 'Unknown'}</div>
-          <div class="inbox-item__subject">${m.subject || '(No subject)'}</div>
-          <div class="inbox-item__time">${m.received_at || ''}</div>
+          <div class="inbox-item__sender">${escapeHtml(m.sender || 'Unknown')}</div>
+          <div class="inbox-item__subject">${escapeHtml(m.subject || '(No subject)')}</div>
+          <div class="inbox-item__time">${escapeHtml(m.received_at || '')}</div>
         </div>
         <div class="inbox-item__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></div>
       </div>
@@ -888,33 +911,130 @@ async function loadInbox() {
       })
     })
   } catch (e) {
-    $('inboxList').innerHTML = `<div class="inbox-empty" style="color:var(--red)">Error: ${e.message}</div>`
+    $('inboxList').innerHTML = `<div class="inbox-empty" style="color:var(--red)">Error: ${escapeHtml(e.message)}</div>`
   }
 }
 
 async function openInboxEmail(id) {
+  inboxCurrentView = 'detail'
+  $('inboxList').innerHTML = `
+    <div class="inbox-empty" style="display:flex;flex-direction:column;gap:10px;align-items:center">
+      <div class="btn__spinner" style="border-color:var(--acc);border-top-color:transparent;width:24px;height:24px;border-width:3px"></div>
+      <span>Memuat email...</span>
+    </div>
+  `
+  $('inboxCount').textContent = '...'
+
   try {
-    const r = await fetch(`${DUCKZ_API}/emails/${encodeURIComponent(id)}/body`)
-    const j = await r.json()
-    const body = j.text || j.html || ''
+    const [metaRes, bodyRes] = await Promise.all([
+      fetch(`${DUCKZ_API}/emails/${encodeURIComponent(id)}`),
+      fetch(`${DUCKZ_API}/emails/${encodeURIComponent(id)}/body`)
+    ])
+    const meta = await metaRes.json()
+    const body = await bodyRes.json()
+
+    const sender = meta.sender || meta.headers?.From || 'Unknown'
+    const recipient = meta.recipient || 'Unknown'
+    const subject = meta.subject || meta.headers?.Subject || '(No Subject)'
+    const date = meta.received_at || meta.headers?.Date || 'Unknown'
+    const htmlContent = body.html || null
+    const textContent = body.text || null
+
+    const rawForLink = textContent || htmlContent || ''
     const linkMatch =
-      body.match(/https?:\/\/[^\s"<>]+alight[^\s"<>]*/i) ||
-      body.match(/https?:\/\/[^\s"<>]+oobCode[^\s"<>]+/i) ||
-      body.match(/https?:\/\/[^\s"<>]+/gi)?.[0]
-    if (linkMatch) {
-      const link = Array.isArray(linkMatch) ? linkMatch[0] : linkMatch
-      try { await navigator.clipboard.writeText(link.trim()) } catch {}
-      Toast.show('Link copied!', 'Auto-fill ke Step 2', 2500)
-      Terminal.log('CPY', 'Magic link copied to clipboard', 'ok')
-      $('lk').value = link.trim()
-      closeInbox()
-      $('w-em').textContent = randomEmailData?.email || emInput.value.trim()
-      goToStep(2)
-      SoundFX.notify()
-    } else {
-      Toast.show('No link found', 'Email ini gak ada link', 2500)
+      rawForLink.match(/https?:\/\/[^\s"<>]+alight[^\s"<>]*/i) ||
+      rawForLink.match(/https?:\/\/[^\s"<>]+oobCode[^\s"<>]+/i) ||
+      rawForLink.match(/https?:\/\/[^\s"<>]+/gi)?.[0]
+    const magicLink = linkMatch ? (Array.isArray(linkMatch) ? linkMatch[0] : linkMatch).trim() : null
+
+    let safeHtml = ''
+    if (htmlContent) {
+      safeHtml = htmlContent
+        .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+        .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+        .replace(/\son\w+\s*=\s*"[^"]*"/gi, '')
+        .replace(/\son\w+\s*=\s*'[^']*'/gi, '')
+        .replace(/\son\w+\s*=\s*[^\s>]+/gi, '')
+        .replace(/javascript:/gi, '')
+    } else if (textContent) {
+      safeHtml = escapeHtml(textContent).replace(/\n/g, '<br>').replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>')
     }
-  } catch (e) { Toast.show('Error', e.message, 2500) }
+
+    $('inboxList').innerHTML = `
+      <button class="inbox-back" id="inboxBack">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+        Kembali ke Inbox
+      </button>
+
+      <div class="email-view">
+        <div class="email-view__head">
+          <div class="email-view__subject">${escapeHtml(subject)}</div>
+          <div class="email-view__row"><span class="email-view__row-label">From</span><span class="email-view__row-value">${escapeHtml(sender)}</span></div>
+          <div class="email-view__row"><span class="email-view__row-label">To</span><span class="email-view__row-value">${escapeHtml(recipient)}</span></div>
+          <div class="email-view__row"><span class="email-view__row-label">Date</span><span class="email-view__row-value">${escapeHtml(date)}</span></div>
+        </div>
+        <div class="email-view__divider"></div>
+        <div class="email-view__body">${safeHtml || '<em style="color:#888">(Tidak ada konten)</em>'}</div>
+        <div class="email-view__actions">
+          ${magicLink ? `
+            <button class="btn btn--primary" id="verifyFromEmail">
+              <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              Auto-Verify
+            </button>
+            <button class="btn btn--secondary" id="copyFromEmail">
+              <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy Link
+            </button>
+          ` : `
+            <button class="btn btn--secondary" id="copyFromEmail" style="grid-column:span 2">
+              <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+              Copy Email Body
+            </button>
+          `}
+        </div>
+      </div>
+    `
+
+    $('inboxCount').textContent = '1'
+
+    $('inboxBack').addEventListener('click', () => { SoundFX.tap(); loadInbox() })
+
+    if (magicLink) {
+      $('verifyFromEmail').addEventListener('click', async () => {
+        SoundFX.tap()
+        try { await navigator.clipboard.writeText(magicLink) } catch {}
+        $('lk').value = magicLink
+        $('w-em').textContent = randomEmailData?.email || emInput.value.trim()
+        closeInbox()
+        goToStep(2)
+        SoundFX.notify()
+        Toast.show('Link auto-filled!', 'Sedang verifikasi...', 2000)
+        setTimeout(() => $('b3').click(), 800)
+      })
+      $('copyFromEmail').addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText(magicLink); SoundFX.notify(); Toast.show('Link copied!', 'Tempel di Step 2', 2000) } catch { SoundFX.error() }
+      })
+    } else {
+      $('copyFromEmail').addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText(textContent || subject); SoundFX.notify(); Toast.show('Email copied!', 'Body disalin', 2000) } catch { SoundFX.error() }
+      })
+    }
+
+    Terminal.log('MAIL', `Opened: ${subject.slice(0, 40)}`, 'ok')
+    if (magicLink) Terminal.log('LINK', 'Magic link detected!', 'ok')
+  } catch (e) {
+    $('inboxList').innerHTML = `
+      <button class="inbox-back" id="inboxBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>Kembali</button>
+      <div class="inbox-empty" style="color:var(--red)">Error: ${escapeHtml(e.message)}</div>
+    `
+    $('inboxBack').addEventListener('click', () => loadInbox())
+  }
+}
+
+function escapeHtml(t = '') {
+  return String(t)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#039;')
 }
 
 $('inboxModalClose').addEventListener('click', closeInbox)
@@ -925,8 +1045,8 @@ $('inboxCopyEmail').addEventListener('click', async () => {
   if (!em) return
   try { await navigator.clipboard.writeText(em); Toast.show('Copied!', em, 2000); SoundFX.notify() } catch {}
 })
-$('inboxToggle').addEventListener('click', () => { openInbox() })
-$('btnOpenInbox').addEventListener('click', () => { openInbox() })
+$('inboxToggle').addEventListener('click', () => openInbox())
+$('btnOpenInbox').addEventListener('click', () => openInbox())
 
 /* ═══ SOUND TOGGLE ═══ */
 const SoundToggle = $('soundToggle')
@@ -964,8 +1084,7 @@ $('btnGenerate').addEventListener('click', async () => {
   const btn = $('btnGenerate')
   setBusy(btn, true, 'Generating...')
   Terminal.show(); Terminal.startTimer(); Terminal.setStatus('Generating', 'info')
-  Terminal.log('CMD', 'GET https://duckzmail.com/api/verified-domains', 'cmd')
-  Terminal.log('NET', 'Fetching domains...', 'info')
+  Terminal.log('CMD', 'GET duckzmail.com/api/verified-domains', 'cmd')
   try {
     const r = await fetch(`${DUCKZ_API}/verified-domains`, { headers: { 'Accept': 'application/json' } })
     Terminal.log('NET', `Response: ${r.status}`, r.ok ? 'ok' : 'err')
@@ -973,8 +1092,7 @@ $('btnGenerate').addEventListener('click', async () => {
     const j = await r.json()
     const domains = j.domains || []
     if (!domains.length) throw new Error('Tidak ada domain aktif')
-    Terminal.log('OK', `Found ${domains.length} domains:`, 'ok')
-    domains.slice(0, 4).forEach(d => Terminal.log('DOMAIN', d, 'info'))
+    Terminal.log('OK', `Found ${domains.length} domains`, 'ok')
     const domain = domains[Math.floor(Math.random() * domains.length)]
     const username = 'am' + Math.random().toString(36).slice(2, 11)
     const email = `${username}@${domain}`
@@ -984,7 +1102,6 @@ $('btnGenerate').addEventListener('click', async () => {
     $('randomHint').textContent = '✅ Siap dipakai'
     $('randomHint').classList.add('valid')
     Terminal.log('MAIL', `Email: ${email}`, 'ok')
-    Terminal.log('MAIL', `Domain: ${domain}`, 'info')
     Terminal.setStatus('Inbox ready', 'ok')
     SoundFX.success()
     Toast.show('Email Generated!', email, 2500)
@@ -1000,7 +1117,7 @@ $('btnGenerate').addEventListener('click', async () => {
 $('btnCopyEmail').addEventListener('click', async () => {
   const email = $('emRandom').value
   if (!email) return
-  try { await navigator.clipboard.writeText(email); SoundFX.notify(); Toast.show('Copied!', email, 2000); Terminal.log('CPY', `Email copied: ${email}`, 'ok') } catch { SoundFX.error() }
+  try { await navigator.clipboard.writeText(email); SoundFX.notify(); Toast.show('Copied!', email, 2000); Terminal.log('CPY', `Email copied`, 'ok') } catch { SoundFX.error() }
 })
 
 /* ═══ STEP NAV ═══ */
@@ -1033,7 +1150,7 @@ function showMsg(id, text, type) {
   const cls = type === 'ok' ? 'msg--ok' : type === 'warn' ? 'msg--warn' : 'msg--err'
   m.className = 'msg show ' + cls
   const icon = type === 'ok' ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg>' : type === 'warn' ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M12 9v4"/><path d="M12 17h.01"/></svg>' : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>'
-  m.innerHTML = `<div class="msg__icon">${icon}</div><span>${text}</span>`
+  m.innerHTML = `<div class="msg__icon">${icon}</div><span>${escapeHtml(text)}</span>`
 }
 
 /* ═══ BUSY ═══ */
@@ -1065,13 +1182,13 @@ $('b1').addEventListener('click', async () => {
   const btn = $('b1')
   setBusy(btn, true, 'Mengirim...')
   Terminal.show(); Terminal.startTimer(); Terminal.setStatus('Sending', 'info')
-  Terminal.log('CMD', `POST /api/send-link { email: ${email} }`, 'cmd')
+  Terminal.log('CMD', `POST /api/send-link`, 'cmd')
   try {
     const r = await fetch(`${API_BASE}/send-link`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email }) })
     Terminal.log('NET', `Response: ${r.status}`, r.ok ? 'ok' : 'err')
     const j = await r.json()
     if (j.success) {
-      Terminal.log('OK', `Magic link sent to ${email}`, 'ok')
+      Terminal.log('OK', `Magic link sent`, 'ok')
       Terminal.setStatus('Link sent', 'ok')
       SoundFX.success()
       showMsg('m1', 'Link berhasil dikirim! ' + (emailMode === 'manual' ? 'Cek inbox.' : 'Menunggu email...'), 'ok')
@@ -1103,7 +1220,7 @@ function startPolling() {
   pollAttempts = 0
   $('pollStatus').classList.add('show')
   $('step2Hint').textContent = 'Tunggu email masuk, kami cek otomatis.'
-  Terminal.log('POLL', 'Starting auto-poll (3s interval, 3 min timeout)', 'info')
+  Terminal.log('POLL', 'Starting auto-poll (3s)', 'info')
   Terminal.setStatus('Polling', 'info')
   pollInterval = setInterval(async () => {
     const elapsed = Math.floor((Date.now() - pollStartTime) / 1000)
@@ -1112,7 +1229,7 @@ function startPolling() {
     if (elapsed > 180) {
       stopPolling()
       $('pollText').textContent = 'Timeout. Coba kirim ulang.'
-      Terminal.log('WARN', 'Poll timeout after 180s', 'warn')
+      Terminal.log('WARN', 'Poll timeout', 'warn')
       Terminal.setStatus('Timeout', 'warn')
       showMsg('m2', 'Email tidak masuk dalam 3 menit.', 'warn')
       return
@@ -1121,7 +1238,7 @@ function startPolling() {
       const recipient = randomEmailData.email
       const r = await fetch(`${DUCKZ_API}/emails?recipient=${encodeURIComponent(recipient)}&limit=50`)
       const j = await r.json()
-      if (pollAttempts % 3 === 0) Terminal.log('POLL', `Check #${pollAttempts} (${elapsed}s) — ${j.emails?.length || 0} emails`, 'info')
+      if (pollAttempts % 3 === 0) Terminal.log('POLL', `Check #${pollAttempts} — ${j.emails?.length || 0} emails`, 'info')
       if (j.emails && j.emails.length > 0) {
         $('pollText').textContent = '📬 Email masuk! Extracting link...'
         Terminal.log('MAIL', `Found ${j.emails.length} email(s)`, 'ok')
@@ -1137,18 +1254,15 @@ function startPolling() {
           stopPolling()
           $('pollText').textContent = '✅ Link ditemukan! Auto-copy...'
           Terminal.log('OK', 'Magic link extracted!', 'ok')
-          Terminal.log('LINK', link.slice(0, 80) + '...', 'cmd')
           try {
             await navigator.clipboard.writeText(link.trim())
-            Terminal.log('CPY', 'Link auto-copied to clipboard', 'ok')
+            Terminal.log('CPY', 'Link auto-copied', 'ok')
             Toast.show('Link Auto-Copied!', 'Sudah disalin ke clipboard', 2500)
-          } catch (e) {
-            Terminal.log('WARN', 'Auto-copy gagal: ' + e.message, 'warn')
-          }
+          } catch (e) { Terminal.log('WARN', 'Auto-copy gagal', 'warn') }
           SoundFX.notify()
           setTimeout(() => $('b3').click(), 1500)
         } else {
-          Terminal.log('WARN', 'Email ditemukan tapi link tidak ke-extract', 'warn')
+          Terminal.log('WARN', 'Link tidak ke-extract', 'warn')
         }
       }
     } catch (e) { Terminal.log('POLL-ERR', e.message, 'err') }
@@ -1184,9 +1298,6 @@ $('b3').addEventListener('click', async () => {
       window.__lastData = d
       window.__tok = d.idToken
       Terminal.log('OK', 'Verification success!', 'ok')
-      Terminal.log('UID', d.uid || '-', 'info')
-      Terminal.log('ORDER', d.orderId || '-', 'info')
-      Terminal.log('PLAN', d.planName || '-', 'info')
       Terminal.setStatus('Premium Active', 'ok')
       Terminal.stopTimer()
       saveHistory({ email: d.email, ok: true, at: Date.now(), uid: d.uid, orderId: d.orderId })
@@ -1217,7 +1328,6 @@ $('b4').addEventListener('click', async () => {
   try {
     await navigator.clipboard.writeText(window.__tok || '')
     SoundFX.notify(); Toast.show('Copied!', 'Token disalin', 2000)
-    Terminal.log('CPY', 'Token copied', 'ok')
     btn.innerHTML = `<svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg> Copied!`
   } catch { SoundFX.error(); btn.innerHTML = '✗ Gagal' }
   setTimeout(() => { btn.innerHTML = orig }, 1600)
@@ -1229,8 +1339,8 @@ $('shareBtn').addEventListener('click', async () => {
   const d = window.__lastData || {}
   const text = `🎉 Premium Alight Motion Aktif!\n\n📧 ${d.email || '-'}\n🆔 ${d.uid || '-'}\n📦 ${d.orderId || '-'}\n📅 ${d.validUntil || '-'}\n\nAktivasi gratis di AM Activate Premium!`
   try {
-    if (navigator.share) { await navigator.share({ title: 'Premium Alight Motion Aktif!', text }); Terminal.log('SHARE', 'Shared via Web Share', 'ok') }
-    else { await navigator.clipboard.writeText(text); Toast.show('Copied!', 'Text disalin', 2000); Terminal.log('SHARE', 'Copied to clipboard', 'warn') }
+    if (navigator.share) { await navigator.share({ title: 'Premium Alight Motion Aktif!', text }) }
+    else { await navigator.clipboard.writeText(text); Toast.show('Copied!', 'Text disalin', 2000) }
     SoundFX.notify()
   } catch (e) { if (e.name !== 'AbortError') SoundFX.error() }
 })
@@ -1238,7 +1348,7 @@ $('shareBtn').addEventListener('click', async () => {
 $('copyAllBtn').addEventListener('click', async () => {
   const d = window.__lastData || {}
   const text = `Email: ${d.email || '-'}\nUID: ${d.uid || '-'}\nOrder: ${d.orderId || '-'}\nPlan: ${d.planName || '-'}\nValid: ${d.validUntil || '-'}\nToken: ${d.idToken || '-'}`
-  try { await navigator.clipboard.writeText(text); SoundFX.notify(); Toast.show('Copied All!', 'Data disalin', 2000); Terminal.log('CPY', 'All copied', 'ok') } catch { SoundFX.error() }
+  try { await navigator.clipboard.writeText(text); SoundFX.notify(); Toast.show('Copied All!', 'Data disalin', 2000) } catch { SoundFX.error() }
 })
 
 $('downloadBtn').addEventListener('click', () => {
@@ -1248,7 +1358,6 @@ $('downloadBtn').addEventListener('click', () => {
   const a = document.createElement('a'); a.href = url; a.download = `am-premium-${d.uid || Date.now()}.json`; a.click()
   URL.revokeObjectURL(url)
   SoundFX.notify(); Toast.show('Downloaded!', 'File JSON tersimpan', 2000)
-  Terminal.log('DL', 'JSON downloaded', 'ok')
 })
 
 /* ═══ HISTORY ═══ */
@@ -1262,7 +1371,7 @@ function renderHistory() {
     const time = formatTimeAgo(item.at)
     const icon = item.ok ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg>' : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>'
     const cls = item.ok ? 'ok' : 'fail'
-    return `<div class="history__item" data-email="${item.email}"><div class="history__icon ${cls}">${icon}</div><div class="history__info"><div class="history__email">${item.email}</div><div class="history__time">${time}</div></div></div>`
+    return `<div class="history__item" data-email="${escapeHtml(item.email)}"><div class="history__icon ${cls}">${icon}</div><div class="history__info"><div class="history__email">${escapeHtml(item.email)}</div><div class="history__time">${time}</div></div></div>`
   }).join('')
   list.querySelectorAll('.history__item').forEach(el => {
     el.addEventListener('click', () => {
@@ -1294,7 +1403,7 @@ document.addEventListener('keydown', (e) => {
 
 /* ═══ SOUND ═══ */
 setTimeout(() => {
-  document.querySelectorAll('.btn, .step, .brand, .icon-btn, .email-tab, .drawer__item, .history__item, .inbox-item').forEach(el => {
+  document.querySelectorAll('.btn, .step, .brand, .icon-btn, .email-tab, .drawer__item, .history__item, .inbox-item, .inbox-back').forEach(el => {
     el.addEventListener('pointerdown', () => SoundFX.tap(), { passive: true })
     el.addEventListener('mouseenter', () => SoundFX.hover(), { passive: true })
   })
