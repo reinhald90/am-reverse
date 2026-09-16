@@ -287,6 +287,26 @@ body.locked{overflow:hidden}
 .feature-card__icon.amber{background:var(--amber-soft);color:var(--amber)}
 .feature-card__title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:3px}
 .feature-card__desc{font-size:10.5px;color:var(--txt-3);line-height:1.5}
+/* INBOX */
+.inbox-email-box{margin-bottom:14px;padding:12px;border-radius:10px;background:rgba(124,255,178,.06);border:1px solid rgba(124,255,178,.2)}
+.inbox-email-box__label{font-size:10.5px;color:var(--txt-3);text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:6px}
+.inbox-email-box__row{display:flex;align-items:center;gap:8px}
+.inbox-email-box__code{flex:1;font-family:var(--mono);font-size:11.5px;color:var(--acc);word-break:break-all}
+.inbox-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.inbox-header__label{font-size:11px;font-weight:700;color:var(--txt-3);text-transform:uppercase;letter-spacing:.1em}
+.inbox-header__count{font-size:10px;color:var(--txt-4);font-family:var(--mono)}
+.inbox-list{display:flex;flex-direction:column;gap:8px;max-height:300px;overflow-y:auto;padding-right:4px}
+.inbox-item{display:flex;align-items:flex-start;gap:12px;padding:14px;border-radius:var(--radius-sm);background:rgba(0,0,0,.2);border:1px solid var(--border);cursor:pointer;transition:all .2s ease}
+.inbox-item:hover{background:rgba(0,0,0,.3);border-color:var(--border-hover)}
+.inbox-item__icon{width:34px;height:34px;border-radius:10px;background:var(--acc-soft);border:1px solid rgba(124,255,178,.2);color:var(--acc);display:flex;align-items:center;justify-content:center;flex:none}
+.inbox-item__icon svg{width:15px;height:15px}
+.inbox-item__content{flex:1;min-width:0}
+.inbox-item__sender{font-size:12px;font-weight:700;color:var(--txt);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:3px}
+.inbox-item__subject{font-size:11px;color:var(--txt-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:4px}
+.inbox-item__time{font-size:10px;color:var(--txt-4);font-family:var(--mono)}
+.inbox-item__arrow{color:var(--txt-4);flex:none;align-self:center}
+.inbox-item__arrow svg{width:14px;height:14px}
+.inbox-empty{padding:24px 16px;text-align:center;font-size:12px;color:var(--txt-4);font-style:italic;background:rgba(0,0,0,.15);border:1px dashed var(--border);border-radius:var(--radius-sm)}
 .footer{position:relative;margin-top:40px;padding-top:24px;text-align:center;font-size:11px;color:var(--txt-4);letter-spacing:.06em;line-height:1.7}
 .footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--border-hover),transparent)}
 .footer b{color:var(--acc);font-weight:600;opacity:.7}
@@ -339,6 +359,9 @@ body.locked{overflow:hidden}
       <button class="icon-btn" id="terminalToggle" title="Terminal Log">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
       </button>
+      <button class="icon-btn" id="inboxToggle" title="Inbox">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+      </button>
       <button class="icon-btn" id="soundToggle" title="Toggle Sound">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
       </button>
@@ -358,13 +381,14 @@ body.locked{overflow:hidden}
   <div class="drawer__profile">
     <div class="drawer__avatar"><img src="https://files.catbox.moe/i51c0y.jpg" alt="AM"></div>
     <div class="drawer__info">
-      <h3>AM Activate</h3><p>Premium Activator v7.0</p>
+      <h3>AM Activate</h3><p>Premium Activator v7.1</p>
       <div class="drawer__badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>FREE ACCESS</div>
     </div>
   </div>
   <div class="drawer__section">
     <div class="drawer__label">Menu Utama</div>
     <button class="drawer__item" id="menuHome"><div class="drawer__item-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="drawer__item-text">Home<span>Aktivasi AM Premium</span></div></button>
+    <button class="drawer__item" id="menuInbox"><div class="drawer__item-icon amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></div><div class="drawer__item-text">Inbox<span>Cek email yang masuk</span></div></button>
     <button class="drawer__item" id="menuTerminal"><div class="drawer__item-icon violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div><div class="drawer__item-text">Terminal Log<span>Lihat proses real-time</span></div></button>
     <button class="drawer__item" id="menuHistory"><div class="drawer__item-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="drawer__item-text">Riwayat<span>Aktivasi terakhir</span></div></button>
   </div>
@@ -379,7 +403,7 @@ body.locked{overflow:hidden}
     <div class="drawer__label">Lainnya</div>
     <button class="drawer__item" id="menuClearHistory"><div class="drawer__item-icon red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div><div class="drawer__item-text">Hapus Riwayat<span>Reset semua data</span></div></button>
   </div>
-  <div class="drawer__footer">v7.0 · Made by <b style="color:var(--acc)">Azure</b></div>
+  <div class="drawer__footer">v7.1 · Made by <b style="color:var(--acc)">Azure</b></div>
 </aside>
 
 <div class="modal-overlay" id="modalOverlay">
@@ -389,6 +413,38 @@ body.locked{overflow:hidden}
       <button class="modal__close" id="modalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
     </div>
     <div class="modal__body" id="modalBody"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="inboxModalOverlay">
+  <div class="modal">
+    <div class="modal__head">
+      <div class="modal__title">📬 Inbox</div>
+      <div style="display:flex;gap:6px;align-items:center">
+        <button class="icon-btn" id="inboxRefresh" title="Refresh" style="width:32px;height:32px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+        </button>
+        <button class="modal__close" id="inboxModalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+      </div>
+    </div>
+    <div class="modal__body">
+      <div class="inbox-email-box">
+        <div class="inbox-email-box__label">Email Aktif</div>
+        <div class="inbox-email-box__row">
+          <code class="inbox-email-box__code" id="inboxEmailText">— belum ada —</code>
+          <button class="icon-btn" id="inboxCopyEmail" style="width:32px;height:32px;flex:none" title="Copy">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="inbox-header">
+        <span class="inbox-header__label">Pesan Masuk</span>
+        <span class="inbox-header__count" id="inboxCount">0</span>
+      </div>
+      <div class="inbox-list" id="inboxList">
+        <div class="inbox-empty">Belum ada pesan</div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -466,6 +522,10 @@ body.locked{overflow:hidden}
       <button class="btn btn--ghost hide" id="btnCopyEmail" style="margin-top:8px">
         <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
         Copy Email
+      </button>
+      <button class="btn btn--ghost" id="btnOpenInbox" style="margin-top:8px">
+        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+        Buka Inbox
       </button>
     </div>
 
@@ -599,7 +659,7 @@ body.locked{overflow:hidden}
 
 <script>
 /* ═══════════════════════════════════════════
-   AM ACTIVATE v7.0 — DUCKZMAIL EDITION
+   AM ACTIVATE v7.1 — DUCKZMAIL + INBOX
    ═══════════════════════════════════════════ */
 
 const $ = id => document.getElementById(id)
@@ -725,10 +785,9 @@ $('terminalToggle').addEventListener('click', () => { const v = Terminal.toggle(
     else setTimeout(() => {
       loader.classList.add('done'); container.classList.add('ready'); document.body.classList.remove('locked')
       SoundFX.whoosh()
-      setTimeout(() => { SoundFX.notify(); Toast.show('Welcome!', 'AM Activate v7 ready') }, 500)
+      setTimeout(() => { SoundFX.notify(); Toast.show('Welcome!', 'AM Activate v7.1 ready') }, 500)
       Terminal.log('SYS', 'Application initialized', 'ok')
-      Terminal.log('SYS', 'Version: 7.0.0 (Duckzmail Edition)', 'info')
-      Terminal.log('SYS', 'Email service: duckzmail.com', 'info')
+      Terminal.log('SYS', 'Version: 7.1.0 (Duckzmail + Inbox)', 'info')
       Terminal.setStatus('Ready', 'ok')
     }, 450)
   }
@@ -751,10 +810,10 @@ $('modalClose').addEventListener('click', closeModal)
 modal.addEventListener('click', e => { if (e.target === modal) closeModal() })
 
 const MODALS = {
-  about: { title: '📖 Tentang Web', html: `<h4>AM Activate Premium v7</h4><p>Web activator Alight Motion Premium dengan email generator <strong>duckzmail.com</strong>.</p><h4>Cara Kerja</h4><ul><li>Masukkan email Alight Motion</li><li>Sistem kirim magic link</li><li>Verifikasi link</li><li>Premium aktif! 🎉</li></ul><h4>Keamanan</h4><p>Tidak menyimpan data. Semua proses di browser.</p><h4>Disclaimer</h4><p>Layanan unofficial. Gunakan dengan risiko sendiri.</p>` },
-  features: { title: '⭐ Fitur Keren', html: `<p>Semua yang bisa kamu lakukan:</p><div class="feature-grid"><div class="feature-card"><div class="feature-card__icon green">🖥️</div><div class="feature-card__title">Terminal Log</div><div class="feature-card__desc">Proses real-time kayak CLI</div></div><div class="feature-card"><div class="feature-card__icon blue">🎲</div><div class="feature-card__title">Generate Email</div><div class="feature-card__desc">4+ domain duckzmail</div></div><div class="feature-card"><div class="feature-card__icon violet">📬</div><div class="feature-card__title">Auto-Verify</div><div class="feature-card__desc">Tanpa buka email</div></div><div class="feature-card"><div class="feature-card__icon amber">📤</div><div class="feature-card__title">Share Hasil</div><div class="feature-card__desc">Ke sosmed / WA</div></div><div class="feature-card"><div class="feature-card__icon green">💾</div><div class="feature-card__title">Riwayat</div><div class="feature-card__desc">10 aktivasi terakhir</div></div><div class="feature-card"><div class="feature-card__icon blue">⌨️</div><div class="feature-card__title">Shortcut</div><div class="feature-card__desc">Ctrl+K, Ctrl+G, dll</div></div></div>` },
-  help: { title: '❓ Bantuan', html: `<h4>Cara Pakai</h4><ul><li>Pilih mode email</li><li>Klik Generate (kalau random)</li><li>Klik Kirim Link</li><li>Cek inbox</li><li>Paste link → Verifikasi</li></ul><h4>Email Tidak Masuk?</h4><ul><li>Cek Spam/Promotions</li><li>Tunggu 1-2 menit</li><li>Kirim ulang</li></ul><h4>Aman Gak?</h4><p>100% aman. Tidak minta password, tidak simpan email.</p>` },
-  shortcut: { title: '⌨️ Shortcut', html: `<p>Shortcut power user 💪</p><ul><li><span class="kbd">Ctrl</span> + <span class="kbd">K</span> — Focus email</li><li><span class="kbd">Ctrl</span> + <span class="kbd">G</span> — Generate random</li><li><span class="kbd">Ctrl</span> + <span class="kbd">M</span> — Toggle menu</li><li><span class="kbd">Ctrl</span> + <span class="kbd">T</span> — Toggle terminal</li><li><span class="kbd">Ctrl</span> + <span class="kbd">Enter</span> — Submit</li><li><span class="kbd">Esc</span> — Back / Close</li></ul>` }
+  about: { title: '📖 Tentang Web', html: `<h4>AM Activate Premium v7.1</h4><p>Web activator Alight Motion Premium dengan email generator <strong>duckzmail.com</strong>.</p><h4>Cara Kerja</h4><ul><li>Masukkan email Alight Motion</li><li>Sistem kirim magic link</li><li>Verifikasi link</li><li>Premium aktif! 🎉</li></ul><h4>Keamanan</h4><p>Tidak menyimpan data. Semua proses di browser.</p><h4>Disclaimer</h4><p>Layanan unofficial. Gunakan dengan risiko sendiri.</p>` },
+  features: { title: '⭐ Fitur Keren', html: `<p>Semua yang bisa kamu lakukan:</p><div class="feature-grid"><div class="feature-card"><div class="feature-card__icon green">📬</div><div class="feature-card__title">Inbox Viewer</div><div class="feature-card__desc">Cek email langsung di web</div></div><div class="feature-card"><div class="feature-card__icon blue">🎲</div><div class="feature-card__title">Generate Email</div><div class="feature-card__desc">4+ domain duckzmail</div></div><div class="feature-card"><div class="feature-card__icon violet">📋</div><div class="feature-card__title">Auto-Copy Link</div><div class="feature-card__desc">Link auto-copy ke clipboard</div></div><div class="feature-card"><div class="feature-card__icon amber">🖥️</div><div class="feature-card__title">Terminal Log</div><div class="feature-card__desc">Proses real-time kayak CLI</div></div><div class="feature-card"><div class="feature-card__icon green">📬</div><div class="feature-card__title">Auto-Verify</div><div class="feature-card__desc">Tanpa buka email</div></div><div class="feature-card"><div class="feature-card__icon blue">📤</div><div class="feature-card__title">Share Hasil</div><div class="feature-card__desc">Ke sosmed / WA</div></div><div class="feature-card"><div class="feature-card__icon violet">💾</div><div class="feature-card__title">Riwayat</div><div class="feature-card__desc">10 aktivasi terakhir</div></div><div class="feature-card"><div class="feature-card__icon amber">⌨️</div><div class="feature-card__title">Shortcut</div><div class="feature-card__desc">Ctrl+K, Ctrl+G, dll</div></div></div>` },
+  help: { title: '❓ Bantuan', html: `<h4>Cara Pakai</h4><ul><li>Pilih mode email</li><li>Klik Generate (kalau random)</li><li>Klik Kirim Link</li><li>Cek inbox</li><li>Paste link → Verifikasi</li></ul><h4>Cara Pakai Inbox</h4><ul><li>Klik garis 3 → Inbox</li><li>Atau tombol "Buka Inbox" di Home</li><li>Klik email untuk auto-extract link</li></ul><h4>Email Tidak Masuk?</h4><ul><li>Buka Inbox → Refresh</li><li>Tunggu 1-2 menit</li><li>Kirim ulang</li></ul>` },
+  shortcut: { title: '⌨️ Shortcut', html: `<p>Shortcut power user 💪</p><ul><li><span class="kbd">Ctrl</span> + <span class="kbd">K</span> — Focus email</li><li><span class="kbd">Ctrl</span> + <span class="kbd">G</span> — Generate random</li><li><span class="kbd">Ctrl</span> + <span class="kbd">M</span> — Toggle menu</li><li><span class="kbd">Ctrl</span> + <span class="kbd">T</span> — Toggle terminal</li><li><span class="kbd">Ctrl</span> + <span class="kbd">I</span> — Open Inbox</li><li><span class="kbd">Ctrl</span> + <span class="kbd">Enter</span> — Submit</li><li><span class="kbd">Esc</span> — Back / Close</li></ul>` }
 }
 $('menuAbout').addEventListener('click', () => { closeDrawer(); setTimeout(() => openModal(MODALS.about.title, MODALS.about.html), 200) })
 $('menuFeatures').addEventListener('click', () => { closeDrawer(); setTimeout(() => openModal(MODALS.features.title, MODALS.features.html), 200) })
@@ -762,9 +821,112 @@ $('menuHelp').addEventListener('click', () => { closeDrawer(); setTimeout(() => 
 $('menuShortcut').addEventListener('click', () => { closeDrawer(); setTimeout(() => openModal(MODALS.shortcut.title, MODALS.shortcut.html), 200) })
 $('menuHome').addEventListener('click', () => { closeDrawer(); window.scrollTo({ top: 0, behavior: 'smooth' }) })
 $('menuTerminal').addEventListener('click', () => { closeDrawer(); Terminal.show() })
+$('menuInbox').addEventListener('click', () => { closeDrawer(); setTimeout(() => openInbox(), 250) })
 $('menuHistory').addEventListener('click', () => { closeDrawer(); setTimeout(() => $('historyBox').scrollIntoView({ behavior: 'smooth' }), 200) })
 $('menuClearHistory').addEventListener('click', () => { closeDrawer(); setTimeout(() => { if (confirm('Yakin hapus semua riwayat?')) { localStorage.removeItem(HISTORY_KEY); renderHistory(); Toast.show('Cleared!', 'Riwayat dihapus', 2000) } }, 200) })
 $('brandHome').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }))
+
+/* ═══ INBOX ═══ */
+const inboxModal = $('inboxModalOverlay')
+let inboxPollInterval = null
+
+function openInbox() {
+  inboxModal.classList.add('open')
+  document.body.classList.add('locked')
+  renderInboxEmail()
+  loadInbox()
+  if (inboxPollInterval) clearInterval(inboxPollInterval)
+  inboxPollInterval = setInterval(loadInbox, 5000)
+  SoundFX.tap()
+}
+
+function closeInbox() {
+  inboxModal.classList.remove('open')
+  document.body.classList.remove('locked')
+  if (inboxPollInterval) { clearInterval(inboxPollInterval); inboxPollInterval = null }
+}
+
+function renderInboxEmail() {
+  const em = randomEmailData?.email || emInput.value.trim() || ''
+  $('inboxEmailText').textContent = em || '— belum ada —'
+}
+
+async function loadInbox() {
+  const recipient = randomEmailData?.email || emInput.value.trim()
+  if (!recipient) {
+    $('inboxList').innerHTML = '<div class="inbox-empty">Belum ada email aktif. Generate dulu di Home.</div>'
+    $('inboxCount').textContent = '0'
+    return
+  }
+  try {
+    const r = await fetch(`${DUCKZ_API}/emails?recipient=${encodeURIComponent(recipient)}&limit=50`)
+    const j = await r.json()
+    const emails = j.emails || []
+    $('inboxCount').textContent = emails.length
+    if (!emails.length) {
+      $('inboxList').innerHTML = '<div class="inbox-empty">Belum ada pesan masuk</div>'
+      return
+    }
+    $('inboxList').innerHTML = emails.map(m => `
+      <div class="inbox-item" data-id="${m.id}">
+        <div class="inbox-item__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </div>
+        <div class="inbox-item__content">
+          <div class="inbox-item__sender">${m.sender || 'Unknown'}</div>
+          <div class="inbox-item__subject">${m.subject || '(No subject)'}</div>
+          <div class="inbox-item__time">${m.received_at || ''}</div>
+        </div>
+        <div class="inbox-item__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></div>
+      </div>
+    `).join('')
+    $('inboxList').querySelectorAll('.inbox-item').forEach(el => {
+      el.addEventListener('click', async () => {
+        SoundFX.tap()
+        const id = el.dataset.id
+        await openInboxEmail(id)
+      })
+    })
+  } catch (e) {
+    $('inboxList').innerHTML = `<div class="inbox-empty" style="color:var(--red)">Error: ${e.message}</div>`
+  }
+}
+
+async function openInboxEmail(id) {
+  try {
+    const r = await fetch(`${DUCKZ_API}/emails/${encodeURIComponent(id)}/body`)
+    const j = await r.json()
+    const body = j.text || j.html || ''
+    const linkMatch =
+      body.match(/https?:\/\/[^\s"<>]+alight[^\s"<>]*/i) ||
+      body.match(/https?:\/\/[^\s"<>]+oobCode[^\s"<>]+/i) ||
+      body.match(/https?:\/\/[^\s"<>]+/gi)?.[0]
+    if (linkMatch) {
+      const link = Array.isArray(linkMatch) ? linkMatch[0] : linkMatch
+      try { await navigator.clipboard.writeText(link.trim()) } catch {}
+      Toast.show('Link copied!', 'Auto-fill ke Step 2', 2500)
+      Terminal.log('CPY', 'Magic link copied to clipboard', 'ok')
+      $('lk').value = link.trim()
+      closeInbox()
+      $('w-em').textContent = randomEmailData?.email || emInput.value.trim()
+      goToStep(2)
+      SoundFX.notify()
+    } else {
+      Toast.show('No link found', 'Email ini gak ada link', 2500)
+    }
+  } catch (e) { Toast.show('Error', e.message, 2500) }
+}
+
+$('inboxModalClose').addEventListener('click', closeInbox)
+$('inboxModalOverlay').addEventListener('click', e => { if (e.target === $('inboxModalOverlay')) closeInbox() })
+$('inboxRefresh').addEventListener('click', () => { SoundFX.tap(); loadInbox() })
+$('inboxCopyEmail').addEventListener('click', async () => {
+  const em = randomEmailData?.email || emInput.value.trim()
+  if (!em) return
+  try { await navigator.clipboard.writeText(em); Toast.show('Copied!', em, 2000); SoundFX.notify() } catch {}
+})
+$('inboxToggle').addEventListener('click', () => { openInbox() })
+$('btnOpenInbox').addEventListener('click', () => { openInbox() })
 
 /* ═══ SOUND TOGGLE ═══ */
 const SoundToggle = $('soundToggle')
@@ -797,47 +959,33 @@ function switchMode(mode) {
   Terminal.log('MODE', `Switched to ${mode === 'manual' ? 'Email Pribadi' : 'Email Random'}`, 'cmd')
 }
 
-/* ═══ GENERATE RANDOM EMAIL — DUCKZMAIL ═══ */
+/* ═══ GENERATE EMAIL ═══ */
 $('btnGenerate').addEventListener('click', async () => {
   const btn = $('btnGenerate')
   setBusy(btn, true, 'Generating...')
-  Terminal.show()
-  Terminal.startTimer()
-  Terminal.setStatus('Generating', 'info')
+  Terminal.show(); Terminal.startTimer(); Terminal.setStatus('Generating', 'info')
   Terminal.log('CMD', 'GET https://duckzmail.com/api/verified-domains', 'cmd')
-  Terminal.log('NET', 'Fetching domains from duckzmail...', 'info')
-
+  Terminal.log('NET', 'Fetching domains...', 'info')
   try {
-    const r = await fetch(`${DUCKZ_API}/verified-domains`, {
-      headers: { 'Accept': 'application/json' }
-    })
-
-    Terminal.log('NET', `Response status: ${r.status}`, r.ok ? 'ok' : 'err')
+    const r = await fetch(`${DUCKZ_API}/verified-domains`, { headers: { 'Accept': 'application/json' } })
+    Terminal.log('NET', `Response: ${r.status}`, r.ok ? 'ok' : 'err')
     if (!r.ok) throw new Error(`HTTP ${r.status}`)
-
     const j = await r.json()
     const domains = j.domains || []
-
     if (!domains.length) throw new Error('Tidak ada domain aktif')
-
     Terminal.log('OK', `Found ${domains.length} domains:`, 'ok')
     domains.slice(0, 4).forEach(d => Terminal.log('DOMAIN', d, 'info'))
-
     const domain = domains[Math.floor(Math.random() * domains.length)]
     const username = 'am' + Math.random().toString(36).slice(2, 11)
     const email = `${username}@${domain}`
-
     randomEmailData = { email, username, domain }
     $('emRandom').value = email
     $('btnCopyEmail').classList.remove('hide')
     $('randomHint').textContent = '✅ Siap dipakai'
     $('randomHint').classList.add('valid')
-
     Terminal.log('MAIL', `Email: ${email}`, 'ok')
     Terminal.log('MAIL', `Domain: ${domain}`, 'info')
-    Terminal.log('MAIL', `Username: ${username}`, 'info')
     Terminal.setStatus('Inbox ready', 'ok')
-
     SoundFX.success()
     Toast.show('Email Generated!', email, 2500)
   } catch (e) {
@@ -852,15 +1000,10 @@ $('btnGenerate').addEventListener('click', async () => {
 $('btnCopyEmail').addEventListener('click', async () => {
   const email = $('emRandom').value
   if (!email) return
-  try {
-    await navigator.clipboard.writeText(email)
-    SoundFX.notify()
-    Toast.show('Copied!', email, 2000)
-    Terminal.log('CPY', `Email copied: ${email}`, 'ok')
-  } catch { SoundFX.error() }
+  try { await navigator.clipboard.writeText(email); SoundFX.notify(); Toast.show('Copied!', email, 2000); Terminal.log('CPY', `Email copied: ${email}`, 'ok') } catch { SoundFX.error() }
 })
 
-/* ═══ STEP NAVIGATION ═══ */
+/* ═══ STEP NAV ═══ */
 function goToStep(n) {
   const current = getCurrentStep()
   if (current === n) return
@@ -919,19 +1062,14 @@ $('b1').addEventListener('click', async () => {
     email = $('emRandom').value.trim()
     if (!email) { SoundFX.error(); return showMsg('m1', 'Klik "Generate Email Baru" dulu', 'warn') }
   }
-
   const btn = $('b1')
   setBusy(btn, true, 'Mengirim...')
-  Terminal.show()
-  Terminal.startTimer()
-  Terminal.setStatus('Sending', 'info')
+  Terminal.show(); Terminal.startTimer(); Terminal.setStatus('Sending', 'info')
   Terminal.log('CMD', `POST /api/send-link { email: ${email} }`, 'cmd')
-
   try {
     const r = await fetch(`${API_BASE}/send-link`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email }) })
     Terminal.log('NET', `Response: ${r.status}`, r.ok ? 'ok' : 'err')
     const j = await r.json()
-
     if (j.success) {
       Terminal.log('OK', `Magic link sent to ${email}`, 'ok')
       Terminal.setStatus('Link sent', 'ok')
@@ -954,7 +1092,7 @@ $('b1').addEventListener('click', async () => {
   setBusy(btn, false)
 })
 
-/* ═══ AUTO-POLL — DUCKZMAIL ═══ */
+/* ═══ AUTO-POLL ═══ */
 let pollInterval = null
 let pollStartTime = 0
 let pollAttempts = 0
@@ -967,12 +1105,10 @@ function startPolling() {
   $('step2Hint').textContent = 'Tunggu email masuk, kami cek otomatis.'
   Terminal.log('POLL', 'Starting auto-poll (3s interval, 3 min timeout)', 'info')
   Terminal.setStatus('Polling', 'info')
-
   pollInterval = setInterval(async () => {
     const elapsed = Math.floor((Date.now() - pollStartTime) / 1000)
     pollAttempts++
     $('pollTimer').textContent = elapsed + 's'
-
     if (elapsed > 180) {
       stopPolling()
       $('pollText').textContent = 'Timeout. Coba kirim ulang.'
@@ -981,38 +1117,36 @@ function startPolling() {
       showMsg('m2', 'Email tidak masuk dalam 3 menit.', 'warn')
       return
     }
-
     try {
       const recipient = randomEmailData.email
       const r = await fetch(`${DUCKZ_API}/emails?recipient=${encodeURIComponent(recipient)}&limit=50`)
       const j = await r.json()
-
       if (pollAttempts % 3 === 0) Terminal.log('POLL', `Check #${pollAttempts} (${elapsed}s) — ${j.emails?.length || 0} emails`, 'info')
-
       if (j.emails && j.emails.length > 0) {
         $('pollText').textContent = '📬 Email masuk! Extracting link...'
         Terminal.log('MAIL', `Found ${j.emails.length} email(s)`, 'ok')
         Terminal.setStatus('Email received', 'ok')
-
         const msgId = j.emails[0].id
         const detailRes = await fetch(`${DUCKZ_API}/emails/${encodeURIComponent(msgId)}/body`)
         const detail = await detailRes.json()
-
         const body = detail.text || detail.html || ''
-        const linkMatch =
-          body.match(/https?:\/\/[^\s"<>]+alight[^\s"<>]*/i) ||
-          body.match(/https?:\/\/[^\s"<>]+oobCode[^\s"<>]+/i) ||
-          body.match(/https?:\/\/[^\s"<>]+/gi)?.[0]
-
+        const linkMatch = body.match(/https?:\/\/[^\s"<>]+alight[^\s"<>]*/i) || body.match(/https?:\/\/[^\s"<>]+oobCode[^\s"<>]+/i) || body.match(/https?:\/\/[^\s"<>]+/gi)?.[0]
         if (linkMatch) {
           const link = Array.isArray(linkMatch) ? linkMatch[0] : linkMatch
           $('lk').value = link.trim()
           stopPolling()
-          $('pollText').textContent = '✅ Link ditemukan! Auto-verify...'
+          $('pollText').textContent = '✅ Link ditemukan! Auto-copy...'
           Terminal.log('OK', 'Magic link extracted!', 'ok')
           Terminal.log('LINK', link.slice(0, 80) + '...', 'cmd')
+          try {
+            await navigator.clipboard.writeText(link.trim())
+            Terminal.log('CPY', 'Link auto-copied to clipboard', 'ok')
+            Toast.show('Link Auto-Copied!', 'Sudah disalin ke clipboard', 2500)
+          } catch (e) {
+            Terminal.log('WARN', 'Auto-copy gagal: ' + e.message, 'warn')
+          }
           SoundFX.notify()
-          setTimeout(() => $('b3').click(), 1000)
+          setTimeout(() => $('b3').click(), 1500)
         } else {
           Terminal.log('WARN', 'Email ditemukan tapi link tidak ke-extract', 'warn')
         }
@@ -1035,15 +1169,12 @@ $('b3').addEventListener('click', async () => {
   if (!raw) { SoundFX.error(); return showMsg('m2', 'Link masih kosong', 'err') }
   const btn = $('b3')
   setBusy(btn, true, 'Verifikasi...')
-  Terminal.show()
-  Terminal.setStatus('Verifying', 'info')
+  Terminal.show(); Terminal.setStatus('Verifying', 'info')
   Terminal.log('CMD', 'POST /api/verify-link', 'cmd')
-
   try {
     const r = await fetch(`${API_BASE}/verify-link`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: $('w-em').textContent, magicLink: raw }) })
     Terminal.log('NET', `Response: ${r.status}`, r.ok ? 'ok' : 'err')
     const j = await r.json()
-
     if (j.success) {
       const d = j.data
       $('r-em').textContent = d.email || '—'
@@ -1052,14 +1183,12 @@ $('b3').addEventListener('click', async () => {
       $('r-tok').textContent = d.idToken || '—'
       window.__lastData = d
       window.__tok = d.idToken
-
       Terminal.log('OK', 'Verification success!', 'ok')
       Terminal.log('UID', d.uid || '-', 'info')
       Terminal.log('ORDER', d.orderId || '-', 'info')
       Terminal.log('PLAN', d.planName || '-', 'info')
       Terminal.setStatus('Premium Active', 'ok')
       Terminal.stopTimer()
-
       saveHistory({ email: d.email, ok: true, at: Date.now(), uid: d.uid, orderId: d.orderId })
       SoundFX.levelUp()
       Confetti.burst(140)
@@ -1152,19 +1281,20 @@ function formatTimeAgo(ts) {
 $('clearHistory').addEventListener('click', () => { SoundFX.tap(); localStorage.removeItem(HISTORY_KEY); renderHistory(); Toast.show('Cleared!', 'Riwayat dihapus', 2000) })
 renderHistory()
 
-/* ═══ KEYBOARD SHORTCUTS ═══ */
+/* ═══ SHORTCUTS ═══ */
 document.addEventListener('keydown', (e) => {
   if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); switchMode('manual'); emInput.focus(); SoundFX.focus() }
   if ((e.ctrlKey || e.metaKey) && e.key === 'g') { e.preventDefault(); switchMode('random'); $('btnGenerate').click() }
   if ((e.ctrlKey || e.metaKey) && e.key === 'm') { e.preventDefault(); if (drawer.classList.contains('open')) closeDrawer(); else openDrawer() }
   if ((e.ctrlKey || e.metaKey) && e.key === 't') { e.preventDefault(); Terminal.toggle() }
-  if (e.key === 'Escape') { if (modal.classList.contains('open')) return closeModal(); if (drawer.classList.contains('open')) return closeDrawer(); if (getCurrentStep() === 2) $('b2').click() }
+  if ((e.ctrlKey || e.metaKey) && e.key === 'i') { e.preventDefault(); if (inboxModal.classList.contains('open')) closeInbox(); else openInbox() }
+  if (e.key === 'Escape') { if (modal.classList.contains('open')) return closeModal(); if (inboxModal.classList.contains('open')) return closeInbox(); if (drawer.classList.contains('open')) return closeDrawer(); if (getCurrentStep() === 2) $('b2').click() }
   if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); const step = getCurrentStep(); if (step === 1) $('b1').click(); else if (step === 2) $('b3').click() }
 })
 
-/* ═══ ATTACH SOUND ═══ */
+/* ═══ SOUND ═══ */
 setTimeout(() => {
-  document.querySelectorAll('.btn, .step, .brand, .icon-btn, .email-tab, .drawer__item, .history__item').forEach(el => {
+  document.querySelectorAll('.btn, .step, .brand, .icon-btn, .email-tab, .drawer__item, .history__item, .inbox-item').forEach(el => {
     el.addEventListener('pointerdown', () => SoundFX.tap(), { passive: true })
     el.addEventListener('mouseenter', () => SoundFX.hover(), { passive: true })
   })
