@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#050507">
-<title>Azure Aktivator Premium</title>
+<title>AM · Activate Premium</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -54,8 +54,6 @@ body.locked{overflow:hidden}
 .icon-btn:hover{background:rgba(255,255,255,.08);color:var(--txt);border-color:var(--border-hover)}
 .icon-btn svg{width:18px;height:18px}
 .icon-btn.muted{color:var(--txt-4);opacity:.6}
-.icon-btn.has-badge::after{content:'';position:absolute;top:6px;right:6px;width:8px;height:8px;border-radius:50%;background:var(--acc);border:2px solid var(--bg);box-shadow:0 0 8px var(--acc);animation:pollPulse 1.5s ease-in-out infinite}
-@keyframes pollPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
 .drawer-overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:all .3s var(--ease)}
 .drawer-overlay.open{opacity:1;visibility:visible}
 .drawer{position:fixed;top:0;right:0;bottom:0;z-index:201;width:min(360px,88vw);background:#0a0a0e;border-left:1px solid var(--border);transform:translateX(100%);transition:transform .4s var(--ease-out);overflow-y:auto;display:flex;flex-direction:column}
@@ -66,10 +64,9 @@ body.locked{overflow:hidden}
 .drawer__close:active{transform:scale(.92)}
 .drawer__close:hover{background:var(--red-soft);color:var(--red)}
 .drawer__close svg{width:16px;height:16px}
-.drawer__profile{padding:20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:14px;cursor:pointer;transition:all .2s ease}
+.drawer__profile{padding:20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:14px;cursor:pointer}
 .drawer__profile:hover{background:rgba(255,255,255,.02)}
 .drawer__avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#7cffb2 0%,#22d3a0 50%,#0e8f6a 100%);display:flex;align-items:center;justify-content:center;flex:none;overflow:hidden;font-weight:800;font-size:20px;color:#04160a}
-.drawer__avatar img{width:100%;height:100%;object-fit:cover}
 .drawer__info h3{font-size:14px;font-weight:700}
 .drawer__info p{font-size:11.5px;color:var(--txt-3);margin-top:2px}
 .drawer__badge{display:inline-flex;align-items:center;gap:5px;margin-top:6px;padding:3px 9px;border-radius:100px;background:var(--acc-soft);border:1px solid rgba(124,255,178,.25);font-size:10px;font-weight:700;color:var(--acc);letter-spacing:.04em}
@@ -93,13 +90,10 @@ body.locked{overflow:hidden}
 .drawer__item-icon.gold{background:var(--gold-soft);border-color:rgba(255,215,107,.25);color:var(--gold)}
 .drawer__item-text{flex:1;min-width:0}
 .drawer__item-text span{display:block;font-size:10.5px;color:var(--txt-4);margin-top:1px;font-weight:500}
-.drawer__item-arrow{color:var(--txt-4);flex:none}
-.drawer__item-arrow svg{width:14px;height:14px}
 .drawer__footer{margin-top:auto;padding:20px;border-top:1px solid var(--border);text-align:center;font-size:10.5px;color:var(--txt-4);letter-spacing:.06em}
 .container{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:24px 20px calc(60px + env(safe-area-inset-bottom));opacity:0;transition:opacity .8s var(--ease) .3s}
 .container.ready{opacity:1}
-.hero{padding:24px 0 20px;animation:fadeDown .8s var(--ease-out) both}
-@keyframes fadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+.hero{padding:24px 0 20px}
 .hero__title{font-size:24px;font-weight:800;letter-spacing:-.03em;line-height:1.2;margin-bottom:8px}
 .hero__title span{background:linear-gradient(135deg,#fff 0%,var(--acc) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero__sub{font-size:13px;color:var(--txt-2);line-height:1.6}
@@ -108,25 +102,21 @@ body.locked{overflow:hidden}
 .hero__badge svg{width:12px;height:12px}
 .hero__badge.green{color:var(--acc);border-color:rgba(124,255,178,.25);background:var(--acc-soft)}
 .hero__badge.blue{color:var(--blue);border-color:rgba(107,184,255,.25);background:var(--blue-soft)}
-.steps-wrap{position:relative;margin-bottom:24px;animation:fadeUp .8s var(--ease-out) .1s both}
-@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.steps-wrap{position:relative;margin-bottom:24px}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:6px;border-radius:16px;background:var(--panel);border:1px solid var(--border);backdrop-filter:blur(20px) saturate(1.2)}
 .step{position:relative;padding:12px 8px;border-radius:11px;text-align:center;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--txt-3);transition:all .4s var(--ease);display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer}
-.step:active{transform:scale(.97)}
 .step__num{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;background:rgba(255,255,255,.05);border:1px solid var(--border);transition:all .3s var(--ease);flex:none}
 .step.on{background:linear-gradient(135deg,var(--acc-soft) 0%,rgba(34,211,160,.04) 100%);color:var(--acc);box-shadow:inset 0 0 0 1px var(--border-active)}
-.step.on .step__num{background:var(--acc);border-color:var(--acc);color:#04160a;box-shadow:0 4px 12px -2px var(--acc-glow)}
+.step.on .step__num{background:var(--acc);border-color:var(--acc);color:#04160a}
 .step.done{color:rgba(124,255,178,.5)}
 .step.done .step__num{background:rgba(124,255,178,.15);border-color:rgba(124,255,178,.3);color:var(--acc)}
 .step.done .step__num svg{width:11px;height:11px}
 .steps-progress{position:relative;height:3px;border-radius:3px;background:rgba(255,255,255,.05);margin-top:8px;overflow:hidden}
 .steps-progress__fill{position:absolute;top:0;left:0;height:100%;background:linear-gradient(90deg,var(--acc),var(--blue),var(--violet));border-radius:3px;transition:width .6s var(--ease);box-shadow:0 0 12px var(--acc-glow)}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;animation:fadeUp .8s var(--ease-out) .2s both}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
 .stat{position:relative;padding:20px 18px;border-radius:var(--radius-md);background:var(--panel);border:1px solid var(--border);backdrop-filter:blur(20px) saturate(1.2);overflow:hidden}
 .stat::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--acc),transparent);opacity:.6}
-.stat::after{content:'';position:absolute;top:-50%;right:-50%;width:100%;height:100%;background:radial-gradient(circle,var(--acc-glow) 0%,transparent 70%);opacity:.15;pointer-events:none}
 .stat--blue::before{background:linear-gradient(90deg,transparent,var(--blue),transparent)}
-.stat--blue::after{background:radial-gradient(circle,rgba(107,184,255,.4) 0%,transparent 70%)}
 .stat__head{display:flex;align-items:center;gap:8px;margin-bottom:10px}
 .stat__icon{width:26px;height:26px;border-radius:8px;background:var(--acc-soft);border:1px solid rgba(124,255,178,.15);display:flex;align-items:center;justify-content:center;color:var(--acc);flex:none}
 .stat__icon svg{width:13px;height:13px}
@@ -135,13 +125,12 @@ body.locked{overflow:hidden}
 .stat__value{font-size:28px;font-weight:800;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
 .stat--green .stat__value{background:linear-gradient(135deg,#fff 0%,var(--acc) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .stat--blue .stat__value{background:linear-gradient(135deg,#fff 0%,var(--blue) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.panel{position:relative;padding:24px;border-radius:var(--radius);background:var(--panel);border:1px solid var(--border);backdrop-filter:blur(24px) saturate(1.4);margin-bottom:16px;animation:cardIn .6s var(--ease-out);box-shadow:0 24px 60px -20px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05)}
-@keyframes cardIn{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+.panel{position:relative;padding:24px;border-radius:var(--radius);background:var(--panel);border:1px solid var(--border);backdrop-filter:blur(24px) saturate(1.4);margin-bottom:16px;box-shadow:0 24px 60px -20px rgba(0,0,0,.7)}
 .panel::before{content:'';position:absolute;inset:0;border-radius:var(--radius);padding:1px;background:linear-gradient(135deg,rgba(124,255,178,.15),transparent 40%,transparent 60%,rgba(107,184,255,.1));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
 .panel__head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
 .panel__icon{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--acc-soft),rgba(34,211,160,.02));border:1px solid rgba(124,255,178,.2);display:flex;align-items:center;justify-content:center;color:var(--acc);flex:none}
 .panel__icon svg{width:18px;height:18px}
-.panel__title{font-size:16px;font-weight:700;letter-spacing:-.02em}
+.panel__title{font-size:16px;font-weight:700}
 .panel__hint{font-size:12.5px;color:var(--txt-2);margin-bottom:20px;margin-top:10px;line-height:1.6}
 .panel__hint strong{color:var(--txt);font-weight:600}
 .field{margin-bottom:6px}
@@ -152,37 +141,34 @@ body.locked{overflow:hidden}
 .field__icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--txt-3);pointer-events:none;transition:color .2s ease}
 .field input{width:100%;padding:14px 16px 14px 46px;background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:var(--radius-md);color:var(--txt);font-family:var(--font);font-size:14px;font-weight:500;outline:none;transition:all .25s var(--ease)}
 .field input::placeholder{color:var(--txt-4);font-weight:400}
-.field input:focus{border-color:var(--acc);background:rgba(124,255,178,.03);box-shadow:0 0 0 3px rgba(124,255,178,.08),0 8px 24px -8px var(--acc-glow)}
+.field input:focus{border-color:var(--acc);background:rgba(124,255,178,.03);box-shadow:0 0 0 3px rgba(124,255,178,.08)}
 .field__wrapper:focus-within .field__icon{color:var(--acc)}
-.btn{position:relative;width:100%;padding:15px 22px;border:none;border-radius:var(--radius-md);font-family:var(--font);font-size:14px;font-weight:700;letter-spacing:-.01em;cursor:pointer;transition:all .25s var(--ease);margin-top:16px;display:inline-flex;align-items:center;justify-content:center;gap:10px;overflow:hidden;isolation:isolate}
-.btn__icon{width:16px;height:16px;transition:transform .3s var(--ease);flex:none}
-.btn--primary{background:linear-gradient(135deg,#7cffb2 0%,#22d3a0 60%,#0e8f6a 100%);color:#04160a;box-shadow:0 12px 32px -8px var(--acc-glow),0 2px 8px -2px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.4)}
-.btn--primary::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.5) 50%,transparent 70%);transform:translateX(-100%);transition:transform .7s var(--ease);z-index:-1}
-.btn--primary:hover:not(:disabled)::before{transform:translateX(100%)}
+.btn{position:relative;width:100%;padding:15px 22px;border:none;border-radius:var(--radius-md);font-family:var(--font);font-size:14px;font-weight:700;cursor:pointer;transition:all .25s var(--ease);margin-top:16px;display:inline-flex;align-items:center;justify-content:center;gap:10px;overflow:hidden}
+.btn__icon{width:16px;height:16px;flex:none}
+.btn--primary{background:linear-gradient(135deg,#7cffb2 0%,#22d3a0 60%,#0e8f6a 100%);color:#04160a;box-shadow:0 12px 32px -8px var(--acc-glow),inset 0 1px 0 rgba(255,255,255,.4)}
 .btn--primary:hover:not(:disabled){transform:translateY(-2px)}
 .btn--primary:active:not(:disabled){transform:translateY(0) scale(.98)}
 .btn--secondary{background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--txt-2)}
 .btn--secondary:hover:not(:disabled){background:rgba(255,255,255,.06);border-color:var(--border-hover);color:var(--txt)}
 .btn--ghost{background:rgba(124,255,178,.06);border:1px dashed rgba(124,255,178,.3);color:var(--acc);margin-top:10px}
-.btn--ghost:hover:not(:disabled){background:rgba(124,255,178,.12);border-color:rgba(124,255,178,.5)}
+.btn--ghost:hover:not(:disabled){background:rgba(124,255,178,.12)}
 .btn:disabled{opacity:.55;cursor:wait;transform:none!important}
 .btn__spinner{width:16px;height:16px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .btn-row{display:grid;grid-template-columns:auto 1fr;gap:10px;margin-top:16px}
 .btn-row .btn{margin-top:0}
+.btn--tiny{padding:11px 16px;font-size:12px;margin-top:0;border-radius:var(--radius-sm)}
 .msg{padding:13px 16px;border-radius:var(--radius-md);font-size:12.5px;font-weight:500;margin-top:16px;display:none;align-items:flex-start;gap:11px;line-height:1.5}
-.msg.show{display:flex;animation:msgIn .35s var(--ease-out)}
-@keyframes msgIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.msg.show{display:flex}
 .msg--err{background:var(--red-soft);border:1px solid rgba(255,95,109,.25);color:var(--red)}
 .msg--ok{background:var(--acc-soft);border:1px solid rgba(124,255,178,.25);color:var(--acc)}
 .msg--warn{background:var(--amber-soft);border:1px solid rgba(255,203,107,.25);color:var(--amber)}
-.msg__icon{width:20px;height:20px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:50%;margin-top:1px}
+.msg__icon{width:20px;height:20px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:50%;font-weight:700;font-size:12px}
 .msg--err .msg__icon{background:rgba(255,95,109,.15)}
 .msg--ok .msg__icon{background:rgba(124,255,178,.15)}
 .msg--warn .msg__icon{background:rgba(255,203,107,.15)}
-.msg__icon svg{width:12px;height:12px}
 .terminal-wrap{margin-top:16px;border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border);background:#050508;display:none}
-.terminal-wrap.show{display:block;animation:cardIn .5s var(--ease-out)}
+.terminal-wrap.show{display:block}
 .terminal-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:#0a0a10;border-bottom:1px solid var(--border)}
 .terminal-head__left{display:flex;align-items:center;gap:10px}
 .terminal-dots{display:flex;gap:6px}
@@ -195,19 +181,15 @@ body.locked{overflow:hidden}
 .terminal-body{max-height:240px;overflow-y:auto;padding:12px 14px;font-family:var(--mono);font-size:11.5px;line-height:1.7;color:var(--txt-2)}
 .terminal-body::-webkit-scrollbar{width:6px}
 .terminal-body::-webkit-scrollbar-thumb{background:var(--border-hover);border-radius:3px}
-.terminal-line{display:flex;gap:8px;padding:2px 0;animation:termLine .3s var(--ease-out)}
-@keyframes termLine{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:translateX(0)}}
+.terminal-line{display:flex;gap:8px;padding:2px 0}
 .terminal-line__prefix{flex:none;font-weight:700;min-width:42px}
 .terminal-line--info .terminal-line__prefix{color:var(--blue)}
 .terminal-line--ok .terminal-line__prefix{color:var(--acc)}
 .terminal-line--warn .terminal-line__prefix{color:var(--amber)}
 .terminal-line--err .terminal-line__prefix{color:var(--red)}
 .terminal-line--cmd .terminal-line__prefix{color:var(--violet)}
-.terminal-line--info .terminal-line__text{color:var(--txt-2)}
-.terminal-line--ok .terminal-line__text{color:var(--txt)}
 .terminal-line--warn .terminal-line__text{color:var(--amber)}
 .terminal-line--err .terminal-line__text{color:var(--red)}
-.terminal-line--cmd .terminal-line__text{color:var(--violet)}
 .terminal-line__text{flex:1;word-break:break-all}
 .terminal-foot{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;background:#0a0a10;border-top:1px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--txt-4)}
 .terminal-foot__left{display:flex;gap:14px}
@@ -215,34 +197,30 @@ body.locked{overflow:hidden}
 .terminal-foot__item svg{width:10px;height:10px}
 .terminal-foot__item.green{color:var(--acc)}
 .terminal-foot__item.blue{color:var(--blue)}
-.terminal-clear{background:none;border:none;color:var(--txt-4);cursor:pointer;font-family:inherit;font-size:10px;padding:2px 6px;border-radius:4px;transition:all .2s ease}
+.terminal-clear{background:none;border:none;color:var(--txt-4);cursor:pointer;font-family:inherit;font-size:10px;padding:2px 6px;border-radius:4px}
 .terminal-clear:hover{background:var(--red-soft);color:var(--red)}
 .poll-status{display:none;align-items:center;gap:10px;padding:12px 14px;border-radius:var(--radius-md);background:rgba(107,184,255,.06);border:1px solid rgba(107,184,255,.2);color:var(--blue);font-size:12.5px;font-weight:500;margin-top:12px}
 .poll-status.show{display:flex}
 .poll-status__dot{width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px var(--blue);animation:pollPulse 1.5s ease-in-out infinite}
+@keyframes pollPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
 .poll-status__timer{margin-left:auto;font-family:var(--mono);font-size:11px;opacity:.8}
-.result__hero{position:relative;padding:24px 20px;border-radius:var(--radius-md);background:linear-gradient(135deg,rgba(124,255,178,.14) 0%,rgba(34,211,160,.04) 100%);border:1px solid rgba(124,255,178,.25);margin-bottom:20px;display:flex;align-items:center;gap:16px;overflow:hidden}
-.result__icon{position:relative;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--acc) 0%,var(--acc-2) 100%);display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 10px 24px -6px var(--acc-glow)}
+.result__hero{position:relative;padding:24px 20px;border-radius:var(--radius-md);background:linear-gradient(135deg,rgba(124,255,178,.14) 0%,rgba(34,211,160,.04) 100%);border:1px solid rgba(124,255,178,.25);margin-bottom:20px;display:flex;align-items:center;gap:16px}
+.result__icon{position:relative;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--acc) 0%,var(--acc-2) 100%);display:flex;align-items:center;justify-content:center;flex:none}
 .result__icon svg{width:28px;height:28px;color:#04160a}
-.result__hero-text h3{font-size:17px;font-weight:800;letter-spacing:-.02em;margin-bottom:4px}
+.result__hero-text h3{font-size:17px;font-weight:800;margin-bottom:4px}
 .result__hero-text p{font-size:12.5px;color:var(--txt-2);line-height:1.5}
 .kv-list{border-radius:var(--radius-md);background:rgba(0,0,0,.2);border:1px solid var(--border);overflow:hidden}
 .kv{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;border-bottom:1px solid var(--border)}
 .kv:last-child{border-bottom:none}
 .kv__label{display:flex;align-items:center;gap:8px;color:var(--txt-3);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;flex:none}
-.kv__label svg{width:12px;height:12px;opacity:.7}
 .kv__value{color:var(--txt);font-family:var(--mono);font-size:12px;font-weight:500;text-align:right;word-break:break-all;max-width:60%}
 .kv__value--accent{color:var(--acc)}
 .token-section{margin-top:20px}
 .token-section__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
 .token-section__label{font-size:11px;font-weight:700;color:var(--txt-3);text-transform:uppercase;letter-spacing:.09em}
-.token-section__badge{font-size:10px;font-weight:600;color:var(--txt-4);padding:3px 8px;border-radius:100px;background:rgba(255,255,255,.03);border:1px solid var(--border);letter-spacing:.04em}
+.token-section__badge{font-size:10px;font-weight:600;color:var(--txt-4);padding:3px 8px;border-radius:100px;background:rgba(255,255,255,.03);border:1px solid var(--border)}
 .token-box{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:var(--radius-md);padding:14px 16px;font-family:var(--mono);font-size:10.5px;color:var(--txt-2);word-break:break-all;max-height:110px;overflow-y:auto;line-height:1.7}
-.token-box::-webkit-scrollbar{width:5px}
-.token-box::-webkit-scrollbar-thumb{background:var(--border-hover);border-radius:3px}
 .token-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-.btn--tiny{padding:11px 16px;font-size:12px;margin-top:0;border-radius:var(--radius-sm)}
-.btn--tiny .btn__icon{width:13px;height:13px}
 .share-actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
 .history{margin-top:20px}
 .history__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
@@ -250,7 +228,7 @@ body.locked{overflow:hidden}
 .history__clear{font-size:11px;color:var(--txt-4);background:none;border:none;cursor:pointer;padding:4px 8px;border-radius:6px;font-family:inherit;font-weight:600}
 .history__clear:hover{background:var(--red-soft);color:var(--red)}
 .history__list{display:flex;flex-direction:column;gap:8px}
-.history__item{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:var(--radius-sm);background:rgba(0,0,0,.2);border:1px solid var(--border);transition:all .2s ease;cursor:pointer}
+.history__item{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:var(--radius-sm);background:rgba(0,0,0,.2);border:1px solid var(--border);cursor:pointer}
 .history__item:hover{background:rgba(0,0,0,.3);border-color:var(--border-hover)}
 .history__icon{width:28px;height:28px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center}
 .history__icon.ok{background:var(--acc-soft);color:var(--acc);border:1px solid rgba(124,255,178,.25)}
@@ -265,51 +243,26 @@ body.locked{overflow:hidden}
 .modal{position:relative;width:100%;max-width:440px;max-height:80vh;background:#0a0a0e;border:1px solid var(--border);border-radius:20px;overflow:hidden;transform:scale(.9) translateY(20px);transition:transform .4s var(--ease-out);display:flex;flex-direction:column}
 .modal-overlay.open .modal{transform:scale(1) translateY(0)}
 .modal__head{padding:20px 22px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex:none}
-.modal__title{font-size:16px;font-weight:700;letter-spacing:-.02em}
-.modal__close{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--txt-2);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s ease}
-.modal__close:active{transform:scale(.92)}
+.modal__title{font-size:16px;font-weight:700}
+.modal__close{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--txt-2);cursor:pointer;display:flex;align-items:center;justify-content:center}
 .modal__close:hover{background:var(--red-soft);color:var(--red)}
 .modal__close svg{width:16px;height:16px}
 .modal__body{padding:20px 22px 24px;overflow-y:auto;font-size:13px;color:var(--txt-2);line-height:1.7}
 .modal__body h4{font-size:13.5px;font-weight:700;color:var(--txt);margin-bottom:8px;margin-top:16px;display:flex;align-items:center;gap:8px}
 .modal__body h4:first-child{margin-top:0}
-.modal__body h4 svg{width:14px;height:14px;color:var(--acc)}
 .modal__body p{margin-bottom:10px}
 .modal__body ul{padding-left:20px;margin-bottom:12px}
 .modal__body li{margin-bottom:6px}
 .modal__body code{font-family:var(--mono);font-size:11.5px;background:rgba(124,255,178,.08);color:var(--acc);padding:2px 6px;border-radius:4px}
-.modal__body .kbd{display:inline-block;padding:2px 7px;background:rgba(255,255,255,.08);border:1px solid var(--border-hover);border-radius:5px;font-family:var(--mono);font-size:10.5px;color:var(--txt);font-weight:600}
-.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
-.feature-card{padding:14px 12px;border-radius:12px;background:rgba(255,255,255,.02);border:1px solid var(--border)}
-.feature-card__icon{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;font-size:16px}
-.feature-card__icon.green{background:var(--acc-soft);color:var(--acc)}
-.feature-card__icon.blue{background:var(--blue-soft);color:var(--blue)}
-.feature-card__icon.violet{background:var(--violet-soft);color:var(--violet)}
-.feature-card__icon.amber{background:var(--amber-soft);color:var(--amber)}
-.feature-card__title{font-size:12px;font-weight:700;color:var(--txt);margin-bottom:3px}
-.feature-card__desc{font-size:10.5px;color:var(--txt-3);line-height:1.5}
-.footer{position:relative;margin-top:40px;padding-top:24px;text-align:center;font-size:11px;color:var(--txt-4);letter-spacing:.06em;line-height:1.7}
-.footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--border-hover),transparent)}
-.footer b{color:var(--acc);font-weight:600;opacity:.7}
-.footer__badge{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:5px 12px;border-radius:100px;background:rgba(255,255,255,.02);border:1px solid var(--border);font-size:10px;color:var(--txt-4);letter-spacing:.08em;font-weight:600}
-.footer__badge svg{width:10px;height:10px}
-.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-120%);padding:14px 20px;border-radius:var(--radius-md);background:linear-gradient(135deg,rgba(124,255,178,.15),rgba(34,211,160,.08));border:1px solid rgba(124,255,178,.3);backdrop-filter:blur(20px);display:flex;align-items:center;gap:12px;z-index:10000;box-shadow:0 20px 50px -10px rgba(0,0,0,.6);transition:transform .5s var(--ease-out);max-width:calc(100vw - 40px)}
-.toast.show{transform:translateX(-50%) translateY(0)}
-.toast__icon{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc-2));display:flex;align-items:center;justify-content:center;flex:none}
-.toast__icon svg{width:18px;height:18px;color:#04160a}
-.toast__text h4{font-size:12.5px;font-weight:700;color:var(--txt)}
-.toast__text p{font-size:11px;color:var(--txt-2);margin-top:1px}
-/* AUTH */
-.auth-view{padding:20px 0;text-align:center}
-.auth-logo{width:80px;height:80px;border-radius:24px;margin:0 auto 20px;background:linear-gradient(135deg,#7cffb2 0%,#22d3a0 50%,#0e8f6a 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 20px 50px -15px var(--acc-glow),inset 0 2px 0 rgba(255,255,255,.4)}
-.auth-logo img{width:100%;height:100%;object-fit:cover}
-.auth-title{font-size:22px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
-.auth-sub{font-size:13px;color:var(--txt-2);margin-bottom:28px;line-height:1.6}
 .tab-buttons{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:5px;border-radius:var(--radius-md);background:rgba(0,0,0,.3);border:1px solid var(--border);margin-bottom:18px}
 .tab-btn{padding:10px;border-radius:10px;text-align:center;font-size:13px;font-weight:600;color:var(--txt-3);cursor:pointer;transition:all .25s var(--ease);border:none;background:transparent;font-family:inherit}
 .tab-btn.active{background:linear-gradient(135deg,var(--acc-soft),rgba(34,211,160,.04));color:var(--acc);box-shadow:inset 0 0 0 1px var(--border-active)}
-/* TIER CARDS */
-.tier-card{padding:16px;border-radius:var(--radius-md);background:rgba(0,0,0,.2);border:1px solid var(--border);margin-bottom:10px;position:relative;overflow:hidden}
+.auth-view{padding:20px 0;text-align:center}
+.auth-logo{width:80px;height:80px;border-radius:24px;margin:0 auto 20px;background:linear-gradient(135deg,#7cffb2 0%,#22d3a0 50%,#0e8f6a 100%);display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 20px 50px -15px var(--acc-glow)}
+.auth-logo img{width:100%;height:100%;object-fit:cover}
+.auth-title{font-size:22px;font-weight:800;letter-spacing:-.03em;margin-bottom:8px}
+.auth-sub{font-size:13px;color:var(--txt-2);margin-bottom:28px;line-height:1.6}
+.tier-card{padding:16px;border-radius:var(--radius-md);background:rgba(0,0,0,.2);border:1px solid var(--border);margin-bottom:10px}
 .tier-card__head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
 .tier-card__badge{padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:.05em}
 .tier-card__badge.free{background:var(--acc-soft);color:var(--acc);border:1px solid rgba(124,255,178,.25)}
@@ -317,32 +270,39 @@ body.locked{overflow:hidden}
 .tier-card__badge.sultan{background:var(--gold-soft);color:var(--gold);border:1px solid rgba(255,215,107,.3)}
 .tier-card__badge.master{background:var(--master-soft);color:var(--master);border:1px solid rgba(255,107,157,.3)}
 .tier-card__badge.admin{background:var(--red-soft);color:var(--red);border:1px solid rgba(255,95,109,.3)}
-.tier-card__title{font-size:14px;font-weight:700}
 .tier-card__desc{font-size:11.5px;color:var(--txt-3);line-height:1.5}
-/* USER PROFILE */
 .profile-card{padding:20px;border-radius:var(--radius-md);background:linear-gradient(135deg,rgba(124,255,178,.08),rgba(34,211,160,.02));border:1px solid rgba(124,255,178,.2);margin-bottom:16px;text-align:center}
-.profile-avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 12px;background:linear-gradient(135deg,#7cffb2 0%,#22d3a0 50%,#0e8f6a 100%);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#04160a;box-shadow:0 10px 24px -6px var(--acc-glow)}
-.profile-name{font-size:18px;font-weight:800;letter-spacing:-.02em;margin-bottom:4px}
-.profile-uid{font-family:var(--mono);font-size:11px;color:var(--txt-3);margin-bottom:12px}
+.profile-avatar{width:72px;height:72px;border-radius:50%;margin:0 auto 12px;background:linear-gradient(135deg,#7cffb2 0%,#22d3a0 50%,#0e8f6a 100%);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:#04160a}
+.profile-name{font-size:18px;font-weight:800;margin-bottom:4px}
+.profile-uid{font-family:var(--mono);font-size:11px;color:var(--txt-3);margin-bottom:12px;word-break:break-all}
 .profile-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:16px}
 .profile-stat{padding:10px;border-radius:10px;background:rgba(0,0,0,.2);border:1px solid var(--border);text-align:center}
-.profile-stat__value{font-size:18px;font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--txt)}
+.profile-stat__value{font-size:18px;font-weight:800;line-height:1;color:var(--txt)}
 .profile-stat__label{font-size:9.5px;color:var(--txt-3);text-transform:uppercase;letter-spacing:.08em;margin-top:4px;font-weight:600}
-/* REFERRAL */
 .referral-box{padding:16px;border-radius:var(--radius-md);background:linear-gradient(135deg,rgba(255,215,107,.08),rgba(255,215,107,.02));border:1px solid rgba(255,215,107,.25);margin-top:14px}
-.referral-code{font-family:var(--mono);font-size:16px;font-weight:700;color:var(--gold);text-align:center;padding:14px;background:rgba(0,0,0,.3);border-radius:10px;border:1px dashed rgba(255,215,107,.4);letter-spacing:.05em;margin:10px 0}
+.referral-code{font-family:var(--mono);font-size:16px;font-weight:700;color:var(--gold);text-align:center;padding:14px;background:rgba(0,0,0,.3);border-radius:10px;border:1px dashed rgba(255,215,107,.4);letter-spacing:.05em;margin:10px 0;word-break:break-all}
 .referral-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-/* ADMIN PANEL */
 .admin-user-item{padding:12px 14px;border-radius:var(--radius-sm);background:rgba(0,0,0,.2);border:1px solid var(--border);margin-bottom:8px}
-.admin-user-item__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-.admin-user-item__name{font-size:13px;font-weight:700}
-.admin-user-item__tier{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;background:var(--acc-soft);color:var(--acc)}
-.admin-user-item__uid{font-family:var(--mono);font-size:10.5px;color:var(--txt-4)}
-.admin-user-item__actions{display:flex;gap:6px;margin-top:8px}
-.admin-user-item__actions .btn{margin-top:0;padding:6px 10px;font-size:10.5px;border-radius:8px;width:auto;flex:1}
+.admin-user-item__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;gap:8px}
+.admin-user-item__name{font-size:13px;font-weight:700;word-break:break-all}
+.admin-user-item__tier{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;background:var(--acc-soft);color:var(--acc);flex:none}
+.admin-user-item__tier.premium{background:var(--blue-soft);color:var(--blue)}
+.admin-user-item__tier.sultan{background:var(--gold-soft);color:var(--gold)}
+.admin-user-item__tier.master{background:var(--master-soft);color:var(--master)}
+.admin-user-item__tier.admin{background:var(--red-soft);color:var(--red)}
+.admin-user-item__uid{font-family:var(--mono);font-size:10.5px;color:var(--txt-4);word-break:break-all}
+.admin-user-item__actions{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.admin-user-item__actions .btn{margin-top:0;padding:6px 10px;font-size:10.5px;border-radius:8px;width:auto;flex:1;min-width:60px}
+.footer{position:relative;margin-top:40px;padding-top:24px;text-align:center;font-size:11px;color:var(--txt-4);letter-spacing:.06em;line-height:1.7}
+.footer b{color:var(--acc);font-weight:600;opacity:.7}
+.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-120%);padding:14px 20px;border-radius:var(--radius-md);background:linear-gradient(135deg,rgba(124,255,178,.15),rgba(34,211,160,.08));border:1px solid rgba(124,255,178,.3);backdrop-filter:blur(20px);display:flex;align-items:center;gap:12px;z-index:10000;transition:transform .5s var(--ease-out);max-width:calc(100vw - 40px)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast__icon{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc-2));display:flex;align-items:center;justify-content:center;flex:none}
+.toast__icon svg{width:18px;height:18px;color:#04160a}
+.toast__text h4{font-size:12.5px;font-weight:700;color:var(--txt)}
+.toast__text p{font-size:11px;color:var(--txt-2);margin-top:1px}
 .hide{display:none!important}
-@media (max-width:480px){.container{padding:20px 16px 48px}.hero__title{font-size:20px}.stat{padding:16px 14px}.stat__value{font-size:24px}.panel{padding:20px 16px}.feature-grid{grid-template-columns:1fr}.share-actions{grid-template-columns:1fr}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media (max-width:480px){.container{padding:20px 16px 48px}.hero__title{font-size:20px}.stat{padding:16px 14px}.stat__value{font-size:24px}.panel{padding:20px 16px}.share-actions{grid-template-columns:1fr}.profile-stats{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body class="locked">
@@ -362,106 +322,87 @@ body.locked{overflow:hidden}
   <div class="loader__bar"><div class="loader__bar-fill" id="loaderBar"></div></div>
 </div>
 
-<div class="bg-layer" aria-hidden="true">
-  <div class="bg-aurora"></div><div class="bg-grid"></div><div class="bg-noise"></div>
-</div>
+<div class="bg-layer"><div class="bg-aurora"></div><div class="bg-grid"></div><div class="bg-noise"></div></div>
 
 <div class="toast" id="toast">
   <div class="toast__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
   <div class="toast__text"><h4 id="toastTitle">Success!</h4><p id="toastDesc">Action completed</p></div>
 </div>
 
-<!-- ========== AUTH SCREEN ========== -->
-<div class="container" id="authScreen">
+<!-- AUTH SCREEN -->
+<div class="container ready" id="authScreen">
   <section class="auth-view">
     <div class="auth-logo"><img src="https://files.catbox.moe/i51c0y.jpg" alt="AM"></div>
     <h1 class="auth-title">AM Activate Premium</h1>
     <p class="auth-sub">Login atau daftar untuk mulai aktivasi Alight Motion Premium</p>
-
     <div class="tab-buttons">
       <button class="tab-btn active" id="tabLogin">🔐 Login</button>
       <button class="tab-btn" id="tabRegister">✨ Daftar</button>
     </div>
 
-    <!-- Login Form -->
     <div id="loginForm">
       <div class="field" style="margin-bottom:12px">
         <div class="field__label"><span>Username</span></div>
         <div class="field__wrapper">
           <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <input id="loginUsername" type="text" placeholder="username" autocomplete="username">
+          <input id="loginUsername" type="text" placeholder="@username">
         </div>
       </div>
       <div class="field">
         <div class="field__label"><span>Password</span></div>
         <div class="field__wrapper">
           <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          <input id="loginPassword" type="password" placeholder="••••••••" autocomplete="current-password">
+          <input id="loginPassword" type="password" placeholder="••••••••">
         </div>
       </div>
-      <button class="btn btn--primary" id="btnLogin">
-        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
-        Login
-      </button>
+      <button class="btn btn--primary" id="btnLogin">🔓 Login</button>
       <div class="msg" id="loginMsg"></div>
     </div>
 
-    <!-- Register Form -->
     <div id="registerForm" class="hide">
       <div class="field" style="margin-bottom:12px">
-        <div class="field__label"><span>Username</span><span class="field__hint">Min 4 karakter</span></div>
+        <div class="field__label"><span>Username</span><span class="field__hint">Mulai dengan @</span></div>
         <div class="field__wrapper">
           <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <input id="regUsername" type="text" placeholder="username" autocomplete="username">
+          <input id="regUsername" type="text" placeholder="@username" autocomplete="username">
         </div>
       </div>
       <div class="field" style="margin-bottom:12px">
         <div class="field__label"><span>Password</span><span class="field__hint">Min 6 karakter</span></div>
         <div class="field__wrapper">
           <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          <input id="regPassword" type="password" placeholder="••••••••" autocomplete="new-password">
+          <input id="regPassword" type="password" placeholder="••••••••">
         </div>
       </div>
       <div class="field">
         <div class="field__label"><span>Kode Referral</span><span class="field__hint">Opsional</span></div>
         <div class="field__wrapper">
-          <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-          <input id="regReferral" type="text" placeholder="AZURE-XXXXXX (opsional)" autocomplete="off">
+          <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/></svg>
+          <input id="regReferral" type="text" placeholder="AZURE-XXXXXX" autocomplete="off">
         </div>
       </div>
-      <button class="btn btn--primary" id="btnRegister">
-        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
-        Daftar Sekarang
-      </button>
+      <button class="btn btn--primary" id="btnRegister">✨ Daftar</button>
       <div class="msg" id="registerMsg"></div>
     </div>
 
     <div style="margin-top:20px;font-size:11px;color:var(--txt-4);text-align:center">
-      Dengan login, kamu setuju dengan <strong style="color:var(--txt-2)">Terms & Privacy</strong>
+      Login sebagai <code style="color:var(--acc)">@azuredeveloper</code> / <code style="color:var(--acc)">azureAdminweb</code>
     </div>
   </section>
 </div>
 
-<!-- ========== MAIN APP (setelah login) ========== -->
+<!-- MAIN HEADER -->
 <header class="header hide" id="mainHeader">
   <div class="header__inner">
-    <div class="brand" id="brandHome">
+    <div class="brand">
       <div class="brand__logo"><img src="https://files.catbox.moe/i51c0y.jpg" alt="AM"></div>
       <div class="brand__info"><h1>Activate Premium</h1><p>Powered by <b>Azure</b></p></div>
     </div>
     <div class="header__actions">
-      <button class="icon-btn" id="terminalToggle" title="Terminal Log">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
-      </button>
-      <button class="icon-btn" id="inboxToggle" title="Inbox">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
-      </button>
-      <button class="icon-btn" id="soundToggle" title="Toggle Sound">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-      </button>
-      <button class="icon-btn" id="menuBtn" title="Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
+      <button class="icon-btn" id="terminalToggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></button>
+      <button class="icon-btn" id="inboxToggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></button>
+      <button class="icon-btn" id="soundToggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></button>
+      <button class="icon-btn" id="menuBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
     </div>
   </div>
 </header>
@@ -477,28 +418,25 @@ body.locked{overflow:hidden}
     <div class="drawer__info">
       <h3 id="drawerUsername">username</h3>
       <p id="drawerUid">UID: -</p>
-      <div class="drawer__badge" id="drawerTierBadge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>
-        FREE
-      </div>
+      <div class="drawer__badge" id="drawerTierBadge">FREE</div>
     </div>
   </div>
   <div class="drawer__section">
-    <div class="drawer__label">Menu Utama</div>
-    <button class="drawer__item" id="menuHome"><div class="drawer__item-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="drawer__item-text">Home<span>Aktivasi AM Premium</span></div></button>
-    <button class="drawer__item" id="menuProfile"><div class="drawer__item-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="drawer__item-text">Profil<span>Lihat profil kamu</span></div></button>
-    <button class="drawer__item" id="menuReferral"><div class="drawer__item-icon gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div><div class="drawer__item-text">Referral<span>Undang teman kamu</span></div></button>
-    <button class="drawer__item" id="menuTiers"><div class="drawer__item-icon amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="drawer__item-text">Tier & Fitur<span>Lihat semua tier</span></div></button>
-    <button class="drawer__item" id="menuInbox"><div class="drawer__item-icon amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg></div><div class="drawer__item-text">Inbox<span>Cek email masuk</span></div></button>
-    <button class="drawer__item" id="menuTerminal"><div class="drawer__item-icon violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div><div class="drawer__item-text">Terminal Log<span>Lihat proses</span></div></button>
+    <div class="drawer__label">Menu</div>
+    <button class="drawer__item" id="menuHome"><div class="drawer__item-icon green">🏠</div><div class="drawer__item-text">Home<span>Aktivasi AM Premium</span></div></button>
+    <button class="drawer__item" id="menuProfile"><div class="drawer__item-icon blue">👤</div><div class="drawer__item-text">Profil<span>Lihat profil kamu</span></div></button>
+    <button class="drawer__item" id="menuReferral"><div class="drawer__item-icon gold">🎁</div><div class="drawer__item-text">Referral<span>Undang teman kamu</span></div></button>
+    <button class="drawer__item" id="menuTiers"><div class="drawer__item-icon amber">⭐</div><div class="drawer__item-text">Tier & Fitur<span>Lihat semua tier</span></div></button>
+    <button class="drawer__item" id="menuInbox"><div class="drawer__item-icon amber">📬</div><div class="drawer__item-text">Inbox<span>Cek email masuk</span></div></button>
+    <button class="drawer__item" id="menuTerminal"><div class="drawer__item-icon violet">🖥️</div><div class="drawer__item-text">Terminal Log<span>Lihat proses</span></div></button>
   </div>
   <div class="drawer__section" id="adminSection" style="display:none">
     <div class="drawer__label">Admin Panel</div>
-    <button class="drawer__item" id="menuAdmin"><div class="drawer__item-icon red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div><div class="drawer__item-text">Admin Panel<span>Kelola semua user</span></div></button>
+    <button class="drawer__item" id="menuAdmin"><div class="drawer__item-icon red">🔴</div><div class="drawer__item-text">Admin Panel<span>Kelola semua user</span></div></button>
   </div>
   <div class="drawer__section">
     <div class="drawer__label">Lainnya</div>
-    <button class="drawer__item" id="menuLogout"><div class="drawer__item-icon red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></div><div class="drawer__item-text">Logout<span>Keluar dari akun</span></div></button>
+    <button class="drawer__item" id="menuLogout"><div class="drawer__item-icon red">🚪</div><div class="drawer__item-text">Logout<span>Keluar dari akun</span></div></button>
   </div>
   <div class="drawer__footer">v8.0 · Made by <b style="color:var(--acc)">Azure</b></div>
 </aside>
@@ -518,41 +456,37 @@ body.locked{overflow:hidden}
     <div class="modal__head">
       <div class="modal__title">📬 Inbox</div>
       <div style="display:flex;gap:6px;align-items:center">
-        <button class="icon-btn" id="inboxRefresh" title="Refresh" style="width:32px;height:32px">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
-        </button>
+        <button class="icon-btn" id="inboxRefresh" style="width:32px;height:32px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg></button>
         <button class="modal__close" id="inboxModalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
       </div>
     </div>
     <div class="modal__body">
-      <div class="inbox-email-box" style="margin-bottom:14px;padding:12px;border-radius:10px;background:rgba(124,255,178,.06);border:1px solid rgba(124,255,178,.2)">
+      <div style="margin-bottom:14px;padding:12px;border-radius:10px;background:rgba(124,255,178,.06);border:1px solid rgba(124,255,178,.2)">
         <div style="font-size:10.5px;color:var(--txt-3);text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:6px">Email Aktif</div>
         <div style="display:flex;align-items:center;gap:8px">
           <code id="inboxEmailText" style="flex:1;font-family:var(--mono);font-size:11.5px;color:var(--acc);word-break:break-all">— belum ada —</code>
-          <button class="icon-btn" id="inboxCopyEmail" style="width:32px;height:32px;flex:none" title="Copy">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          </button>
+          <button class="icon-btn" id="inboxCopyEmail" style="width:32px;height:32px;flex:none">📋</button>
         </div>
       </div>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
-        <span style="font-size:11px;font-weight:700;color:var(--txt-3);text-transform:uppercase;letter-spacing:.1em">Pesan Masuk</span>
+        <span style="font-size:11px;font-weight:700;color:var(--txt-3);text-transform:uppercase">Pesan Masuk</span>
         <span id="inboxCount" style="font-size:10px;color:var(--txt-4);font-family:var(--mono)">0</span>
       </div>
-      <div id="inboxList" style="display:flex;flex-direction:column;gap:8px;max-height:300px;overflow-y:auto;padding-right:4px">
+      <div id="inboxList" style="display:flex;flex-direction:column;gap:8px;max-height:300px;overflow-y:auto">
         <div class="history__empty">Belum ada pesan</div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- MAIN APP -->
 <main class="container hide" id="mainApp">
-  <!-- content same as before -->
   <section class="hero">
     <h1 class="hero__title">Aktivasi <span>Alight Motion</span> Premium</h1>
     <p class="hero__sub">Tinggal masukkan email, klik verifikasi, dan nikmati semua fitur premium Alight Motion — gratis!</p>
     <div class="hero__badges">
-      <div class="hero__badge green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>100% Gratis</div>
-      <div class="hero__badge blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>Aman</div>
+      <div class="hero__badge green">✓ 100% Gratis</div>
+      <div class="hero__badge blue">🛡️ Aman</div>
     </div>
   </section>
 
@@ -567,22 +501,22 @@ body.locked{overflow:hidden}
 
   <div class="stats">
     <div class="stat stat--green">
-      <div class="stat__head"><div class="stat__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></div><span class="stat__label">Total</span></div>
+      <div class="stat__head"><div class="stat__icon">✓</div><span class="stat__label">Total</span></div>
       <div class="stat__value" id="st-total">—</div>
     </div>
     <div class="stat stat--blue">
-      <div class="stat__head"><div class="stat__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><span class="stat__label">User Diundang</span></div>
+      <div class="stat__head"><div class="stat__icon">🎁</div><span class="stat__label">User Diundang</span></div>
       <div class="stat__value" id="st-referrals">0</div>
     </div>
   </div>
 
   <div class="panel" id="p1">
     <div class="panel__head">
-      <div class="panel__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+      <div class="panel__icon">📧</div>
       <div class="panel__title">Pilih Email</div>
     </div>
-    <p class="panel__hint">Pilih mode: pakai <strong>email pribadi</strong> atau <strong>generate email random</strong> untuk anonim.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:5px;border-radius:14px;background:rgba(0,0,0,.3);border:1px solid var(--border);margin-bottom:16px">
+    <p class="panel__hint">Pilih mode: pakai <strong>email pribadi</strong> atau <strong>generate email random</strong>.</p>
+    <div class="tab-buttons" style="margin-bottom:16px">
       <button class="tab-btn active" id="tabManual">Email Pribadi</button>
       <button class="tab-btn" id="tabRandom">Email Random</button>
     </div>
@@ -591,7 +525,7 @@ body.locked{overflow:hidden}
         <div class="field__label"><span>Alamat Email</span><span class="field__hint" id="emailHint">Wajib aktif</span></div>
         <div class="field__wrapper">
           <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
-          <input id="em" type="email" placeholder="nama@email.com" autocomplete="email">
+          <input id="em" type="email" placeholder="nama@email.com">
         </div>
       </div>
     </div>
@@ -600,26 +534,14 @@ body.locked{overflow:hidden}
         <div class="field__label"><span>Email Random</span><span class="field__hint" id="randomHint">Klik generate</span></div>
         <div class="field__wrapper">
           <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          <input id="emRandom" type="email" placeholder="Klik tombol generate di bawah" readonly>
+          <input id="emRandom" type="email" placeholder="Klik tombol generate" readonly>
         </div>
       </div>
-      <button class="btn btn--ghost" id="btnGenerate">
-        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
-        Generate Email Baru
-      </button>
-      <button class="btn btn--ghost hide" id="btnCopyEmail" style="margin-top:8px">
-        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        Copy Email
-      </button>
-      <button class="btn btn--ghost" id="btnOpenInbox" style="margin-top:8px">
-        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
-        Buka Inbox
-      </button>
+      <button class="btn btn--ghost" id="btnGenerate">🎲 Generate Email Baru</button>
+      <button class="btn btn--ghost hide" id="btnCopyEmail" style="margin-top:8px">📋 Copy Email</button>
+      <button class="btn btn--ghost" id="btnOpenInbox" style="margin-top:8px">📬 Buka Inbox</button>
     </div>
-    <button class="btn btn--primary" id="b1">
-      Kirim Link
-      <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-    </button>
+    <button class="btn btn--primary" id="b1">📩 Kirim Link</button>
     <div class="msg" id="m1"></div>
     <div class="terminal-wrap" id="terminal">
       <div class="terminal-head">
@@ -630,12 +552,12 @@ body.locked{overflow:hidden}
         <span class="terminal-status" id="terminalStatus">IDLE</span>
       </div>
       <div class="terminal-body" id="terminalBody">
-        <div class="terminal-line terminal-line--info"><span class="terminal-line__prefix">[SYS]</span><span class="terminal-line__text">Terminal ready.</span></div>
+        <div class="terminal-line terminal-line--info"><span class="terminal-line__prefix">[SYS]</span><span class="terminal-line__text">Terminal ready</span></div>
       </div>
       <div class="terminal-foot">
         <div class="terminal-foot__left">
-          <div class="terminal-foot__item green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/></svg><span id="termCount">0</span> logs</div>
-          <div class="terminal-foot__item blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/></svg><span id="termTime">0.0s</span></div>
+          <div class="terminal-foot__item green">● <span id="termCount">0</span> logs</div>
+          <div class="terminal-foot__item blue">● <span id="termTime">0.0s</span></div>
         </div>
         <button class="terminal-clear" id="terminalClear">Clear</button>
       </div>
@@ -643,10 +565,7 @@ body.locked{overflow:hidden}
   </div>
 
   <div class="panel hide" id="p2">
-    <div class="panel__head">
-      <div class="panel__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
-      <div class="panel__title">Verifikasi Link</div>
-    </div>
+    <div class="panel__head"><div class="panel__icon">🔗</div><div class="panel__title">Verifikasi Link</div></div>
     <p class="panel__hint">Link terkirim ke <strong id="w-em">—</strong>.</p>
     <div class="poll-status" id="pollStatus">
       <div class="poll-status__dot"></div>
@@ -657,19 +576,19 @@ body.locked{overflow:hidden}
       <div class="field__label"><span>Link Verifikasi</span></div>
       <div class="field__wrapper">
         <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-        <input id="lk" type="text" placeholder="Paste link..." autocomplete="off">
+        <input id="lk" type="text" placeholder="Paste link...">
       </div>
     </div>
     <div class="btn-row">
-      <button class="btn btn--secondary" id="b2">Kembali</button>
-      <button class="btn btn--primary" id="b3">Verifikasi</button>
+      <button class="btn btn--secondary" id="b2">← Kembali</button>
+      <button class="btn btn--primary" id="b3">✓ Verifikasi</button>
     </div>
     <div class="msg" id="m2"></div>
   </div>
 
   <div class="panel hide" id="p3">
     <div class="result__hero">
-      <div class="result__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <div class="result__icon">✓</div>
       <div class="result__hero-text"><h3>Premium Aktif!</h3><p>Akun kamu sudah terverifikasi.</p></div>
     </div>
     <div class="kv-list">
@@ -684,13 +603,13 @@ body.locked{overflow:hidden}
       </div>
       <div class="token-box" id="r-tok">—</div>
       <div class="token-actions">
-        <button class="btn btn--secondary btn--tiny" id="b4">Copy Token</button>
-        <button class="btn btn--secondary btn--tiny" id="b5">Aktivasi Lagi</button>
+        <button class="btn btn--secondary btn--tiny" id="b4">📋 Copy Token</button>
+        <button class="btn btn--secondary btn--tiny" id="b5">🔄 Aktivasi Lagi</button>
       </div>
       <div class="share-actions">
-        <button class="btn btn--secondary btn--tiny" id="shareBtn">Share</button>
-        <button class="btn btn--secondary btn--tiny" id="copyAllBtn">Copy All</button>
-        <button class="btn btn--secondary btn--tiny" id="downloadBtn">Download</button>
+        <button class="btn btn--secondary btn--tiny" id="shareBtn">📤 Share</button>
+        <button class="btn btn--secondary btn--tiny" id="copyAllBtn">📋 Copy All</button>
+        <button class="btn btn--secondary btn--tiny" id="downloadBtn">⬇️ Download</button>
       </div>
     </div>
   </div>
@@ -712,66 +631,61 @@ body.locked{overflow:hidden}
 </main>
 
 <script>
-/* ═══════════════════════════════════════════
-   AM ACTIVATE v8.0 — USER SYSTEM + REFERRAL
-   ═══════════════════════════════════════════ */
-
+/* ═══════════════════════════════════════════ */
 const $ = id => document.getElementById(id)
 const API_BASE = '/api'
 const DUCKZ_API = 'https://duckzmail.com/api'
+const HISTORY_KEY = 'am_history'
 
-/* ═══ TIERS CONFIG ═══ */
 const TIERS = {
-  free:    { name: 'FREE',    icon: '🆓', color: 'acc',     label: 'Free Access' },
-  premium: { name: 'PREMIUM', icon: '💎', color: 'blue',    label: 'Premium Access' },
-  sultan:  { name: 'SULTAN',  icon: '👑', color: 'gold',    label: 'Sultan Access' },
-  master:  { name: 'MASTER',  icon: '🏆', color: 'master',  label: 'Master Access' },
-  admin:   { name: 'ADMIN',   icon: '🔴', color: 'red',     label: 'Developer' }
+  free:    { name: 'FREE',    icon: '🆓' },
+  premium: { name: 'PREMIUM', icon: '💎' },
+  sultan:  { name: 'SULTAN',  icon: '👑' },
+  master:  { name: 'MASTER',  icon: '🏆' },
+  admin:   { name: 'ADMIN',   icon: '🔴' }
 }
 
-const TIER_THRESHOLDS = {
-  premium: 5,   // 5 referral
-  sultan: 25,   // 25 referral
-  master: 100   // 100 referral (atau manual promote)
-}
+const TIER_THRESHOLDS = { premium: 5, sultan: 25, master: 100 }
 
-/* ═══ USER DATABASE (LocalStorage) ═══ */
+/* ═══ DB ═══ */
 const DB = {
   USERS: 'am_users_db',
   CURRENT: 'am_current_user',
   REFERRAL: 'am_referrals_db',
-  
-  getUsers() {
-    try { return JSON.parse(localStorage.getItem(this.USERS) || '{}') }
-    catch { return {} }
-  },
-  saveUsers(users) {
-    try { localStorage.setItem(this.USERS, JSON.stringify(users)) } catch {}
-  },
-  getCurrentUser() {
-    try { return JSON.parse(localStorage.getItem(this.CURRENT) || 'null') }
-    catch { return null }
-  },
-  saveCurrentUser(user) {
-    try { localStorage.setItem(this.CURRENT, JSON.stringify(user)) } catch {}
-  },
-  logout() {
-    try { localStorage.removeItem(this.CURRENT) } catch {}
-  },
-  getReferrals() {
-    try { return JSON.parse(localStorage.getItem(this.REFERRAL) || '{}') }
-    catch { return {} }
-  },
-  saveReferrals(refs) {
-    try { localStorage.setItem(this.REFERRAL, JSON.stringify(refs)) } catch {}
-  }
+  getUsers() { try { return JSON.parse(localStorage.getItem(this.USERS) || '{}') } catch { return {} } },
+  saveUsers(u) { try { localStorage.setItem(this.USERS, JSON.stringify(u)) } catch {} },
+  getCurrentUser() { try { return JSON.parse(localStorage.getItem(this.CURRENT) || 'null') } catch { return null } },
+  saveCurrentUser(u) { try { localStorage.setItem(this.CURRENT, JSON.stringify(u)) } catch {} },
+  logout() { try { localStorage.removeItem(this.CURRENT) } catch {} },
+  getReferrals() { try { return JSON.parse(localStorage.getItem(this.REFERRAL) || '{}') } catch { return {} } },
+  saveReferrals(r) { try { localStorage.setItem(this.REFERRAL, JSON.stringify(r)) } catch {} }
 }
 
-/* ═══ INIT SYSTEM — Dev Account ═══ */
+/* ═══ HELPERS ═══ */
+function hashPassword(pwd) {
+  let hash = 0
+  for (let i = 0; i < pwd.length; i++) { hash = ((hash << 5) - hash) + pwd.charCodeAt(i); hash |= 0 }
+  return 'h_' + Math.abs(hash).toString(36)
+}
+function generateUID() {
+  const c = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+  let u = 'usr_'
+  for (let i = 0; i < 20; i++) u += c[Math.floor(Math.random() * c.length)]
+  return u
+}
+function randomCode(len) {
+  const c = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'
+  let code = ''
+  for (let i = 0; i < len; i++) code += c[Math.floor(Math.random() * c.length)]
+  return code
+}
+function escapeHtml(t = '') {
+  return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;')
+}
+
+/* ═══ INIT SYSTEM ═══ */
 function initSystem() {
   const users = DB.getUsers()
-  
-  // Bikin admin default kalau belum ada
   if (!users['@azuredeveloper']) {
     users['@azuredeveloper'] = {
       username: '@azuredeveloper',
@@ -785,37 +699,8 @@ function initSystem() {
       activations: 0
     }
     DB.saveUsers(users)
-    console.log('[SYSTEM] Admin account created: @azuredeveloper')
+    console.log('[SYSTEM] Admin created')
   }
-}
-
-/* ═══ HELPERS ═══ */
-function hashPassword(pwd) {
-  // Simple hash (bukan kripto aman — untuk demo aja)
-  let hash = 0
-  for (let i = 0; i < pwd.length; i++) {
-    hash = ((hash << 5) - hash) + pwd.charCodeAt(i)
-    hash |= 0
-  }
-  return 'h_' + Math.abs(hash).toString(36)
-}
-
-function generateUID() {
-  const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-  let uid = 'usr_'
-  for (let i = 0; i < 20; i++) uid += chars[Math.floor(Math.random() * chars.length)]
-  return uid
-}
-
-function randomCode(len) {
-  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'
-  let code = ''
-  for (let i = 0; i < len; i++) code += chars[Math.floor(Math.random() * chars.length)]
-  return code
-}
-
-function escapeHtml(t = '') {
-  return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;')
 }
 
 /* ═══ SOUND FX ═══ */
@@ -897,6 +782,33 @@ const Toast = (() => {
   return { show(t, d, duration = 3500) { title.textContent = t; desc.textContent = d; el.classList.add('show'); if (timer) clearTimeout(timer); timer = setTimeout(() => el.classList.remove('show'), duration) } }
 })()
 
+/* ═══ TERMINAL ═══ */
+const Terminal = (() => {
+  const wrap = $('terminal'); const body = $('terminalBody'); const status = $('terminalStatus'); const countEl = $('termCount'); const timeEl = $('termTime')
+  let logCount = 0; let sessionStart = 0; let timerInterval = null; let visible = false
+  function show() { if (wrap) wrap.classList.add('show'); visible = true }
+  function hide() { if (wrap) wrap.classList.remove('show'); visible = false }
+  function toggle() { if (visible) hide(); else show(); return visible }
+  function clear() { if (body) body.innerHTML = ''; logCount = 0; if (countEl) countEl.textContent = '0'; log('SYS', 'Cleared', 'info') }
+  function startTimer() { sessionStart = Date.now(); if (timerInterval) clearInterval(timerInterval); timerInterval = setInterval(() => { if (timeEl) timeEl.textContent = ((Date.now() - sessionStart) / 1000).toFixed(1) + 's' }, 100) }
+  function stopTimer() { if (timerInterval) { clearInterval(timerInterval); timerInterval = null } }
+  function setStatus(text, type = 'info') {
+    if (!status) return
+    status.textContent = text.toUpperCase()
+    const col = type === 'err' ? 'var(--red)' : type === 'warn' ? 'var(--amber)' : type === 'ok' ? 'var(--acc)' : 'var(--blue)'
+    status.style.color = col
+  }
+  function log(prefix, text, type = 'info') {
+    if (!body) return
+    logCount++; if (countEl) countEl.textContent = logCount
+    const div = document.createElement('div'); div.className = `terminal-line terminal-line--${type}`
+    div.innerHTML = `<span class="terminal-line__prefix">[${prefix}]</span><span class="terminal-line__text">${escapeHtml(text)}</span>`
+    body.appendChild(div); body.scrollTop = body.scrollHeight
+    while (body.children.length > 50) body.removeChild(body.firstChild)
+  }
+  return { show, hide, toggle, clear, log, startTimer, stopTimer, setStatus, isVisible: () => visible }
+})()
+
 /* ═══ LOADER ═══ */
 ;(function() {
   const bar = $('loaderBar'); const loader = $('loader')
@@ -914,63 +826,67 @@ const Toast = (() => {
   setTimeout(tick, 350)
 })()
 
-/* ═══ AUTH SYSTEM ═══ */
+/* ═══ AUTH ═══ */
 function checkAuth() {
   const user = DB.getCurrentUser()
   if (user) {
-    // Validasi user masih ada di DB
     const users = DB.getUsers()
-    if (users[user.username]) {
-      showMainApp(users[user.username])
-      return
-    } else {
-      DB.logout()
-    }
+    if (users[user.username]) { showMainApp(users[user.username]); return }
+    else DB.logout()
   }
   showAuthScreen()
 }
 
 function showAuthScreen() {
+  $('authScreen').style.display = 'block'
   $('authScreen').classList.remove('hide')
+  $('mainApp').style.display = 'none'
   $('mainApp').classList.add('hide')
+  $('mainHeader').style.display = 'none'
   $('mainHeader').classList.add('hide')
 }
 
 function showMainApp(user) {
+  $('authScreen').style.display = 'none'
   $('authScreen').classList.add('hide')
+  $('mainApp').style.display = 'block'
   $('mainApp').classList.remove('hide')
+  $('mainHeader').style.display = 'block'
   $('mainHeader').classList.remove('hide')
   updateUserUI(user)
-  Terminal.log('SYS', `Welcome ${user.username}!`, 'ok')
-  Terminal.log('USER', `Tier: ${user.tier.toUpperCase()}`, 'info')
+  try { Terminal.log('SYS', `Welcome ${user.username}!`, 'ok') } catch {}
+  initMainApp()
+}
+
+let mainAppInitialized = false
+function initMainApp() {
+  if (mainAppInitialized) return
+  mainAppInitialized = true
+  attachMainAppEvents()
+  loadStats()
+  renderHistory()
+  console.log('[MAIN APP] Initialized')
 }
 
 function updateUserUI(user) {
-  // Drawer profile
   $('drawerUsername').textContent = user.username
   $('drawerUid').textContent = 'UID: ' + user.uid.slice(0, 20) + '...'
   $('drawerAvatar').textContent = user.username.replace('@', '').charAt(0).toUpperCase()
-  
   const tierInfo = TIERS[user.tier] || TIERS.free
   const badge = $('drawerTierBadge')
   badge.className = 'drawer__badge ' + (user.tier !== 'free' ? user.tier : '')
-  badge.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>${tierInfo.name}`
-  
-  // Referral count
+  badge.innerHTML = `${tierInfo.icon} ${tierInfo.name}`
   $('st-referrals').textContent = user.referralCount || 0
-  
-  // Admin section
   $('adminSection').style.display = user.tier === 'admin' ? 'block' : 'none'
 }
 
-/* ═══ LOGIN / REGISTER ═══ */
+/* ═══ TABS ═══ */
 $('tabLogin').addEventListener('click', () => {
   $('tabLogin').classList.add('active')
   $('tabRegister').classList.remove('active')
   $('loginForm').classList.remove('hide')
   $('registerForm').classList.add('hide')
 })
-
 $('tabRegister').addEventListener('click', () => {
   $('tabRegister').classList.add('active')
   $('tabLogin').classList.remove('active')
@@ -978,29 +894,15 @@ $('tabRegister').addEventListener('click', () => {
   $('loginForm').classList.add('hide')
 })
 
-$('btnLogin').addEventListener('click', async () => {
+/* ═══ LOGIN ═══ */
+$('btnLogin').addEventListener('click', () => {
   const username = $('loginUsername').value.trim().toLowerCase()
   const password = $('loginPassword').value
-  
-  if (!username || !password) {
-    SoundFX.error()
-    return showAuthMsg('loginMsg', 'Isi username & password', 'err')
-  }
-  
+  if (!username || !password) { SoundFX.error(); return showAuthMsg('loginMsg', 'Isi username & password', 'err') }
   const users = DB.getUsers()
   const user = users[username]
-  
-  if (!user) {
-    SoundFX.error()
-    return showAuthMsg('loginMsg', 'Username tidak ditemukan', 'err')
-  }
-  
-  if (user.password !== hashPassword(password)) {
-    SoundFX.error()
-    return showAuthMsg('loginMsg', 'Password salah', 'err')
-  }
-  
-  // Login sukses
+  if (!user) { SoundFX.error(); return showAuthMsg('loginMsg', 'Username tidak ditemukan', 'err') }
+  if (user.password !== hashPassword(password)) { SoundFX.error(); return showAuthMsg('loginMsg', 'Password salah', 'err') }
   SoundFX.success()
   Toast.show('Welcome back!', user.username)
   DB.saveCurrentUser(user)
@@ -1008,128 +910,61 @@ $('btnLogin').addEventListener('click', async () => {
   setTimeout(() => showMainApp(user), 800)
 })
 
-$('btnRegister').addEventListener('click', async () => {
+/* ═══ REGISTER ═══ */
+$('btnRegister').addEventListener('click', () => {
   const username = $('regUsername').value.trim().toLowerCase()
   const password = $('regPassword').value
   const referral = $('regReferral').value.trim().toUpperCase()
-  
-  if (!username || username.length < 4) {
-    SoundFX.error()
-    return showAuthMsg('registerMsg', 'Username minimal 4 karakter', 'err')
-  }
-  if (!username.startsWith('@')) {
-    SoundFX.error()
-    return showAuthMsg('registerMsg', 'Username harus diawali @ (contoh: @username)', 'err')
-  }
-  if (!password || password.length < 6) {
-    SoundFX.error()
-    return showAuthMsg('registerMsg', 'Password minimal 6 karakter', 'err')
-  }
-  
+  if (!username || username.length < 4) { SoundFX.error(); return showAuthMsg('registerMsg', 'Username minimal 4 karakter', 'err') }
+  if (!username.startsWith('@')) { SoundFX.error(); return showAuthMsg('registerMsg', 'Username harus diawali @', 'err') }
+  if (!password || password.length < 6) { SoundFX.error(); return showAuthMsg('registerMsg', 'Password minimal 6 karakter', 'err') }
   const users = DB.getUsers()
-  if (users[username]) {
-    SoundFX.error()
-    return showAuthMsg('registerMsg', 'Username sudah dipakai', 'err')
-  }
-  
-  // Buat user baru
+  if (users[username]) { SoundFX.error(); return showAuthMsg('registerMsg', 'Username sudah dipakai', 'err') }
   const newUser = {
-    username,
-    password: hashPassword(password),
-    uid: generateUID(),
-    tier: 'free',
-    referralCode: 'AZURE-' + randomCode(6),
-    referralCount: 0,
-    referredBy: referral || null,
-    createdAt: Date.now(),
-    activations: 0
+    username, password: hashPassword(password), uid: generateUID(),
+    tier: 'free', referralCode: 'AZURE-' + randomCode(6), referralCount: 0,
+    referredBy: referral || null, createdAt: Date.now(), activations: 0
   }
-  
-  // Handle referral
   if (referral) {
     const referrer = Object.values(users).find(u => u.referralCode === referral)
-    if (!referrer) {
-      SoundFX.error()
-      return showAuthMsg('registerMsg', 'Kode referral tidak valid', 'err')
-    }
-    
-    // Increment referral count referrer
+    if (!referrer) { SoundFX.error(); return showAuthMsg('registerMsg', 'Kode referral tidak valid', 'err') }
     referrer.referralCount = (referrer.referralCount || 0) + 1
-    
-    // Auto upgrade tier referrer
     upgradeTier(referrer, users)
-    
-    // Track referral
     const refs = DB.getReferrals()
     if (!refs[referrer.username]) refs[referrer.username] = []
     refs[referrer.username].push({ username, at: Date.now() })
     DB.saveReferrals(refs)
-    
-    Toast.show('Referral Applied!', `Kamu diundang oleh ${referrer.username}`)
+    Toast.show('Referral Applied!', `Diundang oleh ${referrer.username}`)
   }
-  
   users[username] = newUser
   DB.saveUsers(users)
-  
   SoundFX.success()
   Confetti.burst(80)
   Toast.show('Akun dibuat!', 'Selamat bergabung 🎉')
   showAuthMsg('registerMsg', 'Registrasi berhasil!', 'ok')
-  
-  setTimeout(() => {
-    DB.saveCurrentUser(newUser)
-    showMainApp(newUser)
-  }, 1000)
+  setTimeout(() => { DB.saveCurrentUser(newUser); showMainApp(newUser) }, 1000)
 })
 
 function upgradeTier(user, users) {
   const count = user.referralCount || 0
-  const oldTier = user.tier
-  
+  const old = user.tier
   if (user.tier !== 'admin' && user.tier !== 'master') {
     if (count >= TIER_THRESHOLDS.master) user.tier = 'master'
     else if (count >= TIER_THRESHOLDS.sultan) user.tier = 'sultan'
     else if (count >= TIER_THRESHOLDS.premium) user.tier = 'premium'
   }
-  
-  if (oldTier !== user.tier) {
+  if (old !== user.tier) {
     DB.saveUsers(users)
-    Toast.show('🎉 Tier Upgrade!', `Selamat! Kamu naik ke ${user.tier.toUpperCase()}`)
+    Toast.show('🎉 Tier Upgrade!', `Naik ke ${user.tier.toUpperCase()}`)
     Confetti.burst(150)
   }
 }
 
 function showAuthMsg(id, text, type) {
-  const m = $(id)
+  const m = $(id); if (!m) return
   m.className = 'msg show ' + (type === 'ok' ? 'msg--ok' : 'msg--err')
-  m.innerHTML = `<span>${text}</span>`
+  m.innerHTML = `<div class="msg__icon">${type === 'ok' ? '✓' : '✗'}</div><span>${escapeHtml(text)}</span>`
 }
-
-/* ═══ TERMINAL ═══ */
-const Terminal = (() => {
-  const wrap = $('terminal'); const body = $('terminalBody'); const status = $('terminalStatus'); const countEl = $('termCount'); const timeEl = $('termTime')
-  let logCount = 0; let sessionStart = 0; let timerInterval = null; let visible = false
-  function show() { wrap.classList.add('show'); visible = true }
-  function hide() { wrap.classList.remove('show'); visible = false }
-  function toggle() { if (visible) hide(); else show(); return visible }
-  function clear() { body.innerHTML = ''; logCount = 0; countEl.textContent = '0'; log('SYS', 'Cleared', 'info') }
-  function startTimer() { sessionStart = Date.now(); if (timerInterval) clearInterval(timerInterval); timerInterval = setInterval(() => { timeEl.textContent = ((Date.now() - sessionStart) / 1000).toFixed(1) + 's' }, 100) }
-  function stopTimer() { if (timerInterval) { clearInterval(timerInterval); timerInterval = null } }
-  function setStatus(text, type = 'info') {
-    status.textContent = text.toUpperCase()
-    const col = type === 'err' ? 'var(--red)' : type === 'warn' ? 'var(--amber)' : type === 'ok' ? 'var(--acc)' : 'var(--blue)'
-    status.style.color = col
-  }
-  function log(prefix, text, type = 'info') {
-    if (!body) return
-    logCount++; countEl.textContent = logCount
-    const div = document.createElement('div'); div.className = `terminal-line terminal-line--${type}`
-    div.innerHTML = `<span class="terminal-line__prefix">[${prefix}]</span><span class="terminal-line__text">${escapeHtml(text)}</span>`
-    body.appendChild(div); body.scrollTop = body.scrollHeight
-    while (body.children.length > 50) body.removeChild(body.firstChild)
-  }
-  return { show, hide, toggle, clear, log, startTimer, stopTimer, setStatus, isVisible: () => visible }
-})()
 
 /* ═══ DRAWER ═══ */
 const drawer = $('drawer'); const drawerOverlay = $('drawerOverlay')
@@ -1163,14 +998,12 @@ $('menuLogout').addEventListener('click', () => {
   }
 })
 
-/* ═══ PROFILE MODAL ═══ */
+/* ═══ PROFILE ═══ */
 function showProfile() {
   const user = DB.getCurrentUser()
   if (!user) return
-  
   const tierInfo = TIERS[user.tier] || TIERS.free
   const daysSince = Math.floor((Date.now() - user.createdAt) / 86400000)
-  
   openModal('👤 Profil Kamu', `
     <div class="profile-card">
       <div class="profile-avatar">${user.username.replace('@', '').charAt(0).toUpperCase()}</div>
@@ -1178,186 +1011,104 @@ function showProfile() {
       <div class="profile-uid">UID: ${escapeHtml(user.uid)}</div>
       <div class="tier-card__badge ${user.tier}">${tierInfo.icon} ${tierInfo.name}</div>
       <div class="profile-stats">
-        <div class="profile-stat">
-          <div class="profile-stat__value">${user.activations || 0}</div>
-          <div class="profile-stat__label">Aktivasi</div>
-        </div>
-        <div class="profile-stat">
-          <div class="profile-stat__value">${user.referralCount || 0}</div>
-          <div class="profile-stat__label">Referral</div>
-        </div>
-        <div class="profile-stat">
-          <div class="profile-stat__value">${daysSince}</div>
-          <div class="profile-stat__label">Hari</div>
-        </div>
+        <div class="profile-stat"><div class="profile-stat__value">${user.activations || 0}</div><div class="profile-stat__label">Aktivasi</div></div>
+        <div class="profile-stat"><div class="profile-stat__value">${user.referralCount || 0}</div><div class="profile-stat__label">Referral</div></div>
+        <div class="profile-stat"><div class="profile-stat__value">${daysSince}</div><div class="profile-stat__label">Hari</div></div>
       </div>
     </div>
-    <h4>📅 Terdaftar Sejak</h4>
-    <p>${new Date(user.createdAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
     <h4>🎯 Kode Referral</h4>
     <div class="referral-code">${escapeHtml(user.referralCode)}</div>
-    <p style="font-size:11.5px;color:var(--txt-3);text-align:center">Share kode ini ke temanmu!</p>
+    <p style="text-align:center;font-size:11.5px;color:var(--txt-3)">Share kode ini ke temanmu!</p>
   `)
 }
 
-/* ═══ REFERRAL MODAL ═══ */
+/* ═══ REFERRAL ═══ */
 function showReferral() {
   const user = DB.getCurrentUser()
   if (!user) return
-  
   const refs = DB.getReferrals()[user.username] || []
   const currentCount = user.referralCount || 0
   const nextThreshold = currentCount < 5 ? 5 : currentCount < 25 ? 25 : currentCount < 100 ? 100 : null
-  
   openModal('🎁 Referral Program', `
-    <p>Bagikan kode referral ke temanmu dan dapatkan <strong>akses eksklusif</strong>!</p>
-    
+    <p>Bagikan kode referral ke temanmu dan dapatkan akses eksklusif!</p>
     <div class="referral-box">
-      <div style="font-size:11px;font-weight:700;color:var(--txt-3);text-transform:uppercase;letter-spacing:.1em;text-align:center">KODE REFERRAL KAMU</div>
+      <div style="font-size:11px;font-weight:700;color:var(--txt-3);text-transform:uppercase;text-align:center">KODE REFERRAL KAMU</div>
       <div class="referral-code" id="myRefCode">${escapeHtml(user.referralCode)}</div>
       <div class="referral-actions">
-        <button class="btn btn--secondary btn--tiny" onclick="copyRef()">📋 Copy</button>
-        <button class="btn btn--secondary btn--tiny" onclick="shareRef()">📤 Share</button>
+        <button class="btn btn--secondary btn--tiny" id="copyRefBtn">📋 Copy</button>
+        <button class="btn btn--secondary btn--tiny" id="shareRefBtn">📤 Share</button>
       </div>
     </div>
-    
     <h4>📊 Statistik</h4>
     <div class="profile-stats">
-      <div class="profile-stat">
-        <div class="profile-stat__value">${currentCount}</div>
-        <div class="profile-stat__label">Total Undang</div>
-      </div>
-      <div class="profile-stat">
-        <div class="profile-stat__value">${refs.length}</div>
-        <div class="profile-stat__label">Berhasil Daftar</div>
-      </div>
+      <div class="profile-stat"><div class="profile-stat__value">${currentCount}</div><div class="profile-stat__label">Total Undang</div></div>
+      <div class="profile-stat"><div class="profile-stat__value">${refs.length}</div><div class="profile-stat__label">Berhasil</div></div>
+      <div class="profile-stat"><div class="profile-stat__value">${TIER_THRESHOLDS.premium - currentCount > 0 ? TIER_THRESHOLDS.premium - currentCount : 0}</div><div class="profile-stat__label">Ke Premium</div></div>
     </div>
-    
     ${nextThreshold ? `
       <h4>🎯 Menuju Tier Berikutnya</h4>
-      <p>Kamu perlu <strong>${nextThreshold - currentCount} referral lagi</strong> untuk naik tier!</p>
+      <p>Butuh <strong>${nextThreshold - currentCount} referral lagi</strong> untuk naik tier!</p>
       <div style="height:8px;background:rgba(0,0,0,.3);border-radius:4px;overflow:hidden;margin-top:8px">
-        <div style="height:100%;width:${(currentCount / nextThreshold) * 100}%;background:linear-gradient(90deg,var(--acc),var(--blue));border-radius:4px;transition:width .5s ease"></div>
+        <div style="height:100%;width:${(currentCount / nextThreshold) * 100}%;background:linear-gradient(90deg,var(--acc),var(--blue));border-radius:4px"></div>
       </div>
-    ` : `
-      <p style="color:var(--gold);font-weight:700;text-align:center;margin-top:16px">👑 Kamu sudah di tier tertinggi!</p>
-    `}
+    ` : `<p style="color:var(--gold);font-weight:700;text-align:center;margin-top:16px">👑 Kamu sudah di tier tertinggi!</p>`}
   `)
+  $('copyRefBtn').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(user.referralCode); Toast.show('Copied!', 'Kode disalin', 2000); SoundFX.notify() } catch {}
+  })
+  $('shareRefBtn').addEventListener('click', async () => {
+    const text = `🎁 Gabung ke AM Activate Premium!\n\nKode referral: *${user.referralCode}*\n\nDaftar di: ${window.location.origin}`
+    try {
+      if (navigator.share) await navigator.share({ title: 'AM Activate Premium', text })
+      else { await navigator.clipboard.writeText(text); Toast.show('Copied!', 'Pesan disalin', 2000) }
+    } catch {}
+  })
 }
 
-window.copyRef = async () => {
-  const user = DB.getCurrentUser()
-  try {
-    await navigator.clipboard.writeText(user.referralCode)
-    Toast.show('Copied!', 'Kode referral disalin', 2000)
-    SoundFX.notify()
-  } catch {}
-}
-
-window.shareRef = async () => {
-  const user = DB.getCurrentUser()
-  const text = `🎁 Gabung ke AM Activate Premium!\n\nGunakan kode referral: *${user.referralCode}*\n\nDaftar di: ${window.location.origin}`
-  try {
-    if (navigator.share) await navigator.share({ title: 'AM Activate Premium', text })
-    else { await navigator.clipboard.writeText(text); Toast.show('Copied!', 'Pesan disalin', 2000) }
-  } catch {}
-}
-
-/* ═══ TIERS MODAL ═══ */
+/* ═══ TIERS ═══ */
 function showTiers() {
   const user = DB.getCurrentUser()
-  const currentTier = user?.tier || 'free'
-  
+  const cur = user?.tier || 'free'
   openModal('⭐ Tier & Fitur', `
     <p>Semakin banyak referral, semakin tinggi tier kamu!</p>
-    
-    <div class="tier-card">
-      <div class="tier-card__head">
-        <div class="tier-card__badge free">🆓 FREE</div>
-        ${currentTier === 'free' ? '<span style="color:var(--acc);font-size:11px;font-weight:700">← KAMU</span>' : ''}
-      </div>
-      <div class="tier-card__desc">Aktivasi manual + 5 token vault. Gratis untuk semua user.</div>
-    </div>
-    
-    <div class="tier-card">
-      <div class="tier-card__head">
-        <div class="tier-card__badge premium">💎 PREMIUM</div>
-        ${currentTier === 'premium' ? '<span style="color:var(--acc);font-size:11px;font-weight:700">← KAMU</span>' : ''}
-      </div>
-      <div class="tier-card__desc">Unlock <strong>Bulk Generator (10)</strong> + 25 token vault. Butuh 5 referral.</div>
-    </div>
-    
-    <div class="tier-card">
-      <div class="tier-card__head">
-        <div class="tier-card__badge sultan">👑 SULTAN</div>
-        ${currentTier === 'sultan' ? '<span style="color:var(--acc);font-size:11px;font-weight:700">← KAMU</span>' : ''}
-      </div>
-      <div class="tier-card__desc">Unlock <strong>Bulk (50)</strong> + <strong>Auto-Activate All</strong> + 100 token. Butuh 25 referral.</div>
-    </div>
-    
-    <div class="tier-card">
-      <div class="tier-card__head">
-        <div class="tier-card__badge master">🏆 MASTER</div>
-        ${currentTier === 'master' ? '<span style="color:var(--acc);font-size:11px;font-weight:700">← KAMU</span>' : ''}
-      </div>
-      <div class="tier-card__desc">Semua fitur unlimited. Butuh 100 referral atau di-promote oleh Admin.</div>
-    </div>
-    
-    <div class="tier-card">
-      <div class="tier-card__head">
-        <div class="tier-card__badge admin">🔴 ADMIN</div>
-        ${currentTier === 'admin' ? '<span style="color:var(--acc);font-size:11px;font-weight:700">← KAMU</span>' : ''}
-      </div>
-      <div class="tier-card__desc">Developer access. Full admin panel untuk kelola semua user.</div>
-    </div>
+    <div class="tier-card"><div class="tier-card__head"><div class="tier-card__badge free">🆓 FREE</div>${cur === 'free' ? '<span style="color:var(--acc);font-size:11px;font-weight:700">← KAMU</span>' : ''}</div><div class="tier-card__desc">Aktivasi manual + 5 token vault. Gratis untuk semua user.</div></div>
+    <div class="tier-card"><div class="tier-card__head"><div class="tier-card__badge premium">💎 PREMIUM</div>${cur === 'premium' ? '<span style="color:var(--acc);font-size:11px;font-weight:700">← KAMU</span>' : ''}</div><div class="tier-card__desc">Unlock <strong>Bulk Generator (10)</strong> + 25 token. Butuh 5 referral.</div></div>
+    <div class="tier-card"><div class="tier-card__head"><div class="tier-card__badge sultan">👑 SULTAN</div>${cur === 'sultan' ? '<span style="color:var(--acc);font-size:11px;font-weight:700">← KAMU</span>' : ''}</div><div class="tier-card__desc">Unlock <strong>Bulk (50)</strong> + <strong>Auto-Activate</strong> + 100 token. Butuh 25 referral.</div></div>
+    <div class="tier-card"><div class="tier-card__head"><div class="tier-card__badge master">🏆 MASTER</div>${cur === 'master' ? '<span style="color:var(--acc);font-size:11px;font-weight:700">← KAMU</span>' : ''}</div><div class="tier-card__desc">Semua fitur unlimited. Butuh 100 referral atau promote by Admin.</div></div>
+    <div class="tier-card"><div class="tier-card__head"><div class="tier-card__badge admin">🔴 ADMIN</div>${cur === 'admin' ? '<span style="color:var(--acc);font-size:11px;font-weight:700">← KAMU</span>' : ''}</div><div class="tier-card__desc">Developer access + full admin panel.</div></div>
   `)
 }
 
 /* ═══ ADMIN PANEL ═══ */
 function showAdminPanel() {
   const currentUser = DB.getCurrentUser()
-  if (!currentUser || currentUser.tier !== 'admin') {
-    return Toast.show('Access Denied', 'Kamu bukan admin')
-  }
-  
+  if (!currentUser || currentUser.tier !== 'admin') return Toast.show('Access Denied', 'Kamu bukan admin')
   const users = DB.getUsers()
   const userList = Object.values(users)
-  
   openModal('🔴 Admin Panel', `
     <h4>📊 Statistik</h4>
     <div class="profile-stats">
-      <div class="profile-stat">
-        <div class="profile-stat__value">${userList.length}</div>
-        <div class="profile-stat__label">Total User</div>
-      </div>
-      <div class="profile-stat">
-        <div class="profile-stat__value">${userList.filter(u => u.tier === 'premium').length}</div>
-        <div class="profile-stat__label">Premium</div>
-      </div>
-      <div class="profile-stat">
-        <div class="profile-stat__value">${userList.filter(u => u.tier === 'sultan').length}</div>
-        <div class="profile-stat__label">Sultan</div>
-      </div>
+      <div class="profile-stat"><div class="profile-stat__value">${userList.length}</div><div class="profile-stat__label">Total User</div></div>
+      <div class="profile-stat"><div class="profile-stat__value">${userList.filter(u => u.tier === 'premium').length}</div><div class="profile-stat__label">Premium</div></div>
+      <div class="profile-stat"><div class="profile-stat__value">${userList.filter(u => u.tier === 'sultan').length}</div><div class="profile-stat__label">Sultan</div></div>
     </div>
-    
-    <h4>👥 Semua User</h4>
+    <h4>👥 Semua User (${userList.length})</h4>
     <div style="max-height:300px;overflow-y:auto;margin-top:8px">
       ${userList.map(u => `
         <div class="admin-user-item">
           <div class="admin-user-item__head">
-            <div>
+            <div style="min-width:0;flex:1">
               <div class="admin-user-item__name">${escapeHtml(u.username)}</div>
               <div class="admin-user-item__uid">${escapeHtml(u.uid.slice(0, 20))}...</div>
             </div>
             <div class="admin-user-item__tier ${u.tier}">${TIERS[u.tier]?.name || 'FREE'}</div>
           </div>
-          <div style="font-size:11px;color:var(--txt-3)">
-            Referral: ${u.referralCount || 0} | Aktivasi: ${u.activations || 0}
-          </div>
+          <div style="font-size:11px;color:var(--txt-3)">Referral: ${u.referralCount || 0} | Aktivasi: ${u.activations || 0}</div>
           <div class="admin-user-item__actions">
-            <button class="btn btn--secondary btn--tiny" onclick="promoteUser('${escapeHtml(u.username)}', 'premium')">💎 Premium</button>
-            <button class="btn btn--secondary btn--tiny" onclick="promoteUser('${escapeHtml(u.username)}', 'sultan')">👑 Sultan</button>
-            <button class="btn btn--secondary btn--tiny" onclick="promoteUser('${escapeHtml(u.username)}', 'master')">🏆 Master</button>
+            <button class="btn btn--secondary btn--tiny" onclick="promoteUser('${escapeHtml(u.username)}', 'premium')">💎 P</button>
+            <button class="btn btn--secondary btn--tiny" onclick="promoteUser('${escapeHtml(u.username)}', 'sultan')">👑 S</button>
+            <button class="btn btn--secondary btn--tiny" onclick="promoteUser('${escapeHtml(u.username)}', 'master')">🏆 M</button>
+            <button class="btn btn--secondary btn--tiny" onclick="promoteUser('${escapeHtml(u.username)}', 'free')">🆓 F</button>
             <button class="btn btn--secondary btn--tiny" onclick="deleteUser('${escapeHtml(u.username)}')">🗑️</button>
           </div>
         </div>
@@ -1371,10 +1122,12 @@ window.promoteUser = (username, tier) => {
   if (users[username]) {
     users[username].tier = tier
     DB.saveUsers(users)
+    const cur = DB.getCurrentUser()
+    if (cur && cur.username === username) DB.saveCurrentUser(users[username])
     Toast.show('Promoted!', `${username} → ${tier.toUpperCase()}`)
     SoundFX.success()
     closeModal()
-    setTimeout(() => showAdminPanel(), 500)
+    setTimeout(() => { showAdminPanel(); if (cur && cur.username === username) updateUserUI(users[username]) }, 500)
   }
 }
 
@@ -1388,21 +1141,513 @@ window.deleteUser = (username) => {
   setTimeout(() => showAdminPanel(), 500)
 }
 
-/* ═══ LOGIN STATE ═══ */
-/* (semua kode yang lama tetap sama — form, steps, poll, dll) */
+/* ═══ MAIN APP FUNCTIONS ═══ */
+let emailMode = 'manual'
+let randomEmailData = null
+let pollInterval = null
+let pollStartTime = 0
+let pollAttempts = 0
 
-/* Placeholder function untuk app logic — supaya tidak error */
-function openInbox() { Toast.show('Inbox', 'Fungsi inbox belum di-load') }
+function loadStats() {
+  fetch(`${API_BASE}/stats`)
+    .then(r => r.json())
+    .then(j => { animateNumber($('st-total'), Number(j.total || 0)) })
+    .catch(() => { $('st-total').textContent = '0' })
+}
 
-/* Utility */
-function showAuthMsg(id, text, type) {
+function animateNumber(el, target) {
+  if (!el) return
+  const duration = 1200; const start = performance.now()
+  function tick(now) {
+    const p = Math.min((now - start) / duration, 1)
+    const eased = 1 - Math.pow(1 - p, 3)
+    el.textContent = Math.floor(target * eased).toLocaleString('id-ID')
+    if (p < 1) requestAnimationFrame(tick)
+  }
+  requestAnimationFrame(tick)
+}
+
+function attachMainAppEvents() {
+  const tabManual = $('tabManual'); const tabRandom = $('tabRandom')
+  if (tabManual) tabManual.addEventListener('click', () => switchMode('manual'))
+  if (tabRandom) tabRandom.addEventListener('click', () => switchMode('random'))
+  const emInput = $('em')
+  if (emInput) {
+    emInput.addEventListener('input', () => {
+      const v = emInput.value.trim(); const hint = $('emailHint'); if (!hint) return
+      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
+      if (!v) { hint.textContent = 'Wajib aktif'; hint.classList.remove('valid') }
+      else if (valid) { hint.textContent = '✓ Valid'; hint.classList.add('valid') }
+      else { hint.textContent = 'Belum valid'; hint.classList.remove('valid') }
+    })
+    emInput.addEventListener('keypress', e => { if (e.key === 'Enter') $('b1')?.click() })
+  }
+  const btnGenerate = $('btnGenerate'); if (btnGenerate) btnGenerate.addEventListener('click', handleGenerateEmail)
+  const btnCopyEmail = $('btnCopyEmail'); if (btnCopyEmail) btnCopyEmail.addEventListener('click', handleCopyEmail)
+  const btnOpenInbox = $('btnOpenInbox'); if (btnOpenInbox) btnOpenInbox.addEventListener('click', () => openInbox())
+  const b1 = $('b1'); if (b1) b1.addEventListener('click', handleSendLink)
+  const b2 = $('b2'); if (b2) b2.addEventListener('click', () => { stopPolling(); const m2 = $('m2'); if (m2) m2.className = 'msg'; goToStep(1) })
+  const b3 = $('b3'); if (b3) b3.addEventListener('click', handleVerify)
+  const lkInput = $('lk'); if (lkInput) lkInput.addEventListener('keypress', e => { if (e.key === 'Enter') $('b3')?.click() })
+  const b4 = $('b4'); if (b4) b4.addEventListener('click', handleCopyToken)
+  const b5 = $('b5'); if (b5) b5.addEventListener('click', () => { const lk = $('lk'); if (lk) lk.value = ''; const m2 = $('m2'); if (m2) m2.className = 'msg'; stopPolling(); goToStep(1) })
+  const shareBtn = $('shareBtn'); if (shareBtn) shareBtn.addEventListener('click', handleShare)
+  const copyAllBtn = $('copyAllBtn'); if (copyAllBtn) copyAllBtn.addEventListener('click', handleCopyAll)
+  const downloadBtn = $('downloadBtn'); if (downloadBtn) downloadBtn.addEventListener('click', handleDownload)
+  const terminalClear = $('terminalClear'); if (terminalClear) terminalClear.addEventListener('click', () => Terminal.clear())
+  const terminalToggle = $('terminalToggle'); if (terminalToggle) terminalToggle.addEventListener('click', () => Terminal.toggle())
+  const inboxToggle = $('inboxToggle'); if (inboxToggle) inboxToggle.addEventListener('click', () => openInbox())
+  const inboxModalClose = $('inboxModalClose'); if (inboxModalClose) inboxModalClose.addEventListener('click', closeInbox)
+  const inboxRefresh = $('inboxRefresh'); if (inboxRefresh) inboxRefresh.addEventListener('click', () => { SoundFX.tap(); loadInbox() })
+  const inboxCopyEmail = $('inboxCopyEmail'); if (inboxCopyEmail) inboxCopyEmail.addEventListener('click', handleCopyInboxEmail)
+  const inboxModalOverlay = $('inboxModalOverlay'); if (inboxModalOverlay) inboxModalOverlay.addEventListener('click', e => { if (e.target === inboxModalOverlay) closeInbox() })
+  const soundToggle = $('soundToggle')
+  if (soundToggle) {
+    soundToggle.addEventListener('click', () => {
+      SoundFX.enable(!SoundFX.isEnabled())
+      soundToggle.innerHTML = SoundFX.isEnabled() ? '🔊' : '🔇'
+      if (SoundFX.isEnabled()) { SoundFX.init(); SoundFX.tap() }
+    })
+  }
+  const clearHistory = $('clearHistory')
+  if (clearHistory) clearHistory.addEventListener('click', () => {
+    SoundFX.tap(); localStorage.removeItem(HISTORY_KEY); renderHistory(); Toast.show('Cleared!', 'Riwayat dihapus', 2000)
+  })
+}
+
+function switchMode(mode) {
+  emailMode = mode
+  $('tabManual')?.classList.toggle('active', mode === 'manual')
+  $('tabRandom')?.classList.toggle('active', mode === 'random')
+  $('manualMode')?.classList.toggle('hide', mode !== 'manual')
+  $('randomMode')?.classList.toggle('hide', mode !== 'random')
+  SoundFX.tap()
+}
+
+async function handleGenerateEmail() {
+  const btn = $('btnGenerate')
+  setBusy(btn, true, 'Generating...')
+  Terminal.show(); Terminal.startTimer(); Terminal.setStatus('Generating', 'info')
+  try {
+    const r = await fetch(`${DUCKZ_API}/verified-domains`, { headers: { 'Accept': 'application/json' } })
+    if (!r.ok) throw new Error(`HTTP ${r.status}`)
+    const j = await r.json()
+    const domains = j.domains || []
+    if (!domains.length) throw new Error('Tidak ada domain')
+    const domain = domains[Math.floor(Math.random() * domains.length)]
+    const username = 'am' + Math.random().toString(36).slice(2, 11)
+    const email = `${username}@${domain}`
+    randomEmailData = { email, username, domain }
+    $('emRandom').value = email
+    $('btnCopyEmail').classList.remove('hide')
+    $('randomHint').textContent = '✅ Siap dipakai'
+    $('randomHint').classList.add('valid')
+    Terminal.log('MAIL', `Email: ${email}`, 'ok')
+    Terminal.setStatus('Inbox ready', 'ok')
+    SoundFX.success()
+    Toast.show('Email Generated!', email, 2500)
+  } catch (e) {
+    Terminal.log('ERR', e.message, 'err')
+    Terminal.setStatus('Error', 'err')
+    SoundFX.error()
+    showMsg('m1', e.message, 'err')
+  }
+  setBusy(btn, false)
+}
+
+async function handleCopyEmail() {
+  const email = $('emRandom')?.value
+  if (!email) return
+  try { await navigator.clipboard.writeText(email); SoundFX.notify(); Toast.show('Copied!', email, 2000) } catch { SoundFX.error() }
+}
+
+async function handleCopyInboxEmail() {
+  const em = randomEmailData?.email || $('em')?.value.trim()
+  if (!em) return
+  try { await navigator.clipboard.writeText(em); Toast.show('Copied!', em, 2000); SoundFX.notify() } catch {}
+}
+
+async function handleSendLink() {
+  let email = ''
+  if (emailMode === 'manual') {
+    email = $('em').value.trim()
+    if (!email || !email.includes('@') || !email.includes('.')) { SoundFX.error(); return showMsg('m1', 'Email tidak valid', 'err') }
+  } else {
+    email = $('emRandom').value.trim()
+    if (!email) { SoundFX.error(); return showMsg('m1', 'Generate email dulu', 'warn') }
+  }
+  const btn = $('b1')
+  setBusy(btn, true, 'Mengirim...')
+  Terminal.show(); Terminal.startTimer(); Terminal.setStatus('Sending', 'info')
+  try {
+    const r = await fetch(`${API_BASE}/send-link`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email }) })
+    const j = await r.json()
+    if (j.success) {
+      Terminal.log('OK', 'Magic link sent', 'ok')
+      Terminal.setStatus('Link sent', 'ok')
+      SoundFX.success()
+      showMsg('m1', 'Link berhasil dikirim!', 'ok')
+      $('w-em').textContent = email
+      setTimeout(() => { goToStep(2); if (emailMode === 'random' && randomEmailData) startPolling() }, 900)
+    } else {
+      Terminal.log('ERR', j.message || 'Failed', 'err')
+      Terminal.setStatus('Failed', 'err')
+      SoundFX.error()
+      showMsg('m1', j.message || 'Gagal kirim', 'err')
+    }
+  } catch (e) {
+    Terminal.log('ERR', 'Network error', 'err')
+    Terminal.setStatus('Network err', 'err')
+    SoundFX.error()
+    showMsg('m1', 'Server tidak merespon', 'err')
+  }
+  setBusy(btn, false)
+}
+
+let lastData = null
+async function handleVerify() {
+  const raw = $('lk')?.value.trim()
+  if (!raw) { SoundFX.error(); return showMsg('m2', 'Link masih kosong', 'err') }
+  const btn = $('b3')
+  setBusy(btn, true, 'Verifikasi...')
+  Terminal.show(); Terminal.setStatus('Verifying', 'info')
+  try {
+    const r = await fetch(`${API_BASE}/verify-link`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: $('w-em').textContent, magicLink: raw }) })
+    const j = await r.json()
+    if (j.success) {
+      const d = j.data
+      lastData = d
+      $('r-em').textContent = d.email || '—'
+      $('r-uid').textContent = d.uid || '—'
+      $('r-ord').textContent = d.orderId || '—'
+      $('r-tok').textContent = d.idToken || '—'
+      window.__tok = d.idToken
+      // Increment activation
+      const user = DB.getCurrentUser()
+      if (user) {
+        const users = DB.getUsers()
+        if (users[user.username]) {
+          users[user.username].activations = (users[user.username].activations || 0) + 1
+          DB.saveUsers(users)
+          DB.saveCurrentUser(users[user.username])
+          updateUserUI(users[user.username])
+        }
+      }
+      Terminal.log('OK', 'Verification success!', 'ok')
+      Terminal.setStatus('Premium Active', 'ok')
+      Terminal.stopTimer()
+      saveHistory({ email: d.email, ok: true, at: Date.now(), uid: d.uid, orderId: d.orderId })
+      SoundFX.levelUp()
+      Confetti.burst(140)
+      Toast.show('Premium Activated!', 'Akun terverifikasi 🎉')
+      stopPolling()
+      setTimeout(() => goToStep(3), 300)
+    } else {
+      Terminal.log('ERR', j.message || 'Failed', 'err')
+      Terminal.setStatus('Failed', 'err')
+      SoundFX.error()
+      showMsg('m2', j.message || 'Verifikasi gagal', 'err')
+      saveHistory({ email: $('w-em').textContent, ok: false, at: Date.now(), error: j.message })
+    }
+  } catch (e) {
+    Terminal.log('ERR', 'Network error', 'err')
+    Terminal.setStatus('Network err', 'err')
+    SoundFX.error()
+    showMsg('m2', 'Server tidak merespon', 'err')
+  }
+  setBusy(btn, false)
+}
+
+function startPolling() {
+  stopPolling()
+  pollStartTime = Date.now(); pollAttempts = 0
+  $('pollStatus').classList.add('show')
+  Terminal.log('POLL', 'Starting auto-poll', 'info')
+  Terminal.setStatus('Polling', 'info')
+  pollInterval = setInterval(async () => {
+    const elapsed = Math.floor((Date.now() - pollStartTime) / 1000)
+    pollAttempts++
+    $('pollTimer').textContent = elapsed + 's'
+    if (elapsed > 180) {
+      stopPolling()
+      $('pollText').textContent = 'Timeout.'
+      Terminal.log('WARN', 'Timeout', 'warn')
+      Terminal.setStatus('Timeout', 'warn')
+      showMsg('m2', 'Email tidak masuk', 'warn')
+      return
+    }
+    try {
+      const recipient = randomEmailData.email
+      const r = await fetch(`${DUCKZ_API}/emails?recipient=${encodeURIComponent(recipient)}&limit=50`)
+      const j = await r.json()
+      if (pollAttempts % 3 === 0) Terminal.log('POLL', `Check #${pollAttempts} — ${j.emails?.length || 0}`, 'info')
+      if (j.emails && j.emails.length > 0) {
+        $('pollText').textContent = '📬 Email masuk! Extracting...'
+        Terminal.log('MAIL', `Found ${j.emails.length}`, 'ok')
+        const msgId = j.emails[0].id
+        const detailRes = await fetch(`${DUCKZ_API}/emails/${encodeURIComponent(msgId)}/body`)
+        const detail = await detailRes.json()
+        const body = detail.text || detail.html || ''
+        const linkMatch = body.match(/https?:\/\/[^\s"<>]+alight[^\s"<>]*/i) || body.match(/https?:\/\/[^\s"<>]+oobCode[^\s"<>]+/i) || body.match(/https?:\/\/[^\s"<>]+/gi)?.[0]
+        if (linkMatch) {
+          const link = Array.isArray(linkMatch) ? linkMatch[0] : linkMatch
+          $('lk').value = link.trim()
+          stopPolling()
+          $('pollText').textContent = '✅ Link ditemukan!'
+          Terminal.log('OK', 'Link extracted!', 'ok')
+          try { await navigator.clipboard.writeText(link.trim()); Toast.show('Auto-Copied!', 'Link disalin', 2500) } catch {}
+          SoundFX.notify()
+          setTimeout(() => $('b3')?.click(), 1500)
+        }
+      }
+    } catch (e) { Terminal.log('POLL-ERR', e.message, 'err') }
+  }, 3000)
+}
+
+function stopPolling() {
+  if (pollInterval) { clearInterval(pollInterval); pollInterval = null; Terminal.log('POLL', 'Stopped', 'info') }
+  $('pollStatus').classList.remove('show')
+}
+
+/* ═══ INBOX ═══ */
+let inboxPollInterval = null
+let inboxCurrentView = 'list'
+
+function openInbox() {
+  $('inboxModalOverlay').classList.add('open')
+  document.body.classList.add('locked')
+  inboxCurrentView = 'list'
+  renderInboxEmail()
+  loadInbox()
+  if (inboxPollInterval) clearInterval(inboxPollInterval)
+  inboxPollInterval = setInterval(() => { if (inboxCurrentView === 'list') loadInbox() }, 5000)
+  SoundFX.tap()
+}
+
+function closeInbox() {
+  $('inboxModalOverlay').classList.remove('open')
+  document.body.classList.remove('locked')
+  if (inboxPollInterval) { clearInterval(inboxPollInterval); inboxPollInterval = null }
+}
+
+function renderInboxEmail() {
+  const em = randomEmailData?.email || $('em')?.value.trim() || ''
+  $('inboxEmailText').textContent = em || '— belum ada —'
+}
+
+async function loadInbox() {
+  inboxCurrentView = 'list'
+  const recipient = randomEmailData?.email || $('em')?.value.trim()
+  if (!recipient) {
+    $('inboxList').innerHTML = '<div class="history__empty">Belum ada email aktif</div>'
+    $('inboxCount').textContent = '0'
+    return
+  }
+  try {
+    const r = await fetch(`${DUCKZ_API}/emails?recipient=${encodeURIComponent(recipient)}&limit=50`)
+    const j = await r.json()
+    const emails = j.emails || []
+    $('inboxCount').textContent = emails.length
+    if (!emails.length) {
+      $('inboxList').innerHTML = '<div class="history__empty">Belum ada pesan</div>'
+      return
+    }
+    $('inboxList').innerHTML = emails.map(m => `
+      <div class="inbox-item" data-id="${m.id}" style="display:flex;align-items:flex-start;gap:12px;padding:14px;border-radius:10px;background:rgba(0,0,0,.2);border:1px solid var(--border);cursor:pointer">
+        <div style="width:34px;height:34px;border-radius:10px;background:var(--acc-soft);color:var(--acc);display:flex;align-items:center;justify-content:center;flex:none">📧</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:12px;font-weight:700;color:var(--txt);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:3px">${escapeHtml(m.sender || 'Unknown')}</div>
+          <div style="font-size:11px;color:var(--txt-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:4px">${escapeHtml(m.subject || '(No subject)')}</div>
+          <div style="font-size:10px;color:var(--txt-4);font-family:var(--mono)">${escapeHtml(m.received_at || '')}</div>
+        </div>
+      </div>
+    `).join('')
+    $('inboxList').querySelectorAll('.inbox-item').forEach(el => {
+      el.addEventListener('click', () => { SoundFX.tap(); openInboxEmail(el.dataset.id) })
+    })
+  } catch (e) {
+    $('inboxList').innerHTML = `<div class="history__empty" style="color:var(--red)">Error: ${escapeHtml(e.message)}</div>`
+  }
+}
+
+async function openInboxEmail(id) {
+  inboxCurrentView = 'detail'
+  $('inboxList').innerHTML = '<div class="history__empty">Memuat...</div>'
+  try {
+    const [metaRes, bodyRes] = await Promise.all([
+      fetch(`${DUCKZ_API}/emails/${encodeURIComponent(id)}`),
+      fetch(`${DUCKZ_API}/emails/${encodeURIComponent(id)}/body`)
+    ])
+    const meta = await metaRes.json()
+    const body = await bodyRes.json()
+    const sender = meta.sender || meta.headers?.From || 'Unknown'
+    const recipient = meta.recipient || 'Unknown'
+    const subject = meta.subject || meta.headers?.Subject || '(No Subject)'
+    const date = meta.received_at || meta.headers?.Date || 'Unknown'
+    const htmlContent = body.html || null
+    const textContent = body.text || null
+    const rawForLink = textContent || htmlContent || ''
+    const linkMatch = rawForLink.match(/https?:\/\/[^\s"<>]+alight[^\s"<>]*/i) || rawForLink.match(/https?:\/\/[^\s"<>]+oobCode[^\s"<>]+/i) || rawForLink.match(/https?:\/\/[^\s"<>]+/gi)?.[0]
+    const magicLink = linkMatch ? (Array.isArray(linkMatch) ? linkMatch[0] : linkMatch).trim() : null
+    let safeHtml = ''
+    if (htmlContent) {
+      safeHtml = htmlContent
+        .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+        .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+        .replace(/\son\w+\s*=\s*"[^"]*"/gi, '')
+        .replace(/\son\w+\s*=\s*'[^']*'/gi, '')
+        .replace(/\son\w+\s*=\s*[^\s>]+/gi, '')
+        .replace(/javascript:/gi, '')
+    } else if (textContent) {
+      safeHtml = escapeHtml(textContent).replace(/\n/g, '<br>').replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>')
+    }
+    $('inboxList').innerHTML = `
+      <button class="btn btn--secondary btn--tiny" id="inboxBack" style="width:auto;margin-bottom:12px">← Kembali</button>
+      <div style="background:#050508;border:1px solid var(--border);border-radius:10px;overflow:hidden">
+        <div style="padding:14px 16px;background:rgba(255,255,255,.02);border-bottom:1px dashed var(--border)">
+          <div style="font-size:14px;font-weight:700;color:var(--acc);margin-bottom:12px;font-family:var(--mono);word-break:break-word">${escapeHtml(subject)}</div>
+          <div style="display:flex;gap:8px;font-size:11px;margin-bottom:5px"><span style="flex:none;width:55px;color:var(--txt-3);font-weight:700;text-transform:uppercase">From</span><span style="flex:1;color:var(--txt-2);word-break:break-all">${escapeHtml(sender)}</span></div>
+          <div style="display:flex;gap:8px;font-size:11px;margin-bottom:5px"><span style="flex:none;width:55px;color:var(--txt-3);font-weight:700;text-transform:uppercase">To</span><span style="flex:1;color:var(--txt-2);word-break:break-all">${escapeHtml(recipient)}</span></div>
+          <div style="display:flex;gap:8px;font-size:11px"><span style="flex:none;width:55px;color:var(--txt-3);font-weight:700;text-transform:uppercase">Date</span><span style="flex:1;color:var(--txt-2);word-break:break-all">${escapeHtml(date)}</span></div>
+        </div>
+        <div style="padding:16px;font-family:var(--font);font-size:13px;line-height:1.7;max-height:280px;overflow-y:auto;background:#fff;color:#1a1a1a">${safeHtml || '<em style="color:#888">(No content)</em>'}</div>
+        <div style="padding:12px 16px;background:rgba(255,255,255,.02);border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          ${magicLink ? `
+            <button class="btn btn--primary btn--tiny" id="verifyFromEmail">⚡ Auto-Verify</button>
+            <button class="btn btn--secondary btn--tiny" id="copyFromEmail">📋 Copy Link</button>
+          ` : `
+            <button class="btn btn--secondary btn--tiny" id="copyFromEmail" style="grid-column:span 2">📋 Copy Body</button>
+          `}
+        </div>
+      </div>
+    `
+    $('inboxBack').addEventListener('click', () => { SoundFX.tap(); loadInbox() })
+    if (magicLink) {
+      $('verifyFromEmail').addEventListener('click', async () => {
+        SoundFX.tap()
+        try { await navigator.clipboard.writeText(magicLink) } catch {}
+        $('lk').value = magicLink
+        $('w-em').textContent = randomEmailData?.email || $('em').value.trim()
+        closeInbox()
+        goToStep(2)
+        SoundFX.notify()
+        Toast.show('Link auto-filled!', 'Verifying...', 2000)
+        setTimeout(() => $('b3')?.click(), 800)
+      })
+      $('copyFromEmail').addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText(magicLink); SoundFX.notify(); Toast.show('Link copied!', 'Tempel di Step 2', 2000) } catch { SoundFX.error() }
+      })
+    } else {
+      $('copyFromEmail').addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText(textContent || subject); SoundFX.notify(); Toast.show('Email copied!', 'Body disalin', 2000) } catch { SoundFX.error() }
+      })
+    }
+  } catch (e) {
+    $('inboxList').innerHTML = `<button class="btn btn--secondary btn--tiny" id="inboxBack" style="width:auto;margin-bottom:12px">← Kembali</button><div class="history__empty" style="color:var(--red)">Error: ${escapeHtml(e.message)}</div>`
+    $('inboxBack').addEventListener('click', () => loadInbox())
+  }
+}
+
+/* ═══ STEP NAV ═══ */
+function goToStep(n) {
+  const current = getCurrentStep()
+  if (current === n) return
+  for (let i = 1; i <= 3; i++) {
+    const stepEl = $('n' + i)
+    const numEl = stepEl?.querySelector('.step__num')
+    if (!stepEl || !numEl) continue
+    if (i === n) { $('p' + i).classList.remove('hide'); stepEl.className = 'step on'; numEl.textContent = i }
+    else if (i < n) { $('p' + i).classList.add('hide'); stepEl.className = 'step done'; numEl.textContent = '✓' }
+    else { $('p' + i).classList.add('hide'); stepEl.className = 'step'; numEl.textContent = i }
+  }
+  const prog = $('stepsProgress'); if (prog) prog.style.width = ((n - 1) / 2 * 100) + '%'
+}
+
+function getCurrentStep() {
+  for (let i = 1; i <= 3; i++) if (!$('p' + i)?.classList.contains('hide')) return i
+  return 1
+}
+
+/* ═══ HELPERS ═══ */
+function setBusy(btn, busy, text) {
+  if (!btn) return
+  if (busy) { btn.dataset.orig = btn.innerHTML; btn.disabled = true; btn.innerHTML = `<div class="btn__spinner"></div>${text || 'Loading...'}` }
+  else { btn.disabled = false; if (btn.dataset.orig) btn.innerHTML = btn.dataset.orig }
+}
+
+function showMsg(id, text, type) {
   const m = $(id); if (!m) return
-  m.className = 'msg show ' + (type === 'ok' ? 'msg--ok' : 'msg--err')
-  m.innerHTML = `<div class="msg__icon">${type === 'ok' ? '✓' : '✗'}</div><span>${escapeHtml(text)}</span>`
+  const cls = type === 'ok' ? 'msg--ok' : type === 'warn' ? 'msg--warn' : 'msg--err'
+  m.className = 'msg show ' + cls
+  m.innerHTML = `<div class="msg__icon">${type === 'ok' ? '✓' : type === 'warn' ? '⚠' : '✗'}</div><span>${escapeHtml(text)}</span>`
+}
+
+/* ═══ STEP 3 ACTIONS ═══ */
+async function handleCopyToken() {
+  const btn = $('b4'); const orig = btn.innerHTML
+  try {
+    await navigator.clipboard.writeText(window.__tok || '')
+    SoundFX.notify(); Toast.show('Copied!', 'Token disalin', 2000)
+    btn.innerHTML = '✓ Copied!'
+  } catch { SoundFX.error(); btn.innerHTML = '✗ Gagal' }
+  setTimeout(() => { btn.innerHTML = orig }, 1600)
+}
+
+async function handleShare() {
+  const d = lastData || {}
+  const text = `🎉 Premium Alight Motion Aktif!\n\n📧 ${d.email || '-'}\n🆔 ${d.uid || '-'}\n📦 ${d.orderId || '-'}`
+  try {
+    if (navigator.share) await navigator.share({ title: 'Premium Alight Motion', text })
+    else { await navigator.clipboard.writeText(text); Toast.show('Copied!', 'Text disalin', 2000) }
+    SoundFX.notify()
+  } catch (e) { if (e.name !== 'AbortError') SoundFX.error() }
+}
+
+async function handleCopyAll() {
+  const d = lastData || {}
+  const text = `Email: ${d.email || '-'}\nUID: ${d.uid || '-'}\nOrder: ${d.orderId || '-'}\nPlan: ${d.planName || '-'}\nToken: ${d.idToken || '-'}`
+  try { await navigator.clipboard.writeText(text); SoundFX.notify(); Toast.show('Copied All!', 'Data disalin', 2000) } catch { SoundFX.error() }
+}
+
+function handleDownload() {
+  const d = lastData || {}
+  const blob = new Blob([JSON.stringify(d, null, 2)], { type: 'application/json' })
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a'); a.href = url; a.download = `am-${d.uid || Date.now()}.json`; a.click()
+  URL.revokeObjectURL(url)
+  SoundFX.notify(); Toast.show('Downloaded!', 'File tersimpan', 2000)
+}
+
+/* ═══ HISTORY ═══ */
+function loadHistory() { try { const d = localStorage.getItem(HISTORY_KEY); return d ? JSON.parse(d) : [] } catch { return [] } }
+function saveHistory(item) { const h = loadHistory(); h.unshift(item); try { localStorage.setItem(HISTORY_KEY, JSON.stringify(h.slice(0, 10))) } catch {}; renderHistory() }
+function renderHistory() {
+  const list = $('historyList'); if (!list) return
+  const history = loadHistory()
+  if (!history.length) { list.innerHTML = '<div class="history__empty">Belum ada riwayat</div>'; return }
+  list.innerHTML = history.map(item => {
+    const time = formatTimeAgo(item.at)
+    const icon = item.ok ? '✓' : '✗'
+    const cls = item.ok ? 'ok' : 'fail'
+    return `<div class="history__item" data-email="${escapeHtml(item.email)}"><div class="history__icon ${cls}">${icon}</div><div class="history__info"><div class="history__email">${escapeHtml(item.email)}</div><div class="history__time">${time}</div></div></div>`
+  }).join('')
+  list.querySelectorAll('.history__item').forEach(el => {
+    el.addEventListener('click', () => {
+      const email = el.dataset.email
+      if (email) { SoundFX.tap(); switchMode('manual'); $('em').value = email; goToStep(1); Toast.show('Email diisi ulang', email, 2000) }
+    })
+  })
+}
+function formatTimeAgo(ts) {
+  const diff = Date.now() - ts; const s = Math.floor(diff / 1000)
+  if (s < 60) return `${s} detik lalu`
+  const m = Math.floor(s / 60); if (m < 60) return `${m} menit lalu`
+  const h = Math.floor(m / 60); if (h < 24) return `${h} jam lalu`
+  return `${Math.floor(h / 24)} hari lalu`
 }
 
 console.log('[AM ACTIVATE v8.0] Loaded — User System + Referral')
-console.log('[SYSTEM] Dev Login: @azuredeveloper / azureAdminweb')
+console.log('[SYSTEM] Admin: @azuredeveloper')
 </script>
 </body>
 </html>
