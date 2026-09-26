@@ -1,183 +1,162 @@
 /*
- * Web to APK Builder API
- * Convert website ke Android APK via rfweb2apk.rfdevv.com + proxy rotation
+ * CapCut Template Search API
+ * Search template video/image dari CapCut via proxy rotation
  * Source: api.ikyyxd.my.id
  */
 
-import { NextResponse } from 'next/server'
-import axios from 'axios'
-import FormData from 'form-data'
+const express = require('express');
+const axios = require('axios');
 
-export const runtime = 'nodejs'
-export const dynamic = 'force-dynamic'
-export const maxDuration = 120
+const router = express.Router();
 
-const PROXY_API_URL = 'https://api.ikyyxd.my.id/v2l/proxy-free/ikyy-xsample'
-const BUILD_ENDPOINT = 'https://rfweb2apk.rfdevv.com/api/apk/build'
-const BUILD_HOST = 'https://rfweb2apk.rfdevv.com'
+const PROXY_API = 'https://api.ikyyxd.my.id/v2l/proxy-free/ikyy-xsample';
+const BASE_URL = 'https://www.capcut.com';
+const API_ENDPOINT = '/kep/api/getSimilarTemplates';
 
-let proxies = []
-let proxiesFetchedAt = 0
+let proxies = [];
+let proxiesFetchedAt = 0;
 
-const DEVICE_PROFILES = [
-  { ua: 'Mozilla/5.0 (Linux; Android 14; Pixel 8 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Mobile Safari/537.36', chrome: '125' },
-  { ua: 'Mozilla/5.0 (Linux; Android 13; SM-S918B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36', chrome: '124' },
-  { ua: 'Mozilla/5.0 (Linux; Android 12; Redmi Note 12 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Mobile Safari/537.36', chrome: '123' }
-]
-
-async function refreshProxies() {
-  const now = Date.now()
-  if (proxies.length && now - proxiesFetchedAt < 5 * 60 * 1000) return proxies
+async function fetchProxies() {
+  const now = Date.now();
+  if (proxies.length && now - proxiesFetchedAt < 5 * 60 * 1000) return proxies;
   try {
-    const res = await axios.get(PROXY_API_URL, { timeout: 10000 })
-    proxies = (res.data || []).filter(p => typeof p === 'string' && p.trim().split(':').length === 4)
-    proxiesFetchedAt = now
-    console.log(`[APK] ${proxies.length} proxies loaded`)
+    const res = await axios.get(PROXY_API, { timeout: 10000 });
+    if (!Array.isArray(res.data)) throw new Error('Invalid proxy format');
+    proxies = res.data.filter(p => typeof p === 'string' && p.trim().split(':').length === 4);
+    proxiesFetchedAt = now;
+    console.log(`[CapCut] ${proxies.length} proxies loaded`);
   } catch (err) {
-    console.error('[APK] Proxy fetch failed:', err.message)
+    console.error('[CapCut] Proxy fetch failed:', err.message);
   }
-  return proxies
+  return proxies;
 }
 
-function getRandomHeaders() {
-  const p = DEVICE_PROFILES[Math.floor(Math.random() * DEVICE_PROFILES.length)]
+function getRandomProxyConfig() {
+  const p = proxies[Math.floor(Math.random() * proxies.length)];
+  const [host, port, user, pass] = p.trim().split(':');
   return {
-    'User-Agent': p.ua,
-    'Sec-Ch-Ua': `"Chromium";v="${p.chrome}", "Google Chrome";v="${p.chrome}", "Not=A?Brand";v="24"`,
-    'Sec-Ch-Ua-Mobile': '?1',
-    'Sec-Ch-Ua-Platform': '"Android"',
-    'Accept-Language': 'id-ID,id;q=0.9,en-US;q=0.8'
+    host,
+    port: parseInt(port),
+    auth: { username: user, password: pass },
+    protocol: 'http'
+  };
+}
+
+async function searchTemplates({ keyword, size = 10, language = 'en', regionCode = 'US', tabs = ['video'] }) {
+  const proxyConfig = getRandomProxyConfig();
+
+  const client = axios.create({
+    baseURL: BASE_URL,
+    proxy: proxyConfig,
+    timeout: 30000,
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
+      'Accept': '*/*',
+      'Content-Type': 'application/json',
+      'Origin': BASE_URL,
+      'Referer': `${BASE_URL}/template`,
+      'Sec-Fetch-Dest': 'empty',
+      'Sec-Fetch-Mode': 'cors',
+      'Sec-Fetch-Site': 'same-origin'
+    }
+  });
+
+  const payload = { keyword, tabs, language, regionCode, size };
+
+  const res = await client.post(API_ENDPOINT, payload);
+
+  if (res.data.status !== 1000 || !res.data.data?.videoTemplateList) {
+    throw new Error(`API Error: ${JSON.stringify(res.data).slice(0, 200)}`);
   }
+
+  return res.data.data.videoTemplateList.videoTemplates || [];
 }
 
-function parseProxy(str) {
-  const [host, port, username, password] = str.split(':')
-  return { host, port: parseInt(port), auth: { username, password }, protocol: 'http' }
-}
-
-async function downloadIcon(url) {
+router.post('/', async (req, res) => {
   try {
-    const res = await axios.get(url, { responseType: 'arraybuffer', timeout: 15000 })
-    const ct = res.headers['content-type'] || 'image/png'
-    const ext = ct.includes('jpeg') ? 'jpg' : 'png'
-    return { buffer: Buffer.from(res.data), filename: `icon.${ext}`, contentType: ct }
-  } catch {
-    const dummy = Buffer.from(
-      'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==',
-      'base64'
-    )
-    return { buffer: dummy, filename: 'icon.png', contentType: 'image/png' }
-  }
-}
+    const { keyword, size = 20, language = 'en', regionCode = 'US', tabs = ['video'] } = req.body || {};
 
-async function tryBuild(config) {
-  await refreshProxies()
-  if (!proxies.length) throw new Error('Tidak ada proxy tersedia')
+    if (!keyword || !keyword.trim()) {
+      return res.status(400).json({ success: false, message: 'Keyword wajib diisi' });
+    }
 
-  const iconData = await downloadIcon(config.icon || '')
+    await fetchProxies();
+    if (!proxies.length) {
+      return res.status(503).json({ success: false, message: 'Tidak ada proxy tersedia' });
+    }
 
-  const fd = new FormData()
-  fd.append('appName', config.appName)
-  fd.append('packageName', config.packageName)
-  fd.append('versionName', config.versionName || '1.0')
-  fd.append('versionCode', String(config.versionCode || '1'))
-  fd.append('url', config.url)
-  fd.append('splashType', config.splashType || 'image')
-  fd.append('orientation', config.orientation || 'auto')
-  fd.append('icon', iconData.buffer, {
-    filename: iconData.filename,
-    contentType: iconData.contentType
-  })
+    let lastError = '';
+    let results = [];
+    let usedProxyIp = '';
 
-  let lastErr = null
-  for (let i = 0; i < 5; i++) {
-    const proxyStr = proxies[Math.floor(Math.random() * proxies.length)]
-    try {
-      const headers = { ...fd.getHeaders(), ...getRandomHeaders() }
-      const r = await axios.post(BUILD_ENDPOINT, fd, {
-        headers,
-        proxy: parseProxy(proxyStr),
-        timeout: 120000,
-        maxBodyLength: Infinity,
-        maxContentLength: Infinity
-      })
+    for (let i = 0; i < 5; i++) {
+      try {
+        const proxyConfig = getRandomProxyConfig();
+        usedProxyIp = proxyConfig.host;
 
-      if (r.data.success) {
-        return {
+        const templates = await searchTemplates({
+          keyword: keyword.trim(),
+          size: Math.min(Math.max(parseInt(size) || 20, 1), 30),
+          language,
+          regionCode,
+          tabs: Array.isArray(tabs) ? tabs : [tabs]
+        });
+
+        results = templates.map(t => ({
+          templateId: t.templateId,
+          title: t.title,
+          titleDesc: t.titleDesc,
+          useCount: t.useCount,
+          likeCount: t.likeCount,
+          commentCount: t.commentCount,
+          templateDuration: t.templateDuration,
+          coverUrl: t.coverUrl,
+          videoUrl: t.videoUrl,
+          fragmentId: t.fragmentId || t.templateId,
+          structuredData: t.structuredData || null
+        }));
+
+        return res.json({
           success: true,
-          buildId: r.data.buildId,
-          fileName: r.data.fileName,
-          size: r.data.size,
-          downloadUrl: `${BUILD_HOST}${r.data.downloadUrl}`,
-          message: r.data.message || 'Build successful'
-        }
+          message: `Found ${results.length} templates for "${keyword}"`,
+          data: {
+            keyword,
+            total_results: results.length,
+            templates: results,
+            proxy_ip: usedProxyIp,
+            timestamp: new Date().toISOString()
+          }
+        });
+      } catch (err) {
+        lastError = err.message;
+        console.warn(`[CapCut] Attempt ${i + 1}/5 failed: ${lastError}`);
       }
-      lastErr = r.data.message || 'Build failed'
-    } catch (e) {
-      lastErr = e.response?.data?.message || e.message
-      console.warn(`[APK] Attempt ${i + 1}/5 failed:`, lastErr)
-    }
-  }
-  throw new Error(lastErr || 'Semua attempt gagal')
-}
-
-export async function POST(request) {
-  try {
-    const body = await request.json()
-    const { url, appName, packageName, versionName, versionCode, icon, orientation, splashType } = body || {}
-
-    if (!url || !appName || !packageName) {
-      return NextResponse.json({
-        success: false,
-        message: 'url, appName, packageName wajib diisi'
-      }, { status: 400 })
     }
 
-    if (!/^https?:\/\//i.test(url)) {
-      return NextResponse.json({ success: false, message: 'URL harus http:// atau https://' }, { status: 400 })
-    }
-
-    if (!/^[a-z][a-z0-9_]*(\.[a-z][a-z0-9_]*)+$/i.test(packageName)) {
-      return NextResponse.json({ success: false, message: 'Package name tidak valid (format: com.example.app)' }, { status: 400 })
-    }
-
-    const result = await tryBuild({
-      url: url.trim(),
-      appName: appName.trim(),
-      packageName: packageName.trim(),
-      versionName: versionName || '1.0',
-      versionCode: versionCode || '1',
-      icon,
-      orientation: orientation || 'auto',
-      splashType: splashType || 'image'
-    })
-
-    return NextResponse.json(result)
-  } catch (error) {
-    console.error('[APK] Build error:', error)
-    return NextResponse.json({
+    return res.status(502).json({
       success: false,
-      message: error.message || 'Build gagal'
-    }, { status: 500 })
-  }
-}
+      message: 'Semua attempt gagal',
+      error: lastError
+    });
 
-export async function GET() {
-  return NextResponse.json({
+  } catch (error) {
+    console.error('[CapCut] Fatal:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Fatal error: ' + error.message
+    });
+  }
+});
+
+router.get('/', (req, res) => {
+  res.json({
     success: true,
-    message: 'Web to APK Builder API — use POST with build config',
+    message: 'CapCut Search API — use POST with { keyword, tabs, size }',
     endpoints: {
-      POST: 'Build APK',
-      body: {
-        url: 'string (required)',
-        appName: 'string (required)',
-        packageName: 'string (required)',
-        versionName: 'string (optional, default 1.0)',
-        versionCode: 'string (optional, default 1)',
-        icon: 'string URL (optional)',
-        orientation: 'auto | portrait | landscape',
-        splashType: 'image | text'
-      }
+      POST: 'Search templates',
+      body: { keyword: 'string', tabs: ['video' | 'image'], size: 'number', language: 'string', regionCode: 'string' }
     }
-  })
-}
+  });
+});
+
+module.exports = router;
