@@ -1,4 +1,4 @@
-```markdown
+
 <!-- ═══════════════════════════════════════════════════════════════════════
      OMNI AZURE ASAHIRO · README
      Team Reverse Neo · ansari × zenno
@@ -52,13 +52,14 @@
 
 <!-- ─── BYLINE ─── -->
 **🖤 Made with love by** &nbsp; `team reverse — neo`
+
 **👤** ansari &nbsp;·&nbsp; **👤** zenno
 
 <br>
 
 <!-- ─── TABLE OF CONTENTS ─── -->
 <details open>
-<summary><b>📑 Table of Contents (click to expand)</b></summary>
+<summary><b>📑 Table of Contents</b></summary>
 <br>
 
 **🎯 Getting Started**
@@ -103,11 +104,7 @@
 
 ## ⚠️ IMPORTANT NOTICE
 
-<table>
-<tr>
-<td align="center">
-
-### 🚨 **THIS IS UNOFFICIAL SOFTWARE** 🚨
+**THIS IS UNOFFICIAL SOFTWARE**
 
 **NOT** affiliated with **Alight Creative**, **Google**, **CapCut**, or **YouTube**.
 
@@ -117,10 +114,6 @@ Built from scratch through **deep reverse engineering** of:
 - 💳 `verifyPurchase` endpoint (analyzed)
 
 **If your account gets banned — that's on you.**
-
-</td>
-</tr>
-</table>
 
 </div>
 
@@ -132,100 +125,76 @@ Built from scratch through **deep reverse engineering** of:
 
 ### 🎯 **Six powerful tools in one sleek web app**
 
+</div>
+
 <br>
 
 <table>
 <tr>
 <td align="center" width="33%">
 
-### 🎯
-### **AM Premium**
+### 🎯 AM Premium
 **Alight Motion Activator**
 
-<span style="color: #7cffb2;">━━━━━━━━━━━━━</span>
+Turn your free account into premium for **FREE**
 
-Turn your free account
-into premium for **FREE**
-
-<sub>`magic link` · `auto-verify`</sub>
+`magic link` · `auto-verify`
 
 </td>
 <td align="center" width="33%">
 
-### 🎬
-### **CapCut**
+### 🎬 CapCut
 **Template Search**
 
-<span style="color: #ffcb6b;">━━━━━━━━━━━━━</span>
+Find viral templates for your video edits
 
-Find viral templates
-for your video edits
-
-<sub>`video` · `image` · `proxy`</sub>
+`video` · `image` · `proxy`
 
 </td>
 <td align="center" width="33%">
 
-### 📦
-### **Web to APK**
+### 📦 Web to APK
 **APK Builder**
 
-<span style="color: #b48bff;">━━━━━━━━━━━━━</span>
+Convert any website into Android app
 
-Convert any website
-into Android app
-
-<sub>`custom icon` · `5x retry`</sub>
+`custom icon` · `5x retry`
 
 </td>
 </tr>
 <tr>
 <td align="center" width="33%">
 
-### 🎵
-### **YouTube Music**
+### 🎵 YouTube Music
 **Audio Streaming**
 
-<span style="color: #6bb8ff;">━━━━━━━━━━━━━</span>
+Search & stream any song directly in browser
 
-Search & stream any song
-directly in browser
-
-<sub>`search` · `play` · `download`</sub>
+`search` · `play` · `download`
 
 </td>
 <td align="center" width="33%">
 
-### 🎨
-### **AI Image**
+### 🎨 AI Image
 **Text to Image**
 
-<span style="color: #ff6b9d;">━━━━━━━━━━━━━</span>
+Generate stunning images from text prompts
 
-Generate stunning images
-from text prompts
-
-<sub>`5 presets` · `negative prompt`</sub>
+`5 presets` · `negative prompt`
 
 </td>
 <td align="center" width="33%">
 
-### 📬
-### **Inbox**
+### 📬 Inbox
 **Email Viewer**
 
-<span style="color: #22d3a0;">━━━━━━━━━━━━━</span>
+Check incoming emails in real-time
 
-Check incoming emails
-in real-time
-
-<sub>`auto-refresh` · `XSS-safe`</sub>
+`auto-refresh` · `XSS-safe`
 
 </td>
 </tr>
 </table>
-
-</div>
 
 <br>
 
@@ -237,13 +206,13 @@ in real-time
 
 **✅ What We Offer**
 
-- 🆓 **100% Free Forever** — no ads, no subscription, no limits
-- 🔒 **Privacy First** — no analytics, no cookies, no fingerprint
-- ⚡ **Blazing Fast** — proxy rotation with 5× auto-retry
-- 🎨 **Premium UI** — glassmorphism, aurora, particles, confetti
+- 🆓 **100% Free Forever** — no ads, no subscription
+- 🔒 **Privacy First** — no analytics, no cookies
+- ⚡ **Blazing Fast** — proxy rotation with 5× retry
+- 🎨 **Premium UI** — glassmorphism, aurora, particles
 - 🖥️ **Live Terminal** — real-time colored logging
 - 🌐 **Mobile-First** — perfect on all screen sizes
-- 🔐 **Stealth Mode** — mimics real Android app headers
+- 🔐 **Stealth Mode** — mimics real Android app
 - 🌙 **Dark Theme** — easy on the eyes
 
 </td>
@@ -278,96 +247,21 @@ in real-time
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>🔐 <b>Magic Link Login</b></td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">🟢 Stable</td>
-</tr>
-<tr>
-<td>⚡ <b>Premium Auto-Activate</b></td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">🟢 Stable</td>
-</tr>
-<tr>
-<td>🔄 <b>Auto Refresh Token</b></td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">🟢 Stable</td>
-</tr>
-<tr>
-<td>📧 <b>Generate Random Email</b></td>
-<td align="center">✅</td>
-<td align="center">❌</td>
-<td align="center">🟢 Stable</td>
-</tr>
-<tr>
-<td>📬 <b>Inbox Viewer</b></td>
-<td align="center">✅</td>
-<td align="center">❌</td>
-<td align="center">🟢 Stable</td>
-</tr>
-<tr>
-<td>⚡ <b>Auto-Verify Link</b></td>
-<td align="center">✅</td>
-<td align="center">❌</td>
-<td align="center">🟢 Stable</td>
-</tr>
-<tr>
-<td>🎬 <b>CapCut Templates</b></td>
-<td align="center">✅</td>
-<td align="center">❌</td>
-<td align="center">🟢 Stable</td>
-</tr>
-<tr>
-<td>📦 <b>Web to APK Builder</b></td>
-<td align="center">✅</td>
-<td align="center">❌</td>
-<td align="center">🟢 Stable</td>
-</tr>
-<tr>
-<td>🎵 <b>YouTube Music</b></td>
-<td align="center">✅</td>
-<td align="center">❌</td>
-<td align="center">🟢 Stable</td>
-</tr>
-<tr>
-<td>🎨 <b>AI Image Generator</b></td>
-<td align="center">✅</td>
-<td align="center">❌</td>
-<td align="center">🟢 Stable</td>
-</tr>
-<tr>
-<td>🖥️ <b>Terminal Log</b></td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">🟢 Stable</td>
-</tr>
-<tr>
-<td>💾 <b>History (LocalStorage)</b></td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">🟢 Stable</td>
-</tr>
-<tr>
-<td>🔊 <b>Sound FX</b></td>
-<td align="center">✅</td>
-<td align="center">❌</td>
-<td align="center">🟢 Stable</td>
-</tr>
-<tr>
-<td>🎊 <b>Confetti Animation</b></td>
-<td align="center">✅</td>
-<td align="center">❌</td>
-<td align="center">🟢 Stable</td>
-</tr>
-<tr>
-<td>⌨️ <b>Keyboard Shortcuts</b></td>
-<td align="center">✅</td>
-<td align="center">❌</td>
-<td align="center">🟢 Stable</td>
-</tr>
+<tr><td>🔐 <b>Magic Link Login</b></td><td align="center">✅</td><td align="center">✅</td><td align="center">🟢 Stable</td></tr>
+<tr><td>⚡ <b>Premium Auto-Activate</b></td><td align="center">✅</td><td align="center">✅</td><td align="center">🟢 Stable</td></tr>
+<tr><td>🔄 <b>Auto Refresh Token</b></td><td align="center">✅</td><td align="center">✅</td><td align="center">🟢 Stable</td></tr>
+<tr><td>📧 <b>Generate Random Email</b></td><td align="center">✅</td><td align="center">❌</td><td align="center">🟢 Stable</td></tr>
+<tr><td>📬 <b>Inbox Viewer</b></td><td align="center">✅</td><td align="center">❌</td><td align="center">🟢 Stable</td></tr>
+<tr><td>⚡ <b>Auto-Verify Link</b></td><td align="center">✅</td><td align="center">❌</td><td align="center">🟢 Stable</td></tr>
+<tr><td>🎬 <b>CapCut Templates</b></td><td align="center">✅</td><td align="center">❌</td><td align="center">🟢 Stable</td></tr>
+<tr><td>📦 <b>Web to APK Builder</b></td><td align="center">✅</td><td align="center">❌</td><td align="center">🟢 Stable</td></tr>
+<tr><td>🎵 <b>YouTube Music</b></td><td align="center">✅</td><td align="center">❌</td><td align="center">🟢 Stable</td></tr>
+<tr><td>🎨 <b>AI Image Generator</b></td><td align="center">✅</td><td align="center">❌</td><td align="center">🟢 Stable</td></tr>
+<tr><td>🖥️ <b>Terminal Log</b></td><td align="center">✅</td><td align="center">✅</td><td align="center">🟢 Stable</td></tr>
+<tr><td>💾 <b>History (LocalStorage)</b></td><td align="center">✅</td><td align="center">✅</td><td align="center">🟢 Stable</td></tr>
+<tr><td>🔊 <b>Sound FX</b></td><td align="center">✅</td><td align="center">❌</td><td align="center">🟢 Stable</td></tr>
+<tr><td>🎊 <b>Confetti Animation</b></td><td align="center">✅</td><td align="center">❌</td><td align="center">🟢 Stable</td></tr>
+<tr><td>⌨️ <b>Keyboard Shortcuts</b></td><td align="center">✅</td><td align="center">❌</td><td align="center">🟢 Stable</td></tr>
 </tbody>
 </table>
 
@@ -375,44 +269,20 @@ in real-time
 
 ## 🚀 Quick Start
 
-<table>
-<tr>
-<td>
-
-### 📦 **1. Clone Repository**
-
-</td>
-</tr>
-</table>
+### 📦 1. Clone Repository
 
 ```bash
 git clone https://github.com/username/am-neo.git
 cd am-neo
 ```
 
-<table>
-<tr>
-<td>
-
 📥 2. Install Dependencies
-
-</td>
-</tr>
-</table>
 
 ```bash
 npm install
 ```
 
-<table>
-<tr>
-<td>
-
 ⚙️ 3. Run The App
-
-</td>
-</tr>
-</table>
 
 <table>
 <tr>
@@ -452,31 +322,15 @@ Interactive menu:
 </tr>
 </table>
 
-<table>
-<tr>
-<td>
-
 🌐 4. Open In Browser
-
-</td>
-</tr>
-</table>
 
 ```
 ┌────────────────────────────────────────────┐
 │  🎯 Omni Azure Asahiro v7.3.0             │
 ├────────────────────────────────────────────┤
-│                                            │
 │  Step 1  📧  Masukkan Email               │
-│  ├─ Email Pribadi                          │
-│  └─ Email Random (generate otomatis)       │
-│                                            │
 │  Step 2  🔗  Verifikasi Link              │
-│  └─ Paste magic link / auto-verify         │
-│                                            │
 │  Step 3  ✅  Premium Aktif!                │
-│  └─ UID + ID Token muncul                  │
-│                                            │
 └────────────────────────────────────────────┘
 ```
 
@@ -496,10 +350,6 @@ graph LR
     D -->|4. Click link| E[🔗 Magic Link]
     E -->|5. Verify| F[✅ Premium Active]
     F -->|6. UID + Token| A
-    
-    style A fill:#7cffb2,stroke:#0e8f6a,color:#04160a
-    style F fill:#22d3a0,stroke:#0e8f6a,color:#04160a
-    style C fill:#ffcb6b,stroke:#8a6a2a,color:#04160a
 ```
 
 ✨ Fitur Utama
@@ -551,10 +401,6 @@ Cari template CapCut viral langsung dari web
 
 🔍 Features
 
-<table>
-<tr>
-<td>
-
 Feature Description
 🔎 Search by Keyword Video & Image tabs
 🖼️ Rich Preview Cover, duration, use count, like count
@@ -562,10 +408,6 @@ Feature Description
 📋 Copy Link One-click copy
 🛡️ Proxy Rotation 5× auto-retry, anti rate-limit
 🌐 CORS Fallback Backend → AllOrigins → Codetabs
-
-</td>
-</tr>
-</table>
 
 📡 API Example
 
@@ -732,7 +574,7 @@ curl -X POST http://localhost:3300/api/ytplay \
 {
   "success": true,
   "data": {
-    "title": "lofi hip hop radio 📚 - beats to relax/study to",
+    "title": "lofi hip hop radio - beats to relax/study to",
     "thumbnail": "https://...",
     "duration": 3600,
     "duration_formatted": "1:00:00",
@@ -750,55 +592,12 @@ Generate stunning images from text prompts
 
 🎭 Available Presets
 
-<table>
-<tr>
-<td align="center" width="20%">
-
-👤
-
-Portrait
-
-(masterpiece), 1girl, cinematic lighting
-
-</td>
-<td align="center" width="20%">
-
-🏔️
-
-Landscape
-
-landscape, sunset, mountain, dramatic sky
-
-</td>
-<td align="center" width="20%">
-
-🌃
-
-Cyberpunk
-
-cyberpunk city, neon lights, rain
-
-</td>
-<td align="center" width="20%">
-
-🌸
-
-Anime
-
-anime style, cute girl, cherry blossom
-
-</td>
-<td align="center" width="20%">
-
-📸
-
-Realistic
-
-realistic photo, natural lighting, 8k
-
-</td>
-</tr>
-</table>
+Preset Prompt Example
+👤 Portrait (masterpiece), 1girl, cinematic lighting
+🏔️ Landscape landscape, sunset, mountain, dramatic sky
+🌃 Cyberpunk cyberpunk city, neon lights, rain
+🌸 Anime anime style, cute girl, cherry blossom
+📸 Realistic realistic photo, natural lighting, 8k
 
 🎯 Features
 
@@ -872,20 +671,12 @@ Real-time process logging with beautiful UI
 
 🎨 Log Levels
 
-<table>
-<tr>
-<td>
-
 Prefix Color Usage
 [SYS] 🔵 Blue System messages
 [OK] 🟢 Green Success events
 [WARN] 🟡 Amber Warnings
 [ERR] 🔴 Red Errors
 [CMD] 🟣 Violet Commands executed
-
-</td>
-</tr>
-</table>
 
 📺 Sample Output
 
@@ -899,17 +690,11 @@ Prefix Color Usage
 [OK]   Found 8 domains
 [MAIL] Email: amx7k2n8p@duckzmail.com
 [CMD]  POST /api/send-link
-[NET]  Response: 200
 [OK]   Magic link sent
 [POLL] Starting auto-poll (3s)
-[POLL] Check #1 — 0 emails
-[POLL] Check #2 — 0 emails
-[POLL] Check #3 — 1 emails
 [MAIL] Found 1 email(s)
 [OK]   Magic link extracted!
 [CPY]  Link auto-copied
-[CMD]  POST /api/verify-link
-[NET]  Response: 200
 [OK]   Verification success!
 ```
 
@@ -944,14 +729,12 @@ am-neo/
 │       └── 📄 route.js             Main router
 │
 ├── 📂 public/
-│   └── 📄 index.html               🌐 Web UI (single file)
+│   └── 📄 index.html               🌐 Web UI
 │
 ├── 📄 am.js                        💻 CLI entry
 ├── 📄 server.js                    🚀 Express server
-├── 📄 package.json                 📦 Dependencies
-├── 📄 package-lock.json
-├── 📄 README.md                    📖 You are here
-├── 📄 .gitignore
+├── 📄 package.json
+├── 📄 README.md
 └── 📄 LICENSE
 ```
 
@@ -963,66 +746,15 @@ Base URL: http://localhost:3300/api
 
 📋 Endpoint Summary
 
-<table>
-<thead>
-<tr>
-<th align="left">Method</th>
-<th align="left">Endpoint</th>
-<th align="left">Description</th>
-<th align="center">Auth</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>GET</code></td>
-<td><code>/status</code></td>
-<td>Health check</td>
-<td align="center">❌</td>
-</tr>
-<tr>
-<td><code>GET</code></td>
-<td><code>/stats</code></td>
-<td>Global statistics</td>
-<td align="center">❌</td>
-</tr>
-<tr>
-<td><code>POST</code></td>
-<td><code>/send-link</code></td>
-<td>Send magic link</td>
-<td align="center">❌</td>
-</tr>
-<tr>
-<td><code>POST</code></td>
-<td><code>/verify-link</code></td>
-<td>Verify magic link</td>
-<td align="center">❌</td>
-</tr>
-<tr>
-<td><code>POST</code></td>
-<td><code>/capcut-search</code></td>
-<td>Search CapCut templates</td>
-<td align="center">❌</td>
-</tr>
-<tr>
-<td><code>POST</code></td>
-<td><code>/web2apk</code></td>
-<td>Build APK from URL</td>
-<td align="center">❌</td>
-</tr>
-<tr>
-<td><code>POST</code></td>
-<td><code>/ytplay</code></td>
-<td>Search YouTube audio</td>
-<td align="center">❌</td>
-</tr>
-<tr>
-<td><code>POST</code></td>
-<td><code>/ai-image</code></td>
-<td>Generate AI image</td>
-<td align="center">❌</td>
-</tr>
-</tbody>
-</table>
+Method Endpoint Description
+GET /status Health check
+GET /stats Global statistics
+POST /send-link Send magic link
+POST /verify-link Verify magic link
+POST /capcut-search Search CapCut templates
+POST /web2apk Build APK from URL
+POST /ytplay Search YouTube audio
+POST /ai-image Generate AI image
 
 📖 Detailed Endpoints
 
@@ -1097,21 +829,6 @@ Request:
 }
 ```
 
-Response:
-
-```json
-{
-  "success": true,
-  "data": {
-    "keyword": "aesthetic",
-    "total_results": 20,
-    "templates": [...],
-    "proxy_ip": "1.2.3.4",
-    "timestamp": "2025-01-01T00:00:00.000Z"
-  }
-}
-```
-
 </details>
 
 <details>
@@ -1155,22 +872,6 @@ Request:
 ```json
 {
   "query": "lofi hip hop"
-}
-```
-
-Response:
-
-```json
-{
-  "success": true,
-  "data": {
-    "title": "...",
-    "thumbnail": "...",
-    "duration": 3600,
-    "duration_formatted": "1:00:00",
-    "source": "youtube",
-    "audio_url": "https://..."
-  }
 }
 ```
 
@@ -1234,105 +935,27 @@ Response:
 
 📚 Package Breakdown
 
-<table>
-<thead>
-<tr>
-<th align="left">Package</th>
-<th align="center">Version</th>
-<th align="left">Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>axios</code></td>
-<td align="center">^1.7.9</td>
-<td>HTTP client for all external APIs</td>
-</tr>
-<tr>
-<td><code>cors</code></td>
-<td align="center">^2.8.5</td>
-<td>Cross-origin resource sharing</td>
-</tr>
-<tr>
-<td><code>express</code></td>
-<td align="center">^4.21.2</td>
-<td>Web application framework</td>
-</tr>
-<tr>
-<td><code>form-data</code></td>
-<td align="center">^4.0.1</td>
-<td>Multipart upload (Web to APK)</td>
-</tr>
-<tr>
-<td><code>crypto-js</code></td>
-<td align="center">^4.2.0</td>
-<td>AES encryption (AI Image)</td>
-</tr>
-</tbody>
-</table>
+Package Version Purpose
+axios ^1.7.9 HTTP client for all external APIs
+cors ^2.8.5 Cross-origin resource sharing
+express ^4.21.2 Web application framework
+form-data ^4.0.1 Multipart upload (Web to APK)
+crypto-js ^4.2.0 AES encryption (AI Image)
 
 💻 System Requirements
 
-<table>
-<thead>
-<tr>
-<th align="left">Component</th>
-<th align="center">Minimum</th>
-<th align="center">Recommended</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>🟢 <b>Node.js</b></td>
-<td align="center">18.0.0</td>
-<td align="center">20.x LTS</td>
-</tr>
-<tr>
-<td>🧠 <b>RAM</b></td>
-<td align="center">512 MB</td>
-<td align="center">1 GB</td>
-</tr>
-<tr>
-<td>💾 <b>Storage</b></td>
-<td align="center">200 MB</td>
-<td align="center">500 MB</td>
-</tr>
-<tr>
-<td>🌐 <b>Network</b></td>
-<td align="center">10 Mbps</td>
-<td align="center">50 Mbps</td>
-</tr>
-<tr>
-<td>⚙️ <b>CPU</b></td>
-<td align="center">1 core</td>
-<td align="center">2+ cores</td>
-</tr>
-</tbody>
-</table>
+Component Minimum Recommended
+🟢 Node.js 18.0.0 20.x LTS
+🧠 RAM 512 MB 1 GB
+💾 Storage 200 MB 500 MB
+🌐 Network 10 Mbps 50 Mbps
+⚙️ CPU 1 core 2+ cores
 
 🔐 Environment Variables
 
-<table>
-<thead>
-<tr>
-<th align="left">Variable</th>
-<th align="left">Default</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>PORT</code></td>
-<td><code>3300</code></td>
-<td>Server port</td>
-</tr>
-<tr>
-<td><code>NODE_ENV</code></td>
-<td><code>development</code></td>
-<td>Environment mode</td>
-</tr>
-</tbody>
-</table>
+Variable Default Description
+PORT 3300 Server port
+NODE_ENV development Environment mode
 
 Example .env file:
 
@@ -1411,23 +1034,6 @@ vercel --prod
 </details>
 
 <details>
-<summary><b>🚀 Netlify Functions</b></summary>
-
-<br>
-
-netlify.toml:
-
-```toml
-[build]
-  functions = "app/api"
-
-[functions]
-  timeout = 300
-```
-
-</details>
-
-<details>
 <summary><b>🐳 Docker</b></summary>
 
 <br>
@@ -1439,21 +1045,16 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Install dependencies
 COPY package*.json ./
 RUN npm install --production
 
-# Copy source
 COPY . .
 
-# Expose port
 EXPOSE 3300
 
-# Health check
 HEALTHCHECK --interval=30s --timeout=10s \
   CMD wget -qO- http://localhost:3300/api/status || exit 1
 
-# Run
 CMD ["node", "server.js"]
 ```
 
@@ -1500,8 +1101,7 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_cache_bypass $http_upgrade;
-        
-        # Long timeout for APK/AI build
+
         proxy_read_timeout 300s;
         proxy_connect_timeout 300s;
         proxy_send_timeout 300s;
@@ -1517,72 +1117,18 @@ server {
 
 Power user? Nih shortcut buat kamu ⚡
 
-<table>
-<thead>
-<tr>
-<th align="center">Shortcut</th>
-<th align="left">Action</th>
-<th align="center">Icon</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><kbd>Ctrl</kbd> + <kbd>K</kbd></td>
-<td>Focus email input</td>
-<td align="center">📧</td>
-</tr>
-<tr>
-<td align="center"><kbd>Ctrl</kbd> + <kbd>G</kbd></td>
-<td>Generate random email</td>
-<td align="center">🎲</td>
-</tr>
-<tr>
-<td align="center"><kbd>Ctrl</kbd> + <kbd>M</kbd></td>
-<td>Toggle menu drawer</td>
-<td align="center">📋</td>
-</tr>
-<tr>
-<td align="center"><kbd>Ctrl</kbd> + <kbd>T</kbd></td>
-<td>Toggle terminal log</td>
-<td align="center">🖥️</td>
-</tr>
-<tr>
-<td align="center"><kbd>Ctrl</kbd> + <kbd>I</kbd></td>
-<td>Open inbox</td>
-<td align="center">📬</td>
-</tr>
-<tr>
-<td align="center"><kbd>Ctrl</kbd> + <kbd>C</kbd></td>
-<td>Open CapCut templates</td>
-<td align="center">🎬</td>
-</tr>
-<tr>
-<td align="center"><kbd>Ctrl</kbd> + <kbd>A</kbd></td>
-<td>Open Web to APK</td>
-<td align="center">📦</td>
-</tr>
-<tr>
-<td align="center"><kbd>Ctrl</kbd> + <kbd>P</kbd></td>
-<td>Open YouTube Music</td>
-<td align="center">🎵</td>
-</tr>
-<tr>
-<td align="center"><kbd>Ctrl</kbd> + <kbd>Y</kbd></td>
-<td>Open AI Image</td>
-<td align="center">🎨</td>
-</tr>
-<tr>
-<td align="center"><kbd>Ctrl</kbd> + <kbd>Enter</kbd></td>
-<td>Submit current step</td>
-<td align="center">⚡</td>
-</tr>
-<tr>
-<td align="center"><kbd>Esc</kbd></td>
-<td>Back / Close modal</td>
-<td align="center">↩️</td>
-</tr>
-</tbody>
-</table>
+Shortcut Action
+<kbd>Ctrl</kbd> + <kbd>K</kbd> 📧 Focus email input
+<kbd>Ctrl</kbd> + <kbd>G</kbd> 🎲 Generate random email
+<kbd>Ctrl</kbd> + <kbd>M</kbd> 📋 Toggle menu drawer
+<kbd>Ctrl</kbd> + <kbd>T</kbd> 🖥️ Toggle terminal log
+<kbd>Ctrl</kbd> + <kbd>I</kbd> 📬 Open inbox
+<kbd>Ctrl</kbd> + <kbd>C</kbd> 🎬 Open CapCut templates
+<kbd>Ctrl</kbd> + <kbd>A</kbd> 📦 Open Web to APK
+<kbd>Ctrl</kbd> + <kbd>P</kbd> 🎵 Open YouTube Music
+<kbd>Ctrl</kbd> + <kbd>Y</kbd> 🎨 Open AI Image
+<kbd>Ctrl</kbd> + <kbd>Enter</kbd> ⚡ Submit current step
+<kbd>Esc</kbd> ↩️ Back / Close modal
 
 ---
 
@@ -1627,35 +1173,6 @@ Power user? Nih shortcut buat kamu ⚡
 </tr>
 </table>
 
-🚨 Security Best Practices
-
-<table>
-<tr>
-<td>
-
-For Users:
-
-· 🔐 NEVER use your primary email
-· 🎲 USE random email generator
-· 🧹 CLEAR history after use
-· ⚠️ DON'T share your ID Token
-· 🚫 DON'T activate accounts you don't own
-
-</td>
-<td>
-
-For Developers:
-
-· 🔒 USE HTTPS in production
-· 🛡️ SANITIZE all user input
-· 🔑 ROTATE API keys regularly
-· 📊 MONITOR for abuse
-· 🚨 IMPLEMENT rate limiting
-
-</td>
-</tr>
-</table>
-
 ---
 
 🐛 Troubleshooting
@@ -1671,32 +1188,20 @@ Solution:
 npm install form-data
 ```
 
-Verify:
-
-```bash
-node -e "console.log(require('form-data').version)"
-```
-
 </details>
 
 <details>
-<summary><b>📧 Email tidak masuk (Email not received)</b></summary>
+<summary><b>📧 Email tidak masuk</b></summary>
 
 <br>
 
 Steps:
 
 1. 🔄 Buka Inbox → klik Refresh
-2. ⏱️ Tunggu 1-2 menit (delay dari duckzmail)
-3. 📂 Cek folder Spam di email provider
+2. ⏱️ Tunggu 1-2 menit (delay duckzmail)
+3. 📂 Cek folder Spam
 4. 🔁 Kirim ulang link dari Step 1
 5. 🎲 Coba generate email baru
-
-Still not working?
-
-· Cek status duckzmail.com di browser
-· Restart server
-· Cek log di Terminal panel
 
 </details>
 
@@ -1731,7 +1236,6 @@ Solutions:
 1. Tunggu 2-3 menit, coba lagi
 2. System auto retry 5× — tunggu
 3. Ganti keyword lebih generic
-4. Cek log Terminal untuk error detail
 
 </details>
 
@@ -1740,15 +1244,12 @@ Solutions:
 
 <br>
 
-Why: Server rfweb2apk.rfdevv.com bisa lambat.
-
 Solutions:
 
 · ⏱️ Tunggu lebih lama (max 5 menit)
 · 🔧 Increase maxDuration di serverless config
 · 📦 Coba package name berbeda
-· 🖼️ Remove custom icon (pakai default)
-· 🔄 Retry 5× otomatis — tunggu
+· 🖼️ Remove custom icon
 
 </details>
 
@@ -1757,19 +1258,12 @@ Solutions:
 
 <br>
 
-Common issues:
-
-· 🚫 Safety filter — prompt di-block
-· ⏱️ Timeout — server lambat
-· 🔒 Crypto error — header expired
-
 Solutions:
 
 1. Coba negative prompt lebih simple
 2. Ganti ke preset yang tersedia
 3. Tunggu 2 menit, klik lagi
 4. Pakai prompt lebih generic
-5. Cek log Terminal untuk detail error
 
 </details>
 
@@ -1778,18 +1272,11 @@ Solutions:
 
 <br>
 
-Reasons:
-
-· 🔗 Audio URL expired (biasanya 1-2 jam)
-· 🎵 Format tidak didukung browser
-· 🚫 Rate limit dari API
-
 Solutions:
 
 1. Re-search lagu
 2. Coba browser lain (Chrome/Firefox)
 3. Tunggu 1 menit, coba lagi
-4. Pakai URL YouTube direct
 
 </details>
 
@@ -1798,34 +1285,11 @@ Solutions:
 
 <br>
 
-Why: Browser policy requires user interaction first.
-
 Solutions:
 
 1. Klik/tap anywhere on page first
 2. Check Sound Toggle di header
 3. Clear browser cache
-4. Try hard refresh (Ctrl+Shift+R)
-
-</details>
-
-<details>
-<summary><b>🎊 Confetti tidak muncul</b></summary>
-
-<br>
-
-Possible causes:
-
-· 🚫 Reduced motion aktif di OS
-· 🎨 Canvas blocked by extension
-· 💥 JavaScript error
-
-Solutions:
-
-1. Disable Reduce Motion di OS settings
-2. Disable ad blocker untuk web ini
-3. Check Console untuk error
-4. Refresh halaman
 
 </details>
 
@@ -1871,7 +1335,6 @@ Solutions:
 · Brand rename: AM Activate → Omni Azure Asahiro
 · Badge: FREE ACCESS → OFFICIAL
 · Channel integration in drawer & footer
-· About modal updated with Channel info
 
 🐛 Fixed
 
@@ -1907,7 +1370,7 @@ Solutions:
 
 🎯 v7.4.0 (In Progress)
 
-· 🌍 Multi-language support (EN/ID/JP)
+· 🌍 Multi-language support
 · 📱 PWA (installable app)
 · 🌙 Light theme toggle
 · 📤 Export history as CSV
@@ -1928,10 +1391,6 @@ Solutions:
 </tr>
 </table>
 
-💡 Feature Requests
-
-Got an idea? Open an issue or join our WhatsApp Channel.
-
 ---
 
 🤝 Contributing
@@ -1949,7 +1408,6 @@ We welcome contributions! But please follow the rules:
 · ✅ Write documentation
 · ✅ Test before PR
 · ✅ Follow existing style
-· ✅ Add helpful comments
 
 </td>
 <td width="50%">
@@ -1960,7 +1418,6 @@ We welcome contributions! But please follow the rules:
 · ❌ Add tracking/analytics
 · ❌ Include illegal features
 · ❌ Break existing features
-· ❌ Use other's email
 · ❌ Mass activate accounts
 
 </td>
@@ -1980,76 +1437,29 @@ git checkout -b feature/amazing-feature
 # 3. Install dependencies
 npm install
 
-# 4. Start dev server (with auto-reload)
-npm install -g nodemon
+# 4. Start dev server
 nodemon server.js
 
 # 5. Make changes & test
-# ...
 
-# 6. Commit (follow conventional commits)
+# 6. Commit
 git commit -m "feat: add amazing feature"
 
 # 7. Push
 git push origin feature/amazing-feature
-
-# 8. Open Pull Request
-# Go to https://github.com/username/am-neo/compare
 ```
 
 📝 Commit Convention
 
-<table>
-<thead>
-<tr>
-<th align="left">Type</th>
-<th align="left">Description</th>
-<th align="left">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>feat:</code></td>
-<td>New feature</td>
-<td><code>feat: add dark mode toggle</code></td>
-</tr>
-<tr>
-<td><code>fix:</code></td>
-<td>Bug fix</td>
-<td><code>fix: resolve memory leak</code></td>
-</tr>
-<tr>
-<td><code>docs:</code></td>
-<td>Documentation</td>
-<td><code>docs: update README</code></td>
-</tr>
-<tr>
-<td><code>style:</code></td>
-<td>Formatting</td>
-<td><code>style: prettier format</code></td>
-</tr>
-<tr>
-<td><code>refactor:</code></td>
-<td>Code refactor</td>
-<td><code>refactor: simplify API route</code></td>
-</tr>
-<tr>
-<td><code>perf:</code></td>
-<td>Performance</td>
-<td><code>perf: optimize particle render</code></td>
-</tr>
-<tr>
-<td><code>test:</code></td>
-<td>Testing</td>
-<td><code>test: add unit tests</code></td>
-</tr>
-<tr>
-<td><code>chore:</code></td>
-<td>Maintenance</td>
-<td><code>chore: update dependencies</code></td>
-</tr>
-</tbody>
-</table>
+Type Description Example
+feat: New feature feat: add dark mode toggle
+fix: Bug fix fix: resolve memory leak
+docs: Documentation docs: update README
+style: Formatting style: prettier format
+refactor: Code refactor refactor: simplify API route
+perf: Performance perf: optimize particle render
+test: Testing test: add unit tests
+chore: Maintenance chore: update dependencies
 
 ---
 
@@ -2068,6 +1478,7 @@ git push origin feature/amazing-feature
 ansari
 
 Lead Developer
+
 Core logic · Reverse engineering · API integration
 
 </td>
@@ -2078,6 +1489,7 @@ Core logic · Reverse engineering · API integration
 zenno
 
 UI/UX Designer
+
 Frontend · Design system · User experience
 
 </td>
@@ -2088,63 +1500,11 @@ Frontend · Design system · User experience
 
 🔌 Third-Party Services
 
-<table>
-<tr>
-<td align="center">
-
-📡 Proxy API
-
-api.ikyyxd.my.id
-
-Free rotating proxies
-
-</td>
-<td align="center">
-
-📧 Email API
-
-duckzmail.com
-
-Temp email service
-
-</td>
-<td align="center">
-
-📦 APK Builder
-
-rfweb2apk.rfdevv.com
-
-Free APK conversion
-
-</td>
-<td align="center">
-
-🎨 AI Service
-
-app-v1.live3d.io
-
-AI image generation
-
-</td>
-</tr>
-</table>
-
-</div>
-
----
-
-📊 Stats
-
-<div align="center">
-
-https://img.shields.io/github/stars/username/am-neo?style=social
-https://img.shields.io/github/forks/username/am-neo?style=social
-https://img.shields.io/github/watchers/username/am-neo?style=social
-
-https://img.shields.io/github/issues/username/am-neo?style=flat-square
-https://img.shields.io/github/issues-pr/username/am-neo?style=flat-square
-https://img.shields.io/github/last-commit/username/am-neo?style=flat-square
-https://img.shields.io/github/languages/code-size/username/am-neo?style=flat-square
+Service URL Purpose
+📡 Proxy API api.ikyyxd.my.id Free rotating proxies
+📧 Email API duckzmail.com Temp email service
+📦 APK Builder rfweb2apk.rfdevv.com Free APK conversion
+🎨 AI Service app-v1.live3d.io AI image generation
 
 </div>
 
@@ -2182,10 +1542,6 @@ SOFTWARE.
 
 ⚠️ DISCLAIMER
 
-<table>
-<tr>
-<td align="center">
-
 🚨 PLEASE READ CAREFULLY 🚨
 
 <br>
@@ -2211,10 +1567,6 @@ Misuse (using others' accounts, mass activation, commercial use) is NOT the resp
 <br>
 
 ⚡ USE AT YOUR OWN RISK ⚡
-
-</td>
-</tr>
-</table>
 
 <br>
 
@@ -2264,53 +1616,3 @@ Crafted with 💚 by team reverse — neo
 
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════════════════
-     END OF README
-     ═══════════════════════════════════════════════════════════════════════ -->
-
-```
-
----
-
-## 🎯 Perbandingan versi
-
-| Feature | v1 (Basic) | v2 (Improved) | **v3 (This)** |
-|---------|:---:|:---:|:---:|
-| **Total lines** | ~50 | ~600 | **~1200+** |
-| **Table of contents** | ❌ | ✅ | ✅ **Extended** |
-| **Feature matrix** | ❌ | ❌ | ✅ **Full table** |
-| **Mermaid diagrams** | ❌ | ❌ | ✅ **Flowchart** |
-| **ASCII art** | ❌ | ❌ | ✅ **Multiple** |
-| **Keyboard shortcuts** | ❌ | ✅ Basic | ✅ **Full table** |
-| **API reference** | ❌ | ✅ Basic | ✅ **Collapsible + JSON** |
-| **Deployment guide** | ❌ | ✅ 4 platforms | ✅ **+ Docker + Nginx** |
-| **Troubleshooting** | ❌ | ✅ 7 items | ✅ **8 items detailed** |
-| **Changelog** | ❌ | ✅ Basic | ✅ **Detailed release** |
-| **Roadmap** | ❌ | ❌ | ✅ **v7.4 + v8.0** |
-| **Commit convention** | ❌ | ❌ | ✅ **Full table** |
-| **Credits section** | ❌ | ✅ Simple | ✅ **With avatars** |
-| **License** | ❌ | ❌ | ✅ **Full MIT text** |
-| **Collapsible sections** | ❌ | ✅ | ✅ **Extensively used** |
-| **Emoji usage** | Minimal | Medium | **Professional** |
-| **Visual hierarchy** | Flat | Good | **Excellent** |
-| **GitHub stats** | ❌ | ❌ | ✅ **6 badges** |
-| **Back to top** | ❌ | ❌ | ✅ **Button** |
-
-**Upgrade baru di v3:**
-- 🎨 **Visual brand logo** dengan glow effect
-- 📑 **Nested TOC** dengan sub-sections
-- 🎯 **Feature matrix table** comprehensive
-- 🚀 **Quick start** dengan tabular layout
-- 🎬 **Mermaid diagram** untuk Alight Motion flow
-- 📊 **Progress bars** untuk APK builder
-- 🖼️ **ASCII art** untuk terminal samples
-- 🔌 **API reference** dengan collapsible `<details>`
-- 🌐 **5 deployment options** + Nginx config
-- 🐛 **8 troubleshooting** dengan solusi detail
-- 🗺️ **Roadmap** untuk v7.4 & v8.0
-- 📝 **Commit convention** table
-- 👥 **Credits** dengan generated avatars
-- 📄 **Full MIT License** text
-- ⬆️ **Back to top** anchor
-
-Tinggal copy-paste ke `README.md` — siap publish! 🚀
