@@ -1,16 +1,8 @@
-/**
- * Temp Mail API — Maildrop.cc GraphQL Proxy
- * Route: /api/tempmail?action=xxx
- */
+const express = require('express')
+const router = express.Router()
 
 const MAILDROP_API = 'https://api.maildrop.cc/graphql'
 const FETCH_TIMEOUT_MS = 8000
-
-const CORS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization'
-}
 
 async function graphql(query, variables = {}) {
   const controller = new AbortController()
@@ -49,19 +41,16 @@ async function graphql(query, variables = {}) {
   return body.data
 }
 
-export async function OPTIONS() {
-  return new Response(null, { status: 204, headers: CORS })
-}
+router.options('/', (req, res) => res.sendStatus(204))
 
 /* ══════ GET ══════ */
-export async function GET(request) {
-  const { searchParams } = new URL(request.url)
-  const action = searchParams.get('action')
+router.get('/', async (req, res) => {
+  const action = req.query.action
 
   try {
     if (action === 'messages') {
-      const mailbox = searchParams.get('mailbox')
-      if (!mailbox) return Response.json({ success: false, error: 'Missing mailbox' }, { status: 400, headers: CORS })
+      const mailbox = req.query.mailbox
+      if (!mailbox) return res.status(400).json({ success: false, error: 'Missing mailbox' })
 
       const data = await graphql(
         `query Inbox($mailbox: String!) {
@@ -76,17 +65,17 @@ export async function GET(request) {
         { mailbox }
       )
 
-      return Response.json({
+      return res.json({
         success: true,
         messages: data.inbox || [],
         total: (data.inbox || []).length
-      }, { headers: CORS })
+      })
     }
 
     if (action === 'message') {
-      const mailbox = searchParams.get('mailbox')
-      const id = searchParams.get('id')
-      if (!mailbox || !id) return Response.json({ success: false, error: 'Missing mailbox or id' }, { status: 400, headers: CORS })
+      const mailbox = req.query.mailbox
+      const id = req.query.id
+      if (!mailbox || !id) return res.status(400).json({ success: false, error: 'Missing mailbox or id' })
 
       const data = await graphql(
         `query Message($mailbox: String!, $id: String!) {
@@ -103,21 +92,20 @@ export async function GET(request) {
         { mailbox, id }
       )
 
-      return Response.json({ success: true, message: data.message }, { headers: CORS })
+      return res.json({ success: true, message: data.message })
     }
 
-    return Response.json({ success: false, error: 'Invalid action', available: ['messages', 'message'] }, { status: 400, headers: CORS })
+    return res.status(400).json({ success: false, error: 'Invalid action', available: ['messages', 'message'] })
 
   } catch (error) {
     console.error('[tempmail GET]', error)
-    return Response.json({ success: false, error: error.message }, { status: 500, headers: CORS })
+    return res.status(500).json({ success: false, error: error.message })
   }
-}
+})
 
 /* ══════ POST ══════ */
-export async function POST(request) {
-  const { searchParams } = new URL(request.url)
-  const action = searchParams.get('action')
+router.post('/', async (req, res) => {
+  const action = req.query.action
 
   try {
     if (action === 'create') {
@@ -127,31 +115,30 @@ export async function POST(request) {
       )
 
       if (!pingData || pingData.ping === undefined) {
-        return Response.json({ success: false, error: 'Maildrop API tidak merespons' }, { status: 502, headers: CORS })
+        return res.status(502).json({ success: false, error: 'Maildrop API tidak merespons' })
       }
 
       const mailbox = 'am' + Math.random().toString(36).slice(2, 11)
       const email = `${mailbox}@maildrop.cc`
 
-      return Response.json({ success: true, email, mailbox }, { headers: CORS })
+      return res.json({ success: true, email, mailbox })
     }
 
-    return Response.json({ success: false, error: 'Invalid action' }, { status: 400, headers: CORS })
+    return res.status(400).json({ success: false, error: 'Invalid action' })
 
   } catch (error) {
     console.error('[tempmail POST]', error)
-    return Response.json({ success: false, error: error.message }, { status: 500, headers: CORS })
+    return res.status(500).json({ success: false, error: error.message })
   }
-}
+})
 
 /* ══════ DELETE ══════ */
-export async function DELETE(request) {
-  const { searchParams } = new URL(request.url)
-  const mailbox = searchParams.get('mailbox')
-  const id = searchParams.get('id')
+router.delete('/', async (req, res) => {
+  const mailbox = req.query.mailbox
+  const id = req.query.id
 
   try {
-    if (!mailbox || !id) return Response.json({ success: false, error: 'Missing mailbox or id' }, { status: 400, headers: CORS })
+    if (!mailbox || !id) return res.status(400).json({ success: false, error: 'Missing mailbox or id' })
 
     const data = await graphql(
       `mutation DeleteMessage($mailbox: String!, $id: String!) {
@@ -160,9 +147,11 @@ export async function DELETE(request) {
       { mailbox, id }
     )
 
-    return Response.json({ success: !!data.deleteMessage }, { headers: CORS })
+    return res.json({ success: !!data.deleteMessage })
   } catch (error) {
     console.error('[tempmail DELETE]', error)
-    return Response.json({ success: false, error: error.message }, { status: 500, headers: CORS })
+    return res.status(500).json({ success: false, error: error.message })
   }
-}
+})
+
+module.exports = router
