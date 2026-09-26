@@ -34,22 +34,16 @@
   --blue-soft: rgba(107, 184, 255, 0.08);
   --violet: #b48bff;
   --violet-soft: rgba(180, 139, 255, 0.1);
+  --pink: #ff6b9d;
+  --pink-soft: rgba(255, 107, 157, 0.1);
   --radius: 18px;
   --radius-md: 14px;
   --radius-sm: 10px;
-  --radius-xs: 8px;
   --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
   --ease: cubic-bezier(0.32, 0.72, 0, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --header-h: 64px;
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 20px;
-  --space-6: 24px;
-  --space-8: 32px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -98,7 +92,7 @@ body.locked { overflow: hidden; }
 .loader__percent { font-family: var(--mono); font-size: 11px; color: var(--txt-4); margin-top: 6px; letter-spacing: 0.05em; }
 
 .header { position: sticky; top: 0; z-index: 100; height: var(--header-h); background: rgba(5, 5, 7, 0.78); backdrop-filter: blur(28px) saturate(1.5); -webkit-backdrop-filter: blur(28px) saturate(1.5); border-bottom: 1px solid var(--border); }
-.header__inner { max-width: 560px; margin: 0 auto; height: 100%; padding: 0 var(--space-5); display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+.header__inner { max-width: 560px; margin: 0 auto; height: 100%; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .brand { display: flex; align-items: center; gap: 12px; cursor: pointer; transition: opacity 0.2s ease; }
 .brand:hover { opacity: 0.9; }
 .brand__logo { position: relative; width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(145deg, #7cffb2 0%, #22d3a0 50%, #0e8f6a 100%); display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 18px -4px var(--acc-glow), inset 0 1px 0 rgba(255, 255, 255, 0.35); overflow: hidden; }
@@ -146,27 +140,70 @@ body.locked { overflow: hidden; }
 .drawer__item-icon.violet { background: var(--violet-soft); border-color: rgba(180, 139, 255, 0.18); color: var(--violet); }
 .drawer__item-icon.amber { background: var(--amber-soft); border-color: rgba(255, 203, 107, 0.18); color: var(--amber); }
 .drawer__item-icon.red { background: var(--red-soft); border-color: rgba(255, 95, 109, 0.18); color: var(--red); }
+.drawer__item-icon.pink { background: var(--pink-soft); border-color: rgba(255, 107, 157, 0.18); color: var(--pink); }
 .drawer__item-text { flex: 1; min-width: 0; }
 .drawer__item-text span { display: block; font-size: 10.5px; color: var(--txt-4); margin-top: 1px; font-weight: 500; }
 .drawer__item-arrow { color: var(--txt-4); flex: none; }
 .drawer__item-arrow svg { width: 13px; height: 13px; }
 .drawer__footer { margin-top: auto; padding: 18px; border-top: 1px solid var(--border); text-align: center; font-size: 10.5px; color: var(--txt-4); letter-spacing: 0.06em; }
 
-.container { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; padding: 22px var(--space-5) calc(56px + env(safe-area-inset-bottom)); opacity: 0; transition: opacity 0.85s var(--ease) 0.25s; }
+.container { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; padding: 22px 20px calc(56px + env(safe-area-inset-bottom)); opacity: 0; transition: opacity 0.85s var(--ease) 0.25s; }
 .container.ready { opacity: 1; }
 
-.hero { padding: 18px 0 18px; animation: fadeDown 0.75s var(--ease-out) both; }
+.hero { padding: 14px 0 18px; animation: fadeDown 0.75s var(--ease-out) both; }
 @keyframes fadeDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-.hero__title { font-size: 23px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.22; margin-bottom: 8px; }
+.hero__title { font-size: 26px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.18; margin-bottom: 10px; }
 .hero__title span { background: linear-gradient(135deg, #fff 0%, var(--acc) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.hero__sub { font-size: 13px; color: var(--txt-2); line-height: 1.6; max-width: 92%; }
+.hero__sub { font-size: 13px; color: var(--txt-2); line-height: 1.6; max-width: 95%; }
+.hero__sub strong { color: var(--acc); font-weight: 600; }
 .hero__badges { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
 .hero__badge { display: inline-flex; align-items: center; gap: 5px; padding: 5px 11px; border-radius: 100px; background: var(--panel); border: 1px solid var(--border); font-size: 11px; font-weight: 600; color: var(--txt-2); backdrop-filter: blur(16px); }
 .hero__badge svg { width: 11px; height: 11px; }
 .hero__badge.green { color: var(--acc); border-color: rgba(124, 255, 178, 0.22); background: var(--acc-soft); }
 .hero__badge.blue { color: var(--blue); border-color: rgba(107, 184, 255, 0.22); background: var(--blue-soft); }
 
-.steps-wrap { position: relative; margin-bottom: 20px; animation: fadeUp 0.75s var(--ease-out) 0.08s both; }
+/* ── Landing Tutorial ── */
+.landing-tutorial { margin: 20px 0; padding: 22px; border-radius: var(--radius); background: var(--panel); border: 1px solid var(--border); backdrop-filter: blur(24px); position: relative; overflow: hidden; }
+.landing-tutorial::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--acc), transparent); opacity: 0.6; }
+.landing-tutorial__title { font-size: 16px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.landing-tutorial__title svg { width: 18px; height: 18px; color: var(--acc); }
+.landing-tutorial__sub { font-size: 12px; color: var(--txt-3); margin-bottom: 18px; }
+.tutorial-steps { display: flex; flex-direction: column; gap: 12px; }
+.tutorial-step { display: flex; gap: 12px; padding: 12px; border-radius: 12px; background: rgba(0, 0, 0, 0.18); border: 1px solid var(--border); transition: all 0.22s var(--ease); }
+.tutorial-step:hover { background: rgba(0, 0, 0, 0.28); border-color: var(--border-hover); transform: translateX(3px); }
+.tutorial-step__num { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(145deg, var(--acc), var(--acc-2)); color: #04160a; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex: none; box-shadow: 0 4px 12px -4px var(--acc-glow); }
+.tutorial-step__body { flex: 1; min-width: 0; }
+.tutorial-step__title { font-size: 13px; font-weight: 700; color: var(--txt); margin-bottom: 2px; }
+.tutorial-step__desc { font-size: 11.5px; color: var(--txt-3); line-height: 1.5; }
+.tutorial-step__desc code { font-family: var(--mono); font-size: 10.5px; background: rgba(124, 255, 178, 0.08); color: var(--acc); padding: 1px 5px; border-radius: 4px; }
+
+/* ── Features Showcase ── */
+.features-showcase { margin: 24px 0 8px; }
+.features-showcase__head { text-align: center; margin-bottom: 18px; }
+.features-showcase__title { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; }
+.features-showcase__title span { background: linear-gradient(135deg, #fff 0%, var(--acc) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.features-showcase__sub { font-size: 12.5px; color: var(--txt-3); }
+.feature-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.feature-tile { position: relative; padding: 16px 14px; border-radius: var(--radius-md); background: var(--panel); border: 1px solid var(--border); backdrop-filter: blur(20px); transition: all 0.25s var(--ease); cursor: pointer; overflow: hidden; }
+.feature-tile:hover { transform: translateY(-3px); border-color: var(--border-hover); box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.55); }
+.feature-tile::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--acc), transparent); opacity: 0; transition: opacity 0.3s ease; }
+.feature-tile:hover::after { opacity: 1; }
+.feature-tile.blue::after { background: linear-gradient(90deg, transparent, var(--blue), transparent); }
+.feature-tile.violet::after { background: linear-gradient(90deg, transparent, var(--violet), transparent); }
+.feature-tile.amber::after { background: linear-gradient(90deg, transparent, var(--amber), transparent); }
+.feature-tile.pink::after { background: linear-gradient(90deg, transparent, var(--pink), transparent); }
+.feature-tile__icon { width: 40px; height: 40px; border-radius: 11px; display: flex; align-items: center; justify-content: center; margin-bottom: 11px; background: var(--acc-soft); border: 1px solid rgba(124, 255, 178, 0.18); color: var(--acc); }
+.feature-tile__icon svg { width: 18px; height: 18px; }
+.feature-tile.blue .feature-tile__icon { background: var(--blue-soft); border-color: rgba(107, 184, 255, 0.18); color: var(--blue); }
+.feature-tile.violet .feature-tile__icon { background: var(--violet-soft); border-color: rgba(180, 139, 255, 0.18); color: var(--violet); }
+.feature-tile.amber .feature-tile__icon { background: var(--amber-soft); border-color: rgba(255, 203, 107, 0.18); color: var(--amber); }
+.feature-tile.pink .feature-tile__icon { background: var(--pink-soft); border-color: rgba(255, 107, 157, 0.18); color: var(--pink); }
+.feature-tile__title { font-size: 13px; font-weight: 700; color: var(--txt); margin-bottom: 3px; letter-spacing: -0.01em; }
+.feature-tile__desc { font-size: 10.5px; color: var(--txt-3); line-height: 1.5; }
+.feature-tile__badge { position: absolute; top: 10px; right: 10px; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 100px; background: var(--acc-soft); color: var(--acc); border: 1px solid rgba(124, 255, 178, 0.22); letter-spacing: 0.04em; }
+.feature-tile__badge.new { background: var(--pink-soft); color: var(--pink); border-color: rgba(255, 107, 157, 0.25); animation: pollPulse 2s ease-in-out infinite; }
+
+.steps-wrap { position: relative; margin: 20px 0; animation: fadeUp 0.75s var(--ease-out) 0.08s both; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 5px; border-radius: 14px; background: var(--panel); border: 1px solid var(--border); backdrop-filter: blur(20px) saturate(1.2); }
 .step { position: relative; padding: 11px 6px; border-radius: 10px; text-align: center; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--txt-3); transition: all 0.35s var(--ease); display: flex; align-items: center; justify-content: center; gap: 7px; cursor: pointer; }
@@ -215,9 +252,10 @@ body.locked { overflow: hidden; }
 .field__hint.valid { color: var(--acc); }
 .field__wrapper { position: relative; }
 .field__icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 15px; height: 15px; color: var(--txt-3); pointer-events: none; transition: color 0.2s ease; }
-.field input { width: 100%; padding: 13px 14px 13px 42px; background: rgba(0, 0, 0, 0.28); border: 1px solid var(--border); border-radius: var(--radius-md); color: var(--txt); font-family: var(--font); font-size: 14px; font-weight: 500; outline: none; transition: all 0.25s var(--ease); }
-.field input::placeholder { color: var(--txt-4); font-weight: 400; }
-.field input:focus { border-color: var(--acc); background: rgba(124, 255, 178, 0.025); box-shadow: 0 0 0 3px rgba(124, 255, 178, 0.07), 0 6px 20px -8px var(--acc-glow); }
+.field input, .field textarea { width: 100%; padding: 13px 14px 13px 42px; background: rgba(0, 0, 0, 0.28); border: 1px solid var(--border); border-radius: var(--radius-md); color: var(--txt); font-family: var(--font); font-size: 14px; font-weight: 500; outline: none; transition: all 0.25s var(--ease); }
+.field textarea { padding-left: 14px; resize: vertical; min-height: 70px; line-height: 1.55; font-size: 13px; }
+.field input::placeholder, .field textarea::placeholder { color: var(--txt-4); font-weight: 400; }
+.field input:focus, .field textarea:focus { border-color: var(--acc); background: rgba(124, 255, 178, 0.025); box-shadow: 0 0 0 3px rgba(124, 255, 178, 0.07), 0 6px 20px -8px var(--acc-glow); }
 .field__wrapper:focus-within .field__icon { color: var(--acc); }
 
 .btn { position: relative; width: 100%; padding: 14px 20px; border: none; border-radius: var(--radius-md); font-family: var(--font); font-size: 13.5px; font-weight: 700; letter-spacing: -0.01em; cursor: pointer; transition: all 0.25s var(--ease); margin-top: 14px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; overflow: hidden; isolation: isolate; }
@@ -334,7 +372,7 @@ body.locked { overflow: hidden; }
 
 .modal-overlay { position: fixed; inset: 0; z-index: 300; background: rgba(0, 0, 0, 0.78); backdrop-filter: blur(10px); opacity: 0; visibility: hidden; transition: all 0.3s var(--ease); display: flex; align-items: center; justify-content: center; padding: 22px 14px; }
 .modal-overlay.open { opacity: 1; visibility: visible; }
-.modal { position: relative; width: 100%; max-width: 420px; max-height: 80vh; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; transform: scale(0.92) translateY(16px); transition: transform 0.38s var(--ease-out); display: flex; flex-direction: column; }
+.modal { position: relative; width: 100%; max-width: 420px; max-height: 85vh; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; transform: scale(0.92) translateY(16px); transition: transform 0.38s var(--ease-out); display: flex; flex-direction: column; }
 .modal-overlay.open .modal { transform: scale(1) translateY(0); }
 .modal__head { padding: 16px 18px 13px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex: none; }
 .modal__title { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; }
@@ -360,6 +398,7 @@ body.locked { overflow: hidden; }
 .feature-card__icon.blue { background: var(--blue-soft); color: var(--blue); }
 .feature-card__icon.violet { background: var(--violet-soft); color: var(--violet); }
 .feature-card__icon.amber { background: var(--amber-soft); color: var(--amber); }
+.feature-card__icon.pink { background: var(--pink-soft); color: var(--pink); }
 .feature-card__title { font-size: 11.5px; font-weight: 700; color: var(--txt); margin-bottom: 2px; }
 .feature-card__desc { font-size: 10.5px; color: var(--txt-3); line-height: 1.45; }
 
@@ -403,12 +442,12 @@ body.locked { overflow: hidden; }
 .email-view__actions { padding: 11px 14px; background: rgba(255, 255, 255, 0.015); border-top: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
 .email-view__actions .btn { margin-top: 0; padding: 10px 12px; font-size: 12px; border-radius: var(--radius-sm); }
 
-/* ── CapCut Templates ── */
+/* ── CapCut ── */
 .capcut-search { display: flex; gap: 8px; margin-bottom: 12px; }
 .capcut-search input { flex: 1; padding: 12px 14px; background: rgba(0, 0, 0, 0.28); border: 1px solid var(--border); border-radius: var(--radius-md); color: var(--txt); font-family: var(--font); font-size: 13px; font-weight: 500; outline: none; transition: all 0.25s var(--ease); }
 .capcut-search input::placeholder { color: var(--txt-4); font-weight: 400; }
 .capcut-search input:focus { border-color: var(--acc); background: rgba(124, 255, 178, 0.025); box-shadow: 0 0 0 3px rgba(124, 255, 178, 0.07); }
-.capcut-search button { padding: 12px 16px; background: linear-gradient(145deg, #7cffb2 0%, #22d3a0 55%, #0e8f6a 100%); color: #04160a; border: none; border-radius: var(--radius-md); font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; font-family: inherit; font-size: 13px; transition: all 0.25s var(--ease); box-shadow: 0 6px 18px -6px var(--acc-glow), inset 0 1px 0 rgba(255,255,255,0.3); flex: none; }
+.capcut-search button { padding: 12px 16px; background: linear-gradient(145deg, #7cffb2 0%, #22d3a0 55%, #0e8f6a 100%); color: #04160a; border: none; border-radius: var(--radius-md); font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; font-family: inherit; font-size: 13px; transition: all 0.25s var(--ease); box-shadow: 0 6px 18px -6px var(--acc-glow); flex: none; }
 .capcut-search button:active { transform: scale(0.95); }
 .capcut-search button:disabled { opacity: 0.5; cursor: wait; }
 .capcut-search button svg { width: 15px; height: 15px; }
@@ -425,7 +464,7 @@ body.locked { overflow: hidden; }
 .capcut-card__thumb { position: relative; width: 100%; aspect-ratio: 3/4; background: #0a0a10; overflow: hidden; }
 .capcut-card__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s var(--ease); }
 .capcut-card:hover .capcut-card__thumb img { transform: scale(1.05); }
-.capcut-card__dur { position: absolute; bottom: 6px; right: 6px; padding: 2px 6px; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(6px); border-radius: 4px; font-size: 9.5px; font-family: var(--mono); color: #fff; font-weight: 600; letter-spacing: 0.03em; }
+.capcut-card__dur { position: absolute; bottom: 6px; right: 6px; padding: 2px 6px; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(6px); border-radius: 4px; font-size: 9.5px; font-family: var(--mono); color: #fff; font-weight: 600; }
 .capcut-card__badge { position: absolute; top: 6px; left: 6px; padding: 2px 6px; background: rgba(124, 255, 178, 0.9); color: #04160a; border-radius: 4px; font-size: 9px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
 .capcut-card__body { padding: 9px 10px; display: flex; flex-direction: column; gap: 6px; }
 .capcut-card__title { font-size: 11.5px; font-weight: 600; color: var(--txt); line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 31px; }
@@ -442,13 +481,12 @@ body.locked { overflow: hidden; }
 .capcut-info { display: flex; align-items: center; gap: 7px; padding: 8px 11px; border-radius: 9px; background: rgba(107, 184, 255, 0.05); border: 1px solid rgba(107, 184, 255, 0.15); color: var(--blue); font-size: 11px; font-weight: 500; margin-bottom: 10px; }
 .capcut-info svg { width: 12px; height: 12px; flex: none; }
 
-/* ── Web2APK Builder ── */
+/* ── APK Builder ── */
 .apk-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
 .apk-form-grid .field-full { grid-column: 1 / -1; }
 .apk-form-grid .field { margin-bottom: 0; }
-.apk-form-grid .field input, .apk-form-grid .field select { padding: 11px 12px 11px 40px; font-size: 13px; }
+.apk-form-grid .field input { padding: 11px 12px 11px 40px; font-size: 13px; }
 .apk-form-grid .field__icon { left: 12px; width: 14px; height: 14px; }
-.apk-form-grid select { appearance: none; -webkit-appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%236a6a78' stroke-width='2.4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 13px; padding-right: 34px !important; }
 .apk-options { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
 .apk-option { flex: 1; min-width: 90px; padding: 9px 10px; border-radius: 10px; background: rgba(0, 0, 0, 0.28); border: 1px solid var(--border); color: var(--txt-3); font-size: 11.5px; font-weight: 600; text-align: center; cursor: pointer; transition: all 0.22s var(--ease); display: flex; align-items: center; justify-content: center; gap: 5px; font-family: inherit; }
 .apk-option:active { transform: scale(0.97); }
@@ -480,6 +518,45 @@ body.locked { overflow: hidden; }
 .apk-progress__step-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; }
 .apk-progress__step.active .apk-progress__step-dot { animation: pollPulse 1.2s ease-in-out infinite; box-shadow: 0 0 8px currentColor; }
 
+/* ── Music Player ── */
+.music-search { display: flex; gap: 8px; margin-bottom: 14px; }
+.music-search input { flex: 1; padding: 12px 14px; background: rgba(0, 0, 0, 0.28); border: 1px solid var(--border); border-radius: var(--radius-md); color: var(--txt); font-family: var(--font); font-size: 13px; outline: none; transition: all 0.25s var(--ease); }
+.music-search input:focus { border-color: var(--acc); box-shadow: 0 0 0 3px rgba(124, 255, 178, 0.07); }
+.music-search button { padding: 12px 16px; background: linear-gradient(145deg, #7cffb2 0%, #22d3a0 55%, #0e8f6a 100%); color: #04160a; border: none; border-radius: var(--radius-md); font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 6px; font-family: inherit; font-size: 13px; flex: none; box-shadow: 0 6px 18px -6px var(--acc-glow); }
+.music-search button:active { transform: scale(0.95); }
+.music-search button:disabled { opacity: 0.5; cursor: wait; }
+.music-search button svg { width: 15px; height: 15px; }
+.music-player { padding: 16px; border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(107, 184, 255, 0.06), rgba(180, 139, 255, 0.02)); border: 1px solid rgba(107, 184, 255, 0.18); display: none; }
+.music-player.show { display: block; animation: cardIn 0.4s var(--ease-out); }
+.music-player__head { display: flex; gap: 14px; margin-bottom: 14px; }
+.music-player__thumb { width: 90px; height: 90px; border-radius: 12px; overflow: hidden; flex: none; background: #0a0a10; box-shadow: 0 6px 20px -6px rgba(0, 0, 0, 0.55); position: relative; }
+.music-player__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.music-player__thumb.playing::after { content: ''; position: absolute; inset: 0; border-radius: 12px; box-shadow: inset 0 0 0 2px var(--blue); animation: pollPulse 1.5s ease-in-out infinite; }
+.music-player__info { flex: 1; min-width: 0; }
+.music-player__title { font-size: 13.5px; font-weight: 700; color: var(--txt); line-height: 1.35; margin-bottom: 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.music-player__meta { font-size: 11px; color: var(--txt-3); display: flex; flex-wrap: wrap; gap: 8px; font-family: var(--mono); }
+.music-player__badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 100px; background: var(--blue-soft); color: var(--blue); border: 1px solid rgba(107, 184, 255, 0.22); font-size: 9.5px; font-weight: 700; }
+.music-player audio { width: 100%; margin-top: 4px; border-radius: 100px; height: 36px; outline: none; }
+.music-player__actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+.music-player__actions .btn { margin-top: 0; padding: 10px 12px; font-size: 12px; border-radius: var(--radius-sm); }
+
+/* ── AI Image ── */
+.ai-form { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+.ai-form textarea { width: 100%; min-height: 80px; padding: 12px 14px; background: rgba(0, 0, 0, 0.28); border: 1px solid var(--border); border-radius: var(--radius-md); color: var(--txt); font-family: var(--font); font-size: 13px; resize: vertical; outline: none; line-height: 1.55; }
+.ai-form textarea:focus { border-color: var(--acc); box-shadow: 0 0 0 3px rgba(124, 255, 178, 0.07); }
+.ai-form textarea::placeholder { color: var(--txt-4); }
+.ai-presets { display: flex; gap: 6px; flex-wrap: wrap; }
+.ai-preset { padding: 5px 10px; border-radius: 100px; background: rgba(255, 255, 255, 0.035); border: 1px solid var(--border); color: var(--txt-3); font-size: 10.5px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s var(--ease); }
+.ai-preset:hover { background: var(--pink-soft); color: var(--pink); border-color: rgba(255, 107, 157, 0.25); }
+.ai-image-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 14px; }
+.ai-image-card { border-radius: var(--radius-md); overflow: hidden; background: rgba(0, 0, 0, 0.3); border: 1px solid var(--border); animation: cardIn 0.4s var(--ease-out); }
+.ai-image-card img { width: 100%; display: block; max-height: 460px; object-fit: contain; background: #0a0a10; }
+.ai-image-card__actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; padding: 10px; }
+.ai-image-card__actions .btn { margin-top: 0; padding: 9px 12px; font-size: 11.5px; border-radius: var(--radius-sm); }
+.ai-loading { grid-column: 1 / -1; padding: 30px 14px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; color: var(--txt-3); font-size: 12px; background: rgba(0, 0, 0, 0.18); border: 1px dashed var(--border); border-radius: var(--radius-md); }
+.ai-loading__progress { width: 200px; height: 3px; border-radius: 3px; background: rgba(255, 255, 255, 0.05); overflow: hidden; }
+.ai-loading__fill { height: 100%; background: linear-gradient(90deg, var(--acc), var(--blue), var(--violet)); border-radius: 3px; width: 0%; transition: width 0.4s var(--ease); }
+
 .footer { position: relative; margin-top: 36px; padding-top: 20px; text-align: center; font-size: 11px; color: var(--txt-4); letter-spacing: 0.05em; line-height: 1.65; }
 .footer::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 48px; height: 1px; background: linear-gradient(90deg, transparent, var(--border-hover), transparent); }
 .footer b { color: var(--acc); font-weight: 600; opacity: 0.7; }
@@ -498,7 +575,7 @@ body.locked { overflow: hidden; }
 
 @media (max-width: 480px) {
   .container { padding: 18px 14px 44px; }
-  .hero__title { font-size: 20px; }
+  .hero__title { font-size: 22px; }
   .stat { padding: 14px 12px; }
   .stat__value { font-size: 22px; }
   .panel { padding: 18px 14px; }
@@ -506,6 +583,8 @@ body.locked { overflow: hidden; }
   .share-actions { grid-template-columns: 1fr; }
   .apk-form-grid { grid-template-columns: 1fr; }
   .apk-result__meta { grid-template-columns: 1fr; }
+  .feature-cards { grid-template-columns: 1fr; }
+  .music-player__thumb { width: 70px; height: 70px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -628,17 +707,32 @@ body.locked { overflow: hidden; }
       </div>
       <div class="drawer__item-text">Riwayat<span>Aktivasi terakhir</span></div>
     </button>
+  </div>
+  <div class="drawer__section">
+    <div class="drawer__label">Tools Kreatif</div>
     <button class="drawer__item" id="menuCapcut">
-      <div class="drawer__item-icon violet">
+      <div class="drawer__item-icon amber">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
       </div>
       <div class="drawer__item-text">CapCut Templates<span>Cari template video & image</span></div>
     </button>
     <button class="drawer__item" id="menuApkBuilder">
-      <div class="drawer__item-icon green">
+      <div class="drawer__item-icon violet">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16 3 22l4-2 4 2-2-6"/><path d="M13 8 11 4l-4 2 2 6"/><rect x="8" y="8" width="13" height="13" rx="2"/></svg>
       </div>
       <div class="drawer__item-text">Web to APK<span>Convert website jadi APK</span></div>
+    </button>
+    <button class="drawer__item" id="menuMusic">
+      <div class="drawer__item-icon blue">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      </div>
+      <div class="drawer__item-text">YouTube Music<span>Cari & dengar musik</span></div>
+    </button>
+    <button class="drawer__item" id="menuAI">
+      <div class="drawer__item-icon pink">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+      </div>
+      <div class="drawer__item-text">AI Image<span>Generate gambar dari text</span></div>
     </button>
   </div>
   <div class="drawer__section">
@@ -751,15 +845,13 @@ body.locked { overflow: hidden; }
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
         Cari template CapCut viral untuk edit video kamu
       </div>
-
       <div class="capcut-search">
-        <input id="capcutKeyword" placeholder="Cari template (misal: aesthetic, travel)..." />
+        <input id="capcutKeyword" placeholder="Cari template (aesthetic, travel)..." />
         <button id="capcutSearchBtn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
           Cari
         </button>
       </div>
-
       <div class="capcut-tabs">
         <button class="capcut-tab active" data-tab="video">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
@@ -770,14 +862,9 @@ body.locked { overflow: hidden; }
           Image
         </button>
       </div>
-
       <div class="capcut-grid" id="capcutGrid">
-        <div class="capcut-empty">
-          🔍 Ketik keyword lalu klik Cari<br>
-          <span style="font-size:10.5px;opacity:0.7">Template CapCut viral siap dipakai</span>
-        </div>
+        <div class="capcut-empty">🔍 Ketik keyword lalu klik Cari</div>
       </div>
-
       <div class="msg" id="capcutMsg"></div>
     </div>
   </div>
@@ -792,24 +879,18 @@ body.locked { overflow: hidden; }
       </button>
     </div>
     <div class="modal__body">
-
       <div class="capcut-info" style="background:var(--violet-soft);border-color:rgba(180,139,255,0.18);color:var(--violet)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
         Ubah website jadi aplikasi Android (.apk) secara gratis
       </div>
-
       <div class="apk-form-grid">
         <div class="field field-full">
-          <div class="field__label">
-            <span>Website URL</span>
-            <span class="field__hint">wajib</span>
-          </div>
+          <div class="field__label"><span>Website URL</span><span class="field__hint">wajib</span></div>
           <div class="field__wrapper">
             <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             <input id="apkUrl" type="url" placeholder="https://example.com" autocomplete="off" spellcheck="false">
           </div>
         </div>
-
         <div class="field">
           <div class="field__label"><span>Nama App</span></div>
           <div class="field__wrapper">
@@ -817,7 +898,6 @@ body.locked { overflow: hidden; }
             <input id="apkName" type="text" placeholder="MyApp" autocomplete="off" maxlength="30">
           </div>
         </div>
-
         <div class="field">
           <div class="field__label"><span>Package Name</span></div>
           <div class="field__wrapper">
@@ -825,7 +905,6 @@ body.locked { overflow: hidden; }
             <input id="apkPkg" type="text" placeholder="com.example.app" autocomplete="off" spellcheck="false">
           </div>
         </div>
-
         <div class="field">
           <div class="field__label"><span>Version Name</span></div>
           <div class="field__wrapper">
@@ -833,7 +912,6 @@ body.locked { overflow: hidden; }
             <input id="apkVer" type="text" placeholder="1.0" value="1.0" maxlength="12">
           </div>
         </div>
-
         <div class="field">
           <div class="field__label"><span>Version Code</span></div>
           <div class="field__wrapper">
@@ -841,100 +919,150 @@ body.locked { overflow: hidden; }
             <input id="apkVerCode" type="number" placeholder="1" value="1" min="1">
           </div>
         </div>
-
         <div class="field field-full">
-          <div class="field__label">
-            <span>Icon URL</span>
-            <span class="field__hint">opsional</span>
-          </div>
+          <div class="field__label"><span>Icon URL</span><span class="field__hint">opsional</span></div>
           <div class="field__wrapper">
             <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
             <input id="apkIcon" type="url" placeholder="https://.../icon.png" autocomplete="off" spellcheck="false">
           </div>
         </div>
       </div>
-
       <div class="field__label" style="margin-bottom:8px"><span>Orientation</span></div>
       <div class="apk-options" id="apkOrientation">
-        <button class="apk-option on" data-val="auto">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-          Auto
-        </button>
-        <button class="apk-option" data-val="portrait">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="2" width="14" height="20" rx="2"/></svg>
-          Portrait
-        </button>
-        <button class="apk-option" data-val="landscape">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="2" y="5" width="20" height="14" rx="2"/></svg>
-          Landscape
-        </button>
+        <button class="apk-option on" data-val="auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>Auto</button>
+        <button class="apk-option" data-val="portrait"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="2" width="14" height="20" rx="2"/></svg>Portrait</button>
+        <button class="apk-option" data-val="landscape"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="2" y="5" width="20" height="14" rx="2"/></svg>Landscape</button>
       </div>
-
       <div class="field__label" style="margin-bottom:8px"><span>Splash Type</span></div>
       <div class="apk-options" id="apkSplash">
-        <button class="apk-option on" data-val="image">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
-          Image
-        </button>
-        <button class="apk-option" data-val="text">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
-          Text
-        </button>
+        <button class="apk-option on" data-val="image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>Image</button>
+        <button class="apk-option" data-val="text"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>Text</button>
       </div>
-
       <button class="btn btn--primary" id="apkBuildBtn">
         <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
         Build APK Sekarang
       </button>
-
       <div class="apk-progress" id="apkProgress">
         <div class="apk-progress__label">
           <span id="apkProgressLabel">Menyiapkan build...</span>
           <span id="apkProgressPct">0%</span>
         </div>
-        <div class="apk-progress__track">
-          <div class="apk-progress__fill" id="apkProgressFill"></div>
-        </div>
+        <div class="apk-progress__track"><div class="apk-progress__fill" id="apkProgressFill"></div></div>
         <div class="apk-progress__steps" id="apkProgressSteps">
-          <div class="apk-progress__step" data-step="1"><span class="apk-progress__step-dot"></span>Validasi input & proxy pool</div>
-          <div class="apk-progress__step" data-step="2"><span class="apk-progress__step-dot"></span>Upload form & icon ke server</div>
-          <div class="apk-progress__step" data-step="3"><span class="apk-progress__step-dot"></span>Build APK di server (60-120s)</div>
-          <div class="apk-progress__step" data-step="4"><span class="apk-progress__step-dot"></span>Selesai! Generate download link</div>
+          <div class="apk-progress__step"><span class="apk-progress__step-dot"></span>Validasi input & proxy pool</div>
+          <div class="apk-progress__step"><span class="apk-progress__step-dot"></span>Upload form & icon ke server</div>
+          <div class="apk-progress__step"><span class="apk-progress__step-dot"></span>Build APK di server (60-120s)</div>
+          <div class="apk-progress__step"><span class="apk-progress__step-dot"></span>Selesai! Generate download link</div>
         </div>
       </div>
-
       <div class="apk-result" id="apkResult">
         <div class="apk-result__head">
-          <div class="apk-result__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-          </div>
+          <div class="apk-result__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
           <div style="flex:1;min-width:0">
             <div class="apk-result__title">APK Berhasil Dibuild!</div>
             <div class="apk-result__sub" id="apkResultFile">—</div>
           </div>
         </div>
         <div class="apk-result__meta">
-          <div class="apk-result__meta-item">
-            <div class="apk-result__meta-label">Size</div>
-            <div class="apk-result__meta-value" id="apkResultSize">—</div>
-          </div>
-          <div class="apk-result__meta-item">
-            <div class="apk-result__meta-label">Build ID</div>
-            <div class="apk-result__meta-value" id="apkResultId">—</div>
-          </div>
+          <div class="apk-result__meta-item"><div class="apk-result__meta-label">Size</div><div class="apk-result__meta-value" id="apkResultSize">—</div></div>
+          <div class="apk-result__meta-item"><div class="apk-result__meta-label">Build ID</div><div class="apk-result__meta-value" id="apkResultId">—</div></div>
         </div>
         <div class="apk-result__actions">
-          <button class="btn btn--primary" id="apkDownloadBtn">
-            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download APK
+          <button class="btn btn--primary" id="apkDownloadBtn"><svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download APK</button>
+          <button class="btn btn--secondary" id="apkCopyLinkBtn" style="padding:14px 16px;width:auto"><svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+        </div>
+      </div>
+      <div class="msg" id="apkMsg"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="musicModalOverlay">
+  <div class="modal" style="max-width: 500px">
+    <div class="modal__head">
+      <div class="modal__title">🎵 YouTube Music</div>
+      <button class="modal__close" id="musicModalClose">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="capcut-info" style="background:var(--blue-soft);border-color:rgba(107,184,255,0.18);color:var(--blue)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        Cari lagu atau paste URL YouTube — play langsung di web
+      </div>
+      <div class="music-search">
+        <input id="musicQuery" placeholder="Judul lagu atau URL YouTube..." />
+        <button id="musicSearchBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          Cari
+        </button>
+      </div>
+      <div class="music-player" id="musicPlayer">
+        <div class="music-player__head">
+          <div class="music-player__thumb" id="musicThumb">
+            <img id="musicThumbImg" src="" alt="">
+          </div>
+          <div class="music-player__info">
+            <div class="music-player__title" id="musicTitle">—</div>
+            <div class="music-player__meta">
+              <span class="music-player__badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" style="width:9px;height:9px"><circle cx="12" cy="12" r="10"/></svg>
+                <span id="musicDuration">0:00</span>
+              </span>
+              <span id="musicSource" style="font-family:var(--mono);font-size:10px">youtube</span>
+            </div>
+          </div>
+        </div>
+        <audio id="musicAudio" controls preload="none"></audio>
+        <div class="music-player__actions">
+          <button class="btn btn--secondary" id="musicDownload">
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download
           </button>
-          <button class="btn btn--secondary" id="apkCopyLinkBtn" style="padding:14px 16px;width:auto">
+          <button class="btn btn--secondary" id="musicCopy">
             <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy Link
           </button>
         </div>
       </div>
+      <div class="msg" id="musicMsg"></div>
+    </div>
+  </div>
+</div>
 
-      <div class="msg" id="apkMsg"></div>
+<div class="modal-overlay" id="aiModalOverlay">
+  <div class="modal" style="max-width: 520px">
+    <div class="modal__head">
+      <div class="modal__title">🎨 AI Image Generator</div>
+      <button class="modal__close" id="aiModalClose">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal__body">
+      <div class="capcut-info" style="background:var(--pink-soft);border-color:rgba(255,107,157,0.18);color:var(--pink)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/></svg>
+        Generate gambar dari text. Support model realistic.
+      </div>
+      <div class="ai-form">
+        <textarea id="aiPrompt" placeholder="Deskripsi gambar, contoh: (masterpiece), 1girl, cinematic lighting, ultra detailed"></textarea>
+        <div class="ai-presets">
+          <button class="ai-preset" data-prompt="(masterpiece, best quality), 1girl, cinematic lighting, detailed face, professional photography">Portrait</button>
+          <button class="ai-preset" data-prompt="(masterpiece, best quality), landscape, sunset, mountain, dramatic sky, ultra detailed">Landscape</button>
+          <button class="ai-preset" data-prompt="(masterpiece, best quality), cyberpunk city, neon lights, rain, cinematic">Cyberpunk</button>
+          <button class="ai-preset" data-prompt="(masterpiece, best quality), anime style, cute girl, cherry blossom, soft lighting">Anime</button>
+          <button class="ai-preset" data-prompt="(masterpiece, best quality), realistic photo, natural lighting, 8k, ultra hd">Realistic</button>
+        </div>
+        <div class="field">
+          <div class="field__label"><span>Negative Prompt</span><span class="field__hint">opsional</span></div>
+          <textarea id="aiNegative" placeholder="(worst quality, low quality:1.4), deformed, ugly, bad anatomy" style="min-height:50px;font-size:12px"></textarea>
+        </div>
+      </div>
+      <button class="btn btn--primary" id="aiGenerateBtn">
+        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"/></svg>
+        Generate Image
+      </button>
+      <div class="ai-image-grid" id="aiImageGrid"></div>
+      <div class="msg" id="aiMsg"></div>
     </div>
   </div>
 </div>
@@ -942,8 +1070,8 @@ body.locked { overflow: hidden; }
 <main class="container" id="container">
 
   <section class="hero">
-    <h1 class="hero__title">Aktivasi <span>Alight Motion</span> Premium</h1>
-    <p class="hero__sub">Masukkan email, klik verifikasi, dan nikmati seluruh fitur premium Alight Motion secara gratis.</p>
+    <h1 class="hero__title">Semua tool kreatif kamu <span>dalam satu web</span></h1>
+    <p class="hero__sub">Aktivasi Alight Motion Premium, cari template CapCut, convert web ke APK, cari musik YouTube, dan generate AI image — <strong>gratis tanpa iklan</strong>.</p>
     <div class="hero__badges">
       <div class="hero__badge green">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
@@ -951,7 +1079,95 @@ body.locked { overflow: hidden; }
       </div>
       <div class="hero__badge blue">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
-        Aman
+        Tanpa Tracking
+      </div>
+      <div class="hero__badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Update Mingguan
+      </div>
+    </div>
+  </section>
+
+  <section class="landing-tutorial">
+    <div class="landing-tutorial__title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      Cara Pakai — 3 Langkah
+    </div>
+    <div class="landing-tutorial__sub">Aktivasi Alight Motion Premium dalam 30 detik.</div>
+    <div class="tutorial-steps">
+      <div class="tutorial-step">
+        <div class="tutorial-step__num">1</div>
+        <div class="tutorial-step__body">
+          <div class="tutorial-step__title">Masukkan Email</div>
+          <div class="tutorial-step__desc">Pakai email pribadi, atau klik <code>Generate Email</code> untuk email random anonim.</div>
+        </div>
+      </div>
+      <div class="tutorial-step">
+        <div class="tutorial-step__num">2</div>
+        <div class="tutorial-step__body">
+          <div class="tutorial-step__title">Kirim & Verifikasi Link</div>
+          <div class="tutorial-step__desc">Klik <code>Kirim Link</code>. Link magic akan datang ke inbox. Copy atau auto-verify langsung.</div>
+        </div>
+      </div>
+      <div class="tutorial-step">
+        <div class="tutorial-step__num">3</div>
+        <div class="tutorial-step__body">
+          <div class="tutorial-step__title">Premium Aktif! 🎉</div>
+          <div class="tutorial-step__desc">UID + ID Token muncul. Akun Alight Motion kamu sudah premium.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-showcase">
+    <div class="features-showcase__head">
+      <div class="features-showcase__title">Fitur <span>Lengkap</span></div>
+      <div class="features-showcase__sub">Semua yang bisa kamu lakukan di sini</div>
+    </div>
+    <div class="feature-cards">
+      <div class="feature-tile" data-open="am">
+        <div class="feature-tile__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+        </div>
+        <div class="feature-tile__title">AM Premium</div>
+        <div class="feature-tile__desc">Aktivasi Alight Motion tanpa bayar</div>
+      </div>
+      <div class="feature-tile amber" data-open="capcut">
+        <div class="feature-tile__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </div>
+        <div class="feature-tile__title">CapCut Templates</div>
+        <div class="feature-tile__desc">Cari template viral untuk edit video</div>
+      </div>
+      <div class="feature-tile violet" data-open="apk">
+        <div class="feature-tile__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 16 3 22l4-2 4 2-2-6"/><path d="M13 8 11 4l-4 2 2 6"/><rect x="8" y="8" width="13" height="13" rx="2"/></svg>
+        </div>
+        <div class="feature-tile__title">Web to APK</div>
+        <div class="feature-tile__desc">Convert website jadi Android app</div>
+      </div>
+      <div class="feature-tile blue" data-open="music">
+        <div class="feature-tile__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <div class="feature-tile__title">YouTube Music</div>
+        <div class="feature-tile__desc">Cari & dengar musik langsung</div>
+        <span class="feature-tile__badge new">NEW</span>
+      </div>
+      <div class="feature-tile pink" data-open="ai">
+        <div class="feature-tile__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+        </div>
+        <div class="feature-tile__title">AI Image</div>
+        <div class="feature-tile__desc">Generate gambar dari text prompt</div>
+        <span class="feature-tile__badge new">NEW</span>
+      </div>
+      <div class="feature-tile" data-open="inbox">
+        <div class="feature-tile__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+        </div>
+        <div class="feature-tile__title">Inbox Viewer</div>
+        <div class="feature-tile__desc">Cek email masuk real-time</div>
       </div>
     </div>
   </section>
@@ -1217,13 +1433,11 @@ body.locked { overflow: hidden; }
     <b style="color:var(--acc);opacity:1;font-size:12px;font-weight:800;letter-spacing:0.02em">Omni Azure Asahiro</b><br>
     unofficial · reverse engineered<br>
     <b>use at your own risk</b>
-
     <br>
     <a href="https://whatsapp.com/channel/0029VbDz1xsEQIau8FQEtF16" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:9px 16px;border-radius:100px;background:linear-gradient(145deg,rgba(37,211,102,0.12),rgba(37,211,102,0.04));border:1px solid rgba(37,211,102,0.3);color:#25D366;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:0.02em;transition:all 0.25s cubic-bezier(0.32,0.72,0,1)">
       <svg viewBox="0 0 24 24" fill="currentColor" style="width:15px;height:15px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Join Channel WhatsApp Resmi
     </a>
-
     <div class="footer__badge" style="margin-top:14px">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
       SECURE CONNECTION
@@ -1234,7 +1448,7 @@ body.locked { overflow: hidden; }
 
 <script>
 /* ═══════════════════════════════════════════
-   OMNI AZURE ASAHIRO v7.3 — REFINED UI EDITION
+   OMNI AZURE ASAHIRO v7.3
    ═══════════════════════════════════════════ */
 
 const $ = id => document.getElementById(id)
@@ -1394,10 +1608,10 @@ $('modalClose').addEventListener('click', closeModal)
 modal.addEventListener('click', e => { if (e.target === modal) closeModal() })
 
 const MODALS = {
-  about: { title: '📖 Tentang Web', html: `<h4>Omni Azure Asahiro v7.3</h4><p>Web activator Alight Motion Premium dengan email generator <strong>duckzmail.com</strong> + preview email.</p><h4>Channel Resmi</h4><p>Ikuti update terbaru di <a href="https://whatsapp.com/channel/0029VbDz1xsEQIau8FQEtF16" target="_blank" style="color:var(--acc);text-decoration:underline">WhatsApp Channel</a> kami.</p><h4>Cara Kerja</h4><ul><li>Masukkan email Alight Motion</li><li>Sistem kirim magic link</li><li>Verifikasi link</li><li>Premium aktif! 🎉</li></ul><h4>Keamanan</h4><p>Tidak menyimpan data. Semua proses di browser.</p><h4>Disclaimer</h4><p>Layanan unofficial. Gunakan dengan risiko sendiri.</p>` },
-  features: { title: '⭐ Fitur Keren', html: `<p>Semua yang bisa kamu lakukan:</p><div class="feature-grid"><div class="feature-card"><div class="feature-card__icon green">📬</div><div class="feature-card__title">Inbox Viewer</div><div class="feature-card__desc">Cek email langsung</div></div><div class="feature-card"><div class="feature-card__icon blue">📧</div><div class="feature-card__title">Email Preview</div><div class="feature-card__desc">Lihat surat lengkap</div></div><div class="feature-card"><div class="feature-card__icon violet">⚡</div><div class="feature-card__title">Auto-Verify</div><div class="feature-card__desc">1 klik langsung aktif</div></div><div class="feature-card"><div class="feature-card__icon amber">📋</div><div class="feature-card__title">Auto-Copy Link</div><div class="feature-card__desc">Link auto-copy</div></div><div class="feature-card"><div class="feature-card__icon green">🎬</div><div class="feature-card__title">CapCut Templates</div><div class="feature-card__desc">Cari template viral</div></div><div class="feature-card"><div class="feature-card__icon violet">📦</div><div class="feature-card__title">Web to APK</div><div class="feature-card__desc">Website jadi APK</div></div><div class="feature-card"><div class="feature-card__icon green">🎲</div><div class="feature-card__title">Generate Email</div><div class="feature-card__desc">4+ domain duckzmail</div></div><div class="feature-card"><div class="feature-card__icon blue">🖥️</div><div class="feature-card__title">Terminal Log</div><div class="feature-card__desc">Proses real-time</div></div></div>` },
-  help: { title: '❓ Bantuan', html: `<h4>Cara Pakai</h4><ul><li>Pilih mode email</li><li>Klik Generate (kalau random)</li><li>Klik Kirim Link</li><li>Cek Inbox → klik email → preview muncul</li><li>Klik Auto-Verify → DONE!</li></ul><h4>Cara Pakai Inbox</h4><ul><li>Klik garis 3 → Inbox</li><li>Atau tombol "Buka Inbox" di Home</li><li>Klik email → preview surat lengkap</li><li>Klik Auto-Verify di preview</li></ul><h4>Cara Pakai CapCut Templates</h4><ul><li>Menu → CapCut Templates</li><li>Ketik keyword → Cari</li><li>Pilih Video / Image tab</li><li>Klik "Use" untuk buka di CapCut</li></ul><h4>Cara Pakai Web to APK</h4><ul><li>Menu → Web to APK</li><li>Isi URL website + Nama App + Package Name</li><li>Klik Build APK (tunggu 60-120s)</li><li>Download APK</li></ul><h4>Email Tidak Masuk?</h4><ul><li>Buka Inbox → Refresh</li><li>Tunggu 1-2 menit</li><li>Kirim ulang</li></ul>` },
-  shortcut: { title: '⌨️ Shortcut', html: `<p>Shortcut power user</p><ul><li><span class="kbd">Ctrl</span> + <span class="kbd">K</span> — Focus email</li><li><span class="kbd">Ctrl</span> + <span class="kbd">G</span> — Generate random</li><li><span class="kbd">Ctrl</span> + <span class="kbd">M</span> — Toggle menu</li><li><span class="kbd">Ctrl</span> + <span class="kbd">T</span> — Toggle terminal</li><li><span class="kbd">Ctrl</span> + <span class="kbd">I</span> — Open Inbox</li><li><span class="kbd">Ctrl</span> + <span class="kbd">C</span> — Open CapCut</li><li><span class="kbd">Ctrl</span> + <span class="kbd">A</span> — Open APK Builder</li><li><span class="kbd">Ctrl</span> + <span class="kbd">Enter</span> — Submit</li><li><span class="kbd">Esc</span> — Back / Close</li></ul>` }
+  about: { title: '📖 Tentang Web', html: `<h4>Omni Azure Asahiro v7.3</h4><p>Web serba bisa: aktivasi Alight Motion Premium, CapCut templates, Web to APK, YouTube Music, AI Image generator — semua gratis.</p><h4>Channel Resmi</h4><p>Ikuti update di <a href="https://whatsapp.com/channel/0029VbDz1xsEQIau8FQEtF16" target="_blank">WhatsApp Channel</a>.</p><h4>Keamanan</h4><p>Tidak menyimpan data. Semua proses di browser.</p><h4>Disclaimer</h4><p>Layanan unofficial. Gunakan dengan risiko sendiri.</p>` },
+  features: { title: '⭐ Fitur Keren', html: `<p>Semua yang bisa kamu lakukan:</p><div class="feature-grid"><div class="feature-card"><div class="feature-card__icon green">✅</div><div class="feature-card__title">AM Premium</div><div class="feature-card__desc">Aktivasi gratis</div></div><div class="feature-card"><div class="feature-card__icon amber">🎬</div><div class="feature-card__title">CapCut</div><div class="feature-card__desc">Cari template viral</div></div><div class="feature-card"><div class="feature-card__icon violet">📦</div><div class="feature-card__title">Web to APK</div><div class="feature-card__desc">Website jadi app</div></div><div class="feature-card"><div class="feature-card__icon blue">🎵</div><div class="feature-card__title">YouTube Music</div><div class="feature-card__desc">Streaming audio</div></div><div class="feature-card"><div class="feature-card__icon pink">🎨</div><div class="feature-card__title">AI Image</div><div class="feature-card__desc">Text to image</div></div><div class="feature-card"><div class="feature-card__icon green">📬</div><div class="feature-card__title">Inbox</div><div class="feature-card__desc">Cek email real-time</div></div></div>` },
+  help: { title: '❓ Bantuan', html: `<h4>Cara Pakai AM Premium</h4><ul><li>Pilih mode email</li><li>Klik Generate (kalau random)</li><li>Klik Kirim Link</li><li>Cek Inbox → klik email</li><li>Klik Auto-Verify → DONE!</li></ul><h4>CapCut Templates</h4><ul><li>Menu → CapCut Templates</li><li>Ketik keyword → Cari</li><li>Pilih Video / Image tab</li></ul><h4>Web to APK</h4><ul><li>Menu → Web to APK</li><li>Isi URL + Nama App + Package Name</li><li>Klik Build (tunggu 60-120s)</li></ul><h4>YouTube Music</h4><ul><li>Menu → YouTube Music</li><li>Cari judul lagu</li><li>Auto play di web</li></ul><h4>AI Image</h4><ul><li>Menu → AI Image</li><li>Ketik prompt atau pilih preset</li><li>Klik Generate (tunggu 30-120s)</li></ul>` },
+  shortcut: { title: '⌨️ Shortcut', html: `<p>Shortcut power user</p><ul><li><span class="kbd">Ctrl</span> + <span class="kbd">K</span> — Focus email</li><li><span class="kbd">Ctrl</span> + <span class="kbd">G</span> — Generate random</li><li><span class="kbd">Ctrl</span> + <span class="kbd">M</span> — Menu</li><li><span class="kbd">Ctrl</span> + <span class="kbd">T</span> — Terminal</li><li><span class="kbd">Ctrl</span> + <span class="kbd">I</span> — Inbox</li><li><span class="kbd">Ctrl</span> + <span class="kbd">C</span> — CapCut</li><li><span class="kbd">Ctrl</span> + <span class="kbd">A</span> — Web to APK</li><li><span class="kbd">Ctrl</span> + <span class="kbd">P</span> — YouTube Music</li><li><span class="kbd">Ctrl</span> + <span class="kbd">Y</span> — AI Image</li><li><span class="kbd">Esc</span> — Back / Close</li></ul>` }
 }
 $('menuAbout').addEventListener('click', () => { closeDrawer(); setTimeout(() => openModal(MODALS.about.title, MODALS.about.html), 200) })
 $('menuFeatures').addEventListener('click', () => { closeDrawer(); setTimeout(() => openModal(MODALS.features.title, MODALS.features.html), 200) })
@@ -1425,18 +1639,15 @@ function openInbox() {
   inboxPollInterval = setInterval(() => { if (inboxCurrentView === 'list') loadInbox() }, 5000)
   SoundFX.tap()
 }
-
 function closeInbox() {
   inboxModal.classList.remove('open')
   document.body.classList.remove('locked')
   if (inboxPollInterval) { clearInterval(inboxPollInterval); inboxPollInterval = null }
 }
-
 function renderInboxEmail() {
   const em = randomEmailData?.email || emInput.value.trim() || ''
   $('inboxEmailText').textContent = em || '— belum ada —'
 }
-
 async function loadInbox() {
   inboxCurrentView = 'list'
   const recipient = randomEmailData?.email || emInput.value.trim()
@@ -1450,15 +1661,10 @@ async function loadInbox() {
     const j = await r.json()
     const emails = j.emails || []
     $('inboxCount').textContent = emails.length
-    if (!emails.length) {
-      $('inboxList').innerHTML = '<div class="inbox-empty">Belum ada pesan masuk</div>'
-      return
-    }
+    if (!emails.length) { $('inboxList').innerHTML = '<div class="inbox-empty">Belum ada pesan masuk</div>'; return }
     $('inboxList').innerHTML = emails.map(m => `
       <div class="inbox-item" data-id="${m.id}">
-        <div class="inbox-item__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        </div>
+        <div class="inbox-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
         <div class="inbox-item__content">
           <div class="inbox-item__sender">${escapeHtml(m.sender || 'Unknown')}</div>
           <div class="inbox-item__subject">${escapeHtml(m.subject || '(No subject)')}</div>
@@ -1468,27 +1674,16 @@ async function loadInbox() {
       </div>
     `).join('')
     $('inboxList').querySelectorAll('.inbox-item').forEach(el => {
-      el.addEventListener('click', async () => {
-        SoundFX.tap()
-        const id = el.dataset.id
-        await openInboxEmail(id)
-      })
+      el.addEventListener('click', async () => { SoundFX.tap(); await openInboxEmail(el.dataset.id) })
     })
   } catch (e) {
     $('inboxList').innerHTML = `<div class="inbox-empty" style="color:var(--red)">Error: ${escapeHtml(e.message)}</div>`
   }
 }
-
 async function openInboxEmail(id) {
   inboxCurrentView = 'detail'
-  $('inboxList').innerHTML = `
-    <div class="inbox-empty" style="display:flex;flex-direction:column;gap:10px;align-items:center">
-      <div class="btn__spinner" style="border-color:var(--acc);border-top-color:transparent;width:24px;height:24px;border-width:3px"></div>
-      <span>Memuat email...</span>
-    </div>
-  `
+  $('inboxList').innerHTML = `<div class="inbox-empty" style="display:flex;flex-direction:column;gap:10px;align-items:center"><div class="btn__spinner" style="border-color:var(--acc);border-top-color:transparent;width:24px;height:24px;border-width:3px"></div><span>Memuat email...</span></div>`
   $('inboxCount').textContent = '...'
-
   try {
     const [metaRes, bodyRes] = await Promise.all([
       fetch(`${DUCKZ_API}/emails/${encodeURIComponent(id)}`),
@@ -1496,40 +1691,23 @@ async function openInboxEmail(id) {
     ])
     const meta = await metaRes.json()
     const body = await bodyRes.json()
-
     const sender = meta.sender || meta.headers?.From || 'Unknown'
     const recipient = meta.recipient || 'Unknown'
     const subject = meta.subject || meta.headers?.Subject || '(No Subject)'
     const date = meta.received_at || meta.headers?.Date || 'Unknown'
     const htmlContent = body.html || null
     const textContent = body.text || null
-
     const rawForLink = textContent || htmlContent || ''
-    const linkMatch =
-      rawForLink.match(/https?:\/\/[^\s"<>]+alight[^\s"<>]*/i) ||
-      rawForLink.match(/https?:\/\/[^\s"<>]+oobCode[^\s"<>]+/i) ||
-      rawForLink.match(/https?:\/\/[^\s"<>]+/gi)?.[0]
+    const linkMatch = rawForLink.match(/https?:\/\/[^\s"<>]+alight[^\s"<>]*/i) || rawForLink.match(/https?:\/\/[^\s"<>]+oobCode[^\s"<>]+/i) || rawForLink.match(/https?:\/\/[^\s"<>]+/gi)?.[0]
     const magicLink = linkMatch ? (Array.isArray(linkMatch) ? linkMatch[0] : linkMatch).trim() : null
-
     let safeHtml = ''
     if (htmlContent) {
-      safeHtml = htmlContent
-        .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-        .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-        .replace(/\son\w+\s*=\s*"[^"]*"/gi, '')
-        .replace(/\son\w+\s*=\s*'[^']*'/gi, '')
-        .replace(/\son\w+\s*=\s*[^\s>]+/gi, '')
-        .replace(/javascript:/gi, '')
+      safeHtml = htmlContent.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '').replace(/\son\w+\s*=\s*"[^"]*"/gi, '').replace(/\son\w+\s*=\s*'[^']*'/gi, '').replace(/\son\w+\s*=\s*[^\s>]+/gi, '').replace(/javascript:/gi, '')
     } else if (textContent) {
       safeHtml = escapeHtml(textContent).replace(/\n/g, '<br>').replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>')
     }
-
     $('inboxList').innerHTML = `
-      <button class="inbox-back" id="inboxBack">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
-        Kembali ke Inbox
-      </button>
-
+      <button class="inbox-back" id="inboxBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>Kembali ke Inbox</button>
       <div class="email-view">
         <div class="email-view__head">
           <div class="email-view__subject">${escapeHtml(subject)}</div>
@@ -1541,37 +1719,20 @@ async function openInboxEmail(id) {
         <div class="email-view__body">${safeHtml || '<em style="color:#888">(Tidak ada konten)</em>'}</div>
         <div class="email-view__actions">
           ${magicLink ? `
-            <button class="btn btn--primary" id="verifyFromEmail">
-              <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-              Auto-Verify
-            </button>
-            <button class="btn btn--secondary" id="copyFromEmail">
-              <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              Copy Link
-            </button>
-          ` : `
-            <button class="btn btn--secondary" id="copyFromEmail" style="grid-column:span 2">
-              <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
-              Copy Email Body
-            </button>
-          `}
+            <button class="btn btn--primary" id="verifyFromEmail"><svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Auto-Verify</button>
+            <button class="btn btn--secondary" id="copyFromEmail"><svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy Link</button>
+          ` : `<button class="btn btn--secondary" id="copyFromEmail" style="grid-column:span 2"><svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>Copy Email Body</button>`}
         </div>
-      </div>
-    `
-
+      </div>`
     $('inboxCount').textContent = '1'
-
     $('inboxBack').addEventListener('click', () => { SoundFX.tap(); loadInbox() })
-
     if (magicLink) {
       $('verifyFromEmail').addEventListener('click', async () => {
         SoundFX.tap()
         try { await navigator.clipboard.writeText(magicLink) } catch {}
         $('lk').value = magicLink
         $('w-em').textContent = randomEmailData?.email || emInput.value.trim()
-        closeInbox()
-        goToStep(2)
-        SoundFX.notify()
+        closeInbox(); goToStep(2); SoundFX.notify()
         Toast.show('Link auto-filled!', 'Sedang verifikasi...', 2000)
         setTimeout(() => $('b3').click(), 800)
       })
@@ -1583,24 +1744,16 @@ async function openInboxEmail(id) {
         try { await navigator.clipboard.writeText(textContent || subject); SoundFX.notify(); Toast.show('Email copied!', 'Body disalin', 2000) } catch { SoundFX.error() }
       })
     }
-
     Terminal.log('MAIL', `Opened: ${subject.slice(0, 40)}`, 'ok')
     if (magicLink) Terminal.log('LINK', 'Magic link detected!', 'ok')
   } catch (e) {
-    $('inboxList').innerHTML = `
-      <button class="inbox-back" id="inboxBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>Kembali</button>
-      <div class="inbox-empty" style="color:var(--red)">Error: ${escapeHtml(e.message)}</div>
-    `
+    $('inboxList').innerHTML = `<button class="inbox-back" id="inboxBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>Kembali</button><div class="inbox-empty" style="color:var(--red)">Error: ${escapeHtml(e.message)}</div>`
     $('inboxBack').addEventListener('click', () => loadInbox())
   }
 }
-
 function escapeHtml(t = '') {
-  return String(t)
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;').replace(/'/g, '&#039;')
+  return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;')
 }
-
 $('inboxModalClose').addEventListener('click', closeInbox)
 $('inboxModalOverlay').addEventListener('click', e => { if (e.target === $('inboxModalOverlay')) closeInbox() })
 $('inboxRefresh').addEventListener('click', () => { SoundFX.tap(); loadInbox() })
@@ -1632,7 +1785,6 @@ let randomEmailData = null
 
 $('tabManual').addEventListener('click', () => switchMode('manual'))
 $('tabRandom').addEventListener('click', () => switchMode('random'))
-
 function switchMode(mode) {
   emailMode = mode
   $('tabManual').classList.toggle('active', mode === 'manual')
@@ -1670,9 +1822,7 @@ $('btnGenerate').addEventListener('click', async () => {
     SoundFX.success()
     Toast.show('Email Generated!', email, 2500)
   } catch (e) {
-    Terminal.log('ERR', e.message, 'err')
-    Terminal.setStatus('Error', 'err')
-    SoundFX.error()
+    Terminal.log('ERR', e.message, 'err'); Terminal.setStatus('Error', 'err'); SoundFX.error()
     showMsg('m1', e.message, 'err')
   }
   setBusy(btn, false)
@@ -1759,15 +1909,11 @@ $('b1').addEventListener('click', async () => {
       $('w-em').textContent = email
       setTimeout(() => { goToStep(2); if (emailMode === 'random' && randomEmailData) startPolling() }, 900)
     } else {
-      Terminal.log('ERR', j.message || 'Send failed', 'err')
-      Terminal.setStatus('Failed', 'err')
-      SoundFX.error()
+      Terminal.log('ERR', j.message || 'Send failed', 'err'); Terminal.setStatus('Failed', 'err'); SoundFX.error()
       showMsg('m1', j.message || 'Gagal mengirim link', 'err')
     }
   } catch (e) {
-    Terminal.log('ERR', 'Network error: ' + e.message, 'err')
-    Terminal.setStatus('Network err', 'err')
-    SoundFX.error()
+    Terminal.log('ERR', 'Network error: ' + e.message, 'err'); Terminal.setStatus('Network err', 'err'); SoundFX.error()
     showMsg('m1', 'Server tidak merespon. Coba lagi.', 'err')
   }
   setBusy(btn, false)
@@ -1791,10 +1937,8 @@ function startPolling() {
     pollAttempts++
     $('pollTimer').textContent = elapsed + 's'
     if (elapsed > 180) {
-      stopPolling()
-      $('pollText').textContent = 'Timeout. Coba kirim ulang.'
-      Terminal.log('WARN', 'Poll timeout', 'warn')
-      Terminal.setStatus('Timeout', 'warn')
+      stopPolling(); $('pollText').textContent = 'Timeout. Coba kirim ulang.'
+      Terminal.log('WARN', 'Poll timeout', 'warn'); Terminal.setStatus('Timeout', 'warn')
       showMsg('m2', 'Email tidak masuk dalam 3 menit.', 'warn')
       return
     }
@@ -1818,21 +1962,14 @@ function startPolling() {
           stopPolling()
           $('pollText').textContent = '✅ Link ditemukan! Auto-copy...'
           Terminal.log('OK', 'Magic link extracted!', 'ok')
-          try {
-            await navigator.clipboard.writeText(link.trim())
-            Terminal.log('CPY', 'Link auto-copied', 'ok')
-            Toast.show('Link Auto-Copied!', 'Sudah disalin ke clipboard', 2500)
-          } catch (e) { Terminal.log('WARN', 'Auto-copy gagal', 'warn') }
+          try { await navigator.clipboard.writeText(link.trim()); Terminal.log('CPY', 'Link auto-copied', 'ok'); Toast.show('Link Auto-Copied!', 'Sudah disalin', 2500) } catch { Terminal.log('WARN', 'Auto-copy gagal', 'warn') }
           SoundFX.notify()
           setTimeout(() => $('b3').click(), 1500)
-        } else {
-          Terminal.log('WARN', 'Link tidak ke-extract', 'warn')
-        }
+        } else { Terminal.log('WARN', 'Link tidak ke-extract', 'warn') }
       }
     } catch (e) { Terminal.log('POLL-ERR', e.message, 'err') }
   }, 3000)
 }
-
 function stopPolling() {
   if (pollInterval) { clearInterval(pollInterval); pollInterval = null; Terminal.log('POLL', 'Stopped', 'info') }
   $('pollStatus').classList.remove('show')
@@ -1847,8 +1984,7 @@ $('b3').addEventListener('click', async () => {
   if (!raw) { SoundFX.error(); return showMsg('m2', 'Link masih kosong', 'err') }
   const btn = $('b3')
   setBusy(btn, true, 'Verifikasi...')
-  Terminal.show(); Terminal.setStatus('Verifying', 'info')
-  Terminal.log('CMD', 'POST /api/verify-link', 'cmd')
+  Terminal.show(); Terminal.setStatus('Verifying', 'info'); Terminal.log('CMD', 'POST /api/verify-link', 'cmd')
   try {
     const r = await fetch(`${API_BASE}/verify-link`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email: $('w-em').textContent, magicLink: raw }) })
     Terminal.log('NET', `Response: ${r.status}`, r.ok ? 'ok' : 'err')
@@ -1862,25 +1998,19 @@ $('b3').addEventListener('click', async () => {
       window.__lastData = d
       window.__tok = d.idToken
       Terminal.log('OK', 'Verification success!', 'ok')
-      Terminal.setStatus('Premium Active', 'ok')
-      Terminal.stopTimer()
+      Terminal.setStatus('Premium Active', 'ok'); Terminal.stopTimer()
       saveHistory({ email: d.email, ok: true, at: Date.now(), uid: d.uid, orderId: d.orderId })
-      SoundFX.levelUp()
-      Confetti.burst(140)
+      SoundFX.levelUp(); Confetti.burst(140)
       Toast.show('Premium Activated!', 'Akun terverifikasi 🎉')
       stopPolling()
       setTimeout(() => goToStep(3), 300)
     } else {
-      Terminal.log('ERR', j.message || 'Verify failed', 'err')
-      Terminal.setStatus('Failed', 'err')
-      SoundFX.error()
+      Terminal.log('ERR', j.message || 'Verify failed', 'err'); Terminal.setStatus('Failed', 'err'); SoundFX.error()
       showMsg('m2', j.message || 'Verifikasi gagal', 'err')
       saveHistory({ email: $('w-em').textContent, ok: false, at: Date.now(), error: j.message })
     }
   } catch (e) {
-    Terminal.log('ERR', 'Network error: ' + e.message, 'err')
-    Terminal.setStatus('Network err', 'err')
-    SoundFX.error()
+    Terminal.log('ERR', 'Network error: ' + e.message, 'err'); Terminal.setStatus('Network err', 'err'); SoundFX.error()
     showMsg('m2', 'Server tidak merespon', 'err')
   }
   setBusy(btn, false)
@@ -1954,7 +2084,7 @@ function formatTimeAgo(ts) {
 $('clearHistory').addEventListener('click', () => { SoundFX.tap(); localStorage.removeItem(HISTORY_KEY); renderHistory(); Toast.show('Cleared!', 'Riwayat dihapus', 2000) })
 renderHistory()
 
-/* ═══ CAPCUT TEMPLATE SEARCH ═══ */
+/* ═══ CAPCUT ═══ */
 const CapCut = (() => {
   const modal = $('capcutModalOverlay')
   const grid = $('capcutGrid')
@@ -1964,57 +2094,29 @@ const CapCut = (() => {
   let currentTab = 'video'
   let lastResults = []
 
-  function open() {
-    modal.classList.add('open')
-    document.body.classList.add('locked')
-    SoundFX.tap()
-    setTimeout(() => keywordInput.focus(), 300)
-  }
-
-  function close() {
-    modal.classList.remove('open')
-    document.body.classList.remove('locked')
-  }
-
+  function open() { modal.classList.add('open'); document.body.classList.add('locked'); SoundFX.tap(); setTimeout(() => keywordInput.focus(), 300) }
+  function close() { modal.classList.remove('open'); document.body.classList.remove('locked') }
   function showMsg(text, type = 'err') {
     msgBox.className = 'msg show msg--' + type
-    const icon = type === 'ok'
-      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg>'
-      : type === 'warn'
-      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M12 9v4"/><path d="M12 17h.01"/></svg>'
-      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>'
+    const icon = type === 'ok' ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg>' : type === 'warn' ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M12 9v4"/><path d="M12 17h.01"/></svg>' : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>'
     msgBox.innerHTML = `<div class="msg__icon">${icon}</div><span>${escapeHtml(text)}</span>`
   }
-
   function hideMsg() { msgBox.className = 'msg' }
 
   async function fetchViaBackend(payload) {
-    const r = await fetch(`${API_BASE}/capcut-search`, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
+    const r = await fetch(`${API_BASE}/capcut-search`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(payload) })
     if (!r.ok) throw new Error('backend-' + r.status)
     const j = await r.json()
     if (!j.success) throw new Error(j.message || 'backend-error')
     return j.data?.templates || j.data || []
   }
-
   async function fetchViaCorsProxy(payload) {
     const target = 'https://www.capcut.com/kep/api/getSimilarTemplates'
-    const proxies = [
-      u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
-      u => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`,
-      u => `https://corsproxy.io/?url=${encodeURIComponent(u)}`
-    ]
+    const proxies = [u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`, u => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`]
     let lastErr = null
     for (const make of proxies) {
       try {
-        const r = await fetch(make(target), {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload)
-        })
+        const r = await fetch(make(target), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
         if (!r.ok) throw new Error('HTTP ' + r.status)
         const j = await r.json()
         const list = j.data?.videoTemplateList?.videoTemplates || j.data?.videoTemplates || []
@@ -2031,149 +2133,64 @@ const CapCut = (() => {
     const origHTML = searchBtn.innerHTML
     searchBtn.innerHTML = '<div class="btn__spinner"></div>'
     hideMsg()
-
-    grid.innerHTML = `
-      <div class="capcut-loading">
-        <div class="btn__spinner"></div>
-        <span>Mencari template "${escapeHtml(keyword)}"...</span>
-      </div>`
-
+    grid.innerHTML = `<div class="capcut-loading"><div class="btn__spinner"></div><span>Mencari template "${escapeHtml(keyword)}"...</span></div>`
     Terminal.log('CAPCUT', `Search: "${keyword}" tab=${currentTab}`, 'cmd')
     Terminal.setStatus('CapCut search', 'info')
-
-    const payload = {
-      keyword: keyword.trim(),
-      tabs: [currentTab],
-      language: 'en',
-      regionCode: 'US',
-      size: 20
-    }
-
+    const payload = { keyword: keyword.trim(), tabs: [currentTab], language: 'en', regionCode: 'US', size: 20 }
     try {
       let templates = []
-      try {
-        templates = await fetchViaBackend(payload)
-        Terminal.log('OK', `Backend: ${templates.length} templates`, 'ok')
-      } catch (beErr) {
-        Terminal.log('WARN', 'Backend unavailable, trying CORS proxy...', 'warn')
-        templates = await fetchViaCorsProxy(payload)
-        Terminal.log('OK', `Proxy: ${templates.length} templates`, 'ok')
-      }
-
+      try { templates = await fetchViaBackend(payload); Terminal.log('OK', `Backend: ${templates.length} templates`, 'ok') }
+      catch { Terminal.log('WARN', 'Backend unavailable, trying CORS...', 'warn'); templates = await fetchViaCorsProxy(payload); Terminal.log('OK', `Proxy: ${templates.length} templates`, 'ok') }
       lastResults = templates.map(t => ({
-        id: t.templateId || t.id,
-        title: t.title || '(No title)',
-        desc: t.titleDesc || '',
-        useCount: t.useCount || 0,
-        likeCount: t.likeCount || 0,
-        commentCount: t.commentCount || 0,
-        duration: t.templateDuration || 0,
-        cover: t.coverUrl || t.cover || '',
-        video: t.videoUrl || t.video || '',
-        fragment: t.fragmentId || t.templateId,
-        isImage: currentTab === 'image'
+        id: t.templateId || t.id, title: t.title || '(No title)', desc: t.titleDesc || '',
+        useCount: t.useCount || 0, likeCount: t.likeCount || 0, commentCount: t.commentCount || 0,
+        duration: t.templateDuration || 0, cover: t.coverUrl || t.cover || '', video: t.videoUrl || t.video || '',
+        fragment: t.fragmentId || t.templateId, isImage: currentTab === 'image'
       }))
-
       render()
-      if (lastResults.length) {
-        SoundFX.success()
-        showMsg(`Ditemukan ${lastResults.length} template!`, 'ok')
-        Terminal.setStatus('CapCut OK', 'ok')
-      } else {
-        SoundFX.error()
-        showMsg('Tidak ada template ditemukan', 'warn')
-      }
+      if (lastResults.length) { SoundFX.success(); showMsg(`Ditemukan ${lastResults.length} template!`, 'ok'); Terminal.setStatus('CapCut OK', 'ok') }
+      else { SoundFX.error(); showMsg('Tidak ada template ditemukan', 'warn') }
     } catch (e) {
-      Terminal.log('ERR', 'CapCut: ' + e.message, 'err')
-      Terminal.setStatus('CapCut err', 'err')
-      SoundFX.error()
-      showMsg('Gagal: ' + e.message + ' — coba lagi', 'err')
+      Terminal.log('ERR', 'CapCut: ' + e.message, 'err'); Terminal.setStatus('CapCut err', 'err'); SoundFX.error()
+      showMsg('Gagal: ' + e.message, 'err')
       grid.innerHTML = `<div class="capcut-empty">⚠️ Gagal memuat template<br><span style="font-size:10.5px;opacity:0.75">${escapeHtml(e.message)}</span></div>`
     }
-
     searchBtn.disabled = false
     searchBtn.innerHTML = origHTML
   }
 
-  function formatNum(n) {
-    n = Number(n) || 0
-    if (n >= 1e9) return (n / 1e9).toFixed(1) + 'B'
-    if (n >= 1e6) return (n / 1e6).toFixed(1) + 'M'
-    if (n >= 1e3) return (n / 1e3).toFixed(1) + 'K'
-    return String(n)
-  }
-
-  function fmtDur(s) {
-    s = Number(s) || 0
-    const m = Math.floor(s / 60)
-    const ss = s % 60
-    return `${m}:${String(ss).padStart(2, '0')}`
-  }
+  function formatNum(n) { n = Number(n) || 0; if (n >= 1e9) return (n / 1e9).toFixed(1) + 'B'; if (n >= 1e6) return (n / 1e6).toFixed(1) + 'M'; if (n >= 1e3) return (n / 1e3).toFixed(1) + 'K'; return String(n) }
+  function fmtDur(s) { s = Number(s) || 0; return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}` }
 
   function render() {
-    if (!lastResults.length) {
-      grid.innerHTML = `<div class="capcut-empty">Tidak ada template</div>`
-      return
-    }
+    if (!lastResults.length) { grid.innerHTML = `<div class="capcut-empty">Tidak ada template</div>`; return }
     grid.innerHTML = lastResults.map((t, i) => `
       <div class="capcut-card" data-idx="${i}">
         <div class="capcut-card__thumb">
-          ${t.cover
-            ? `<img src="${escapeHtml(t.cover)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">`
-            : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--txt-4)">No image</div>`
-          }
+          ${t.cover ? `<img src="${escapeHtml(t.cover)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">` : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--txt-4)">No image</div>`}
           ${t.duration ? `<div class="capcut-card__dur">${fmtDur(t.duration)}</div>` : ''}
           <div class="capcut-card__badge">${t.isImage ? 'IMG' : 'VID'}</div>
         </div>
         <div class="capcut-card__body">
           <div class="capcut-card__title">${escapeHtml(t.title)}</div>
           <div class="capcut-card__stats">
-            <span title="Uses">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
-              ${formatNum(t.useCount)}
-            </span>
-            <span title="Likes">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              ${formatNum(t.likeCount)}
-            </span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>${formatNum(t.useCount)}</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>${formatNum(t.likeCount)}</span>
           </div>
           <div class="capcut-card__actions">
-            <button data-act="open" data-idx="${i}">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Use
-            </button>
-            <button data-act="copy" data-idx="${i}">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              Copy
-            </button>
+            <button data-act="open" data-idx="${i}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Use</button>
+            <button data-act="copy" data-idx="${i}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy</button>
           </div>
         </div>
       </div>
     `).join('')
-
     grid.querySelectorAll('[data-act]').forEach(el => {
       el.addEventListener('click', async e => {
         e.stopPropagation()
-        const idx = Number(el.dataset.idx)
-        const t = lastResults[idx]
-        const act = el.dataset.act
-        const link = t.fragment
-          ? `https://www.capcut.com/template-detail/${t.fragment}`
-          : (t.id ? `https://www.capcut.com/template-detail/${t.id}` : '')
-
-        if (act === 'open') {
-          if (link) {
-            SoundFX.tap()
-            window.open(link, '_blank', 'noopener')
-            Terminal.log('CAPCUT', `Opened: ${t.title.slice(0, 40)}`, 'ok')
-          }
-        } else if (act === 'copy') {
-          try {
-            await navigator.clipboard.writeText(link || t.video || t.title)
-            SoundFX.notify()
-            Toast.show('Link copied!', t.title.slice(0, 40), 2000)
-          } catch { SoundFX.error() }
-        }
+        const t = lastResults[Number(el.dataset.idx)]
+        const link = t.fragment ? `https://www.capcut.com/template-detail/${t.fragment}` : (t.id ? `https://www.capcut.com/template-detail/${t.id}` : '')
+        if (el.dataset.act === 'open') { if (link) { SoundFX.tap(); window.open(link, '_blank', 'noopener'); Terminal.log('CAPCUT', `Opened: ${t.title.slice(0, 40)}`, 'ok') } }
+        else { try { await navigator.clipboard.writeText(link || t.video || t.title); SoundFX.notify(); Toast.show('Link copied!', t.title.slice(0, 40), 2000) } catch { SoundFX.error() } }
       })
     })
   }
@@ -2190,19 +2207,14 @@ const CapCut = (() => {
 
   searchBtn.addEventListener('click', () => search(keywordInput.value))
   keywordInput.addEventListener('keypress', e => { if (e.key === 'Enter') search(keywordInput.value) })
-
   $('capcutModalClose').addEventListener('click', close)
   modal.addEventListener('click', e => { if (e.target === modal) close() })
 
   return { open, close }
 })()
+$('menuCapcut').addEventListener('click', () => { closeDrawer(); setTimeout(() => CapCut.open(), 250) })
 
-$('menuCapcut').addEventListener('click', () => {
-  closeDrawer()
-  setTimeout(() => CapCut.open(), 250)
-})
-
-/* ═══ WEB TO APK BUILDER ═══ */
+/* ═══ APK BUILDER ═══ */
 const ApkBuilder = (() => {
   const modal = $('apkModalOverlay')
   const buildBtn = $('apkBuildBtn')
@@ -2212,54 +2224,19 @@ const ApkBuilder = (() => {
   const progressLabel = $('apkProgressLabel')
   const resultEl = $('apkResult')
   const msgBox = $('apkMsg')
+  let orientation = 'auto', splashType = 'image', lastBuildUrl = '', progressTimer = null
 
-  let orientation = 'auto'
-  let splashType = 'image'
-  let lastBuildUrl = ''
-  let progressTimer = null
-
-  function open() {
-    modal.classList.add('open')
-    document.body.classList.add('locked')
-    SoundFX.tap()
-    setTimeout(() => $('apkUrl').focus(), 300)
-  }
-
-  function close() {
-    modal.classList.remove('open')
-    document.body.classList.remove('locked')
-    stopProgress()
-  }
-
+  function open() { modal.classList.add('open'); document.body.classList.add('locked'); SoundFX.tap(); setTimeout(() => $('apkUrl').focus(), 300) }
+  function close() { modal.classList.remove('open'); document.body.classList.remove('locked'); stopProgress() }
   function showMsg(text, type = 'err') {
     msgBox.className = 'msg show msg--' + type
-    const icon = type === 'ok'
-      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg>'
-      : type === 'warn'
-      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M12 9v4"/><path d="M12 17h.01"/></svg>'
-      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>'
+    const icon = type === 'ok' ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg>' : type === 'warn' ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M12 9v4"/><path d="M12 17h.01"/></svg>' : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>'
     msgBox.innerHTML = `<div class="msg__icon">${icon}</div><span>${escapeHtml(text)}</span>`
   }
   function hideMsg() { msgBox.className = 'msg' }
-
-  function setOption(group, val) {
-    document.querySelectorAll(`#${group} .apk-option`).forEach(b => {
-      b.classList.toggle('on', b.dataset.val === val)
-    })
-  }
-
-  $('apkOrientation').addEventListener('click', e => {
-    const b = e.target.closest('.apk-option'); if (!b) return
-    orientation = b.dataset.val
-    setOption('apkOrientation', orientation)
-    SoundFX.tap()
-  })
-  $('apkSplash').addEventListener('click', e => {
-    const b = e.target.closest('.apk-option'); if (!b) return
-    splashType = b.dataset.val
-    setOption('apkSplash', splashType)
-    SoundFX.tap()
-  })
+  function setOption(group, val) { document.querySelectorAll(`#${group} .apk-option`).forEach(b => b.classList.toggle('on', b.dataset.val === val)) }
+  $('apkOrientation').addEventListener('click', e => { const b = e.target.closest('.apk-option'); if (!b) return; orientation = b.dataset.val; setOption('apkOrientation', orientation); SoundFX.tap() })
+  $('apkSplash').addEventListener('click', e => { const b = e.target.closest('.apk-option'); if (!b) return; splashType = b.dataset.val; setOption('apkSplash', splashType); SoundFX.tap() })
 
   function setProgress(pct, label, activeStep) {
     progressFill.style.width = pct + '%'
@@ -2273,49 +2250,31 @@ const ApkBuilder = (() => {
       })
     }
   }
-
   function startProgress() {
-    progressEl.classList.add('show')
-    resultEl.classList.remove('show')
+    progressEl.classList.add('show'); resultEl.classList.remove('show')
     setProgress(0, 'Menyiapkan build...', 1)
     let pct = 0
     progressTimer = setInterval(() => {
       if (pct < 90) {
         pct += Math.random() * 4 + 1
         if (pct > 90) pct = 90
-        let step = 1
-        let label = 'Validasi input & proxy pool'
+        let step = 1, label = 'Validasi input & proxy pool'
         if (pct > 15) { step = 2; label = 'Upload form & icon ke server' }
         if (pct > 35) { step = 3; label = 'Build APK di server (60-120s)' }
         setProgress(pct, label, step)
       }
     }, 900)
   }
-
-  function stopProgress() {
-    if (progressTimer) { clearInterval(progressTimer); progressTimer = null }
-  }
+  function stopProgress() { if (progressTimer) { clearInterval(progressTimer); progressTimer = null } }
 
   function validateForm() {
     const url = $('apkUrl').value.trim()
     const name = $('apkName').value.trim()
     const pkg = $('apkPkg').value.trim()
-
     if (!url || !/^https?:\/\//i.test(url)) return { ok: false, msg: 'URL harus diawali http:// atau https://' }
     if (!name || name.length < 2) return { ok: false, msg: 'Nama app minimal 2 karakter' }
-    if (!pkg || !/^[a-z][a-z0-9_]*(\.[a-z][a-z0-9_]*)+$/i.test(pkg))
-      return { ok: false, msg: 'Package name format: com.example.app (lowercase, tanpa spasi)' }
-
-    return { ok: true, data: {
-      url,
-      appName: name,
-      packageName: pkg,
-      versionName: $('apkVer').value.trim() || '1.0',
-      versionCode: $('apkVerCode').value.trim() || '1',
-      icon: $('apkIcon').value.trim() || undefined,
-      orientation,
-      splashType
-    } }
+    if (!pkg || !/^[a-z][a-z0-9_]*(\.[a-z][a-z0-9_]*)+$/i.test(pkg)) return { ok: false, msg: 'Package name format: com.example.app' }
+    return { ok: true, data: { url, appName: name, packageName: pkg, versionName: $('apkVer').value.trim() || '1.0', versionCode: $('apkVerCode').value.trim() || '1', icon: $('apkIcon').value.trim() || undefined, orientation, splashType } }
   }
 
   function fmtSize(bytes) {
@@ -2327,105 +2286,211 @@ const ApkBuilder = (() => {
 
   async function build() {
     const check = validateForm()
-    if (!check.ok) {
-      SoundFX.error()
-      showMsg(check.msg, 'err')
-      return
-    }
+    if (!check.ok) { SoundFX.error(); showMsg(check.msg, 'err'); return }
     hideMsg()
-
-    const btn = buildBtn
-    const origHTML = btn.innerHTML
-    btn.disabled = true
-    btn.innerHTML = '<div class="btn__spinner"></div>Building APK...'
-
+    const btn = buildBtn; const origHTML = btn.innerHTML
+    btn.disabled = true; btn.innerHTML = '<div class="btn__spinner"></div>Building APK...'
     startProgress()
-    Terminal.show()
-    Terminal.setStatus('Building APK', 'info')
-    Terminal.log('APK', `Building "${check.data.appName}" (${check.data.packageName})`, 'cmd')
-    Terminal.log('APK', `URL: ${check.data.url}`, 'info')
-
+    Terminal.show(); Terminal.setStatus('Building APK', 'info')
+    Terminal.log('APK', `Building "${check.data.appName}"`, 'cmd')
     try {
-      const r = await fetch(`${API_BASE}/web2apk`, {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify(check.data)
-      })
+      const r = await fetch(`${API_BASE}/web2apk`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(check.data) })
       const j = await r.json()
-
       if (j.success) {
         stopProgress()
         setProgress(100, 'Selesai!', 4)
-        document.querySelectorAll('#apkProgressSteps .apk-progress__step').forEach(el => {
-          el.classList.remove('active'); el.classList.add('done')
-        })
-
+        document.querySelectorAll('#apkProgressSteps .apk-progress__step').forEach(el => { el.classList.remove('active'); el.classList.add('done') })
         lastBuildUrl = j.downloadUrl || (j.data && j.data.downloadUrl) || ''
         const buildId = j.buildId || (j.data && j.data.buildId) || '—'
         const fileName = j.fileName || (j.data && j.data.fileName) || 'app.apk'
         const size = j.size || (j.data && j.data.size) || 0
-
         $('apkResultFile').textContent = fileName
         $('apkResultSize').textContent = fmtSize(size)
         $('apkResultId').textContent = buildId
         resultEl.classList.add('show')
-
-        SoundFX.levelUp()
-        Confetti.burst(100)
+        SoundFX.levelUp(); Confetti.burst(100)
         Toast.show('APK Ready!', fileName, 3000)
         showMsg('Build sukses! Klik Download APK.', 'ok')
-
-        Terminal.log('OK', `APK built: ${fileName} (${fmtSize(size)})`, 'ok')
-        Terminal.log('URL', lastBuildUrl, 'ok')
+        Terminal.log('OK', `APK built: ${fileName}`, 'ok')
         Terminal.setStatus('APK Ready', 'ok')
-      } else {
-        throw new Error(j.message || 'Build failed')
-      }
+      } else { throw new Error(j.message || 'Build failed') }
     } catch (e) {
-      stopProgress()
-      setProgress(0, 'Gagal', 0)
-      progressEl.classList.remove('show')
-      SoundFX.error()
+      stopProgress(); setProgress(0, 'Gagal', 0); progressEl.classList.remove('show'); SoundFX.error()
       showMsg('Build gagal: ' + e.message, 'err')
-      Terminal.log('ERR', 'APK: ' + e.message, 'err')
-      Terminal.setStatus('APK Failed', 'err')
+      Terminal.log('ERR', 'APK: ' + e.message, 'err'); Terminal.setStatus('APK Failed', 'err')
     }
-
-    btn.disabled = false
-    btn.innerHTML = origHTML
+    btn.disabled = false; btn.innerHTML = origHTML
   }
-
   buildBtn.addEventListener('click', build)
-
   $('apkDownloadBtn').addEventListener('click', () => {
-    if (!lastBuildUrl) return
-    SoundFX.tap()
-    const a = document.createElement('a')
-    a.href = lastBuildUrl
-    a.download = ''
-    a.target = '_blank'
-    a.rel = 'noopener'
-    a.click()
+    if (!lastBuildUrl) return; SoundFX.tap()
+    const a = document.createElement('a'); a.href = lastBuildUrl; a.target = '_blank'; a.rel = 'noopener'; a.click()
   })
-
   $('apkCopyLinkBtn').addEventListener('click', async () => {
     if (!lastBuildUrl) return
-    try {
-      await navigator.clipboard.writeText(lastBuildUrl)
-      SoundFX.notify()
-      Toast.show('Link copied!', 'Download link disalin', 2000)
-    } catch { SoundFX.error() }
+    try { await navigator.clipboard.writeText(lastBuildUrl); SoundFX.notify(); Toast.show('Link copied!', 'Link disalin', 2000) } catch { SoundFX.error() }
   })
-
   $('apkModalClose').addEventListener('click', close)
   modal.addEventListener('click', e => { if (e.target === modal) close() })
-
   return { open, close }
 })()
+$('menuApkBuilder').addEventListener('click', () => { closeDrawer(); setTimeout(() => ApkBuilder.open(), 250) })
 
-$('menuApkBuilder').addEventListener('click', () => {
-  closeDrawer()
-  setTimeout(() => ApkBuilder.open(), 250)
+/* ═══ YOUTUBE MUSIC ═══ */
+const Music = (() => {
+  const modal = $('musicModalOverlay')
+  const input = $('musicQuery')
+  const btn = $('musicSearchBtn')
+  const msgBox = $('musicMsg')
+  const player = $('musicPlayer')
+  let currentAudio = ''
+
+  function open() { modal.classList.add('open'); document.body.classList.add('locked'); SoundFX.tap(); setTimeout(() => input.focus(), 300) }
+  function close() { modal.classList.remove('open'); document.body.classList.remove('locked'); const audio = $('musicAudio'); if (audio) audio.pause() }
+  function showMsg(text, type = 'err') { msgBox.className = 'msg show msg--' + type; msgBox.innerHTML = `<span>${escapeHtml(text)}</span>` }
+  function hideMsg() { msgBox.className = 'msg' }
+
+  async function search(query) {
+    if (!query.trim()) { SoundFX.error(); showMsg('Masukkan judul atau URL', 'warn'); return }
+    btn.disabled = true
+    const orig = btn.innerHTML
+    btn.innerHTML = '<div class="btn__spinner"></div>'
+    hideMsg()
+    player.classList.remove('show')
+    Terminal.log('MUSIC', `Search: "${query}"`, 'cmd')
+    Terminal.setStatus('Music search', 'info')
+    try {
+      const r = await fetch(`${API_BASE}/ytplay`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ query: query.trim() }) })
+      const j = await r.json()
+      if (!j.success) throw new Error(j.message || 'Not found')
+      const d = j.data
+      $('musicThumbImg').src = d.thumbnail
+      $('musicTitle').textContent = d.title
+      $('musicDuration').textContent = d.duration_formatted
+      $('musicSource').textContent = d.source || 'youtube'
+      const audio = $('musicAudio')
+      audio.src = d.audio_url
+      currentAudio = d.audio_url
+      player.classList.add('show')
+      SoundFX.success()
+      Toast.show('Music Found!', d.title.slice(0, 40), 2500)
+      Terminal.log('OK', `Found: ${d.title.slice(0, 40)}`, 'ok')
+      Terminal.setStatus('Music Ready', 'ok')
+      audio.play().catch(() => {})
+    } catch (e) {
+      SoundFX.error()
+      showMsg('Gagal: ' + e.message, 'err')
+      Terminal.log('ERR', 'Music: ' + e.message, 'err')
+    }
+    btn.disabled = false; btn.innerHTML = orig
+  }
+
+  btn.addEventListener('click', () => search(input.value))
+  input.addEventListener('keypress', e => { if (e.key === 'Enter') search(input.value) })
+  $('musicDownload').addEventListener('click', () => {
+    if (!currentAudio) return
+    const a = document.createElement('a'); a.href = currentAudio; a.target = '_blank'; a.rel = 'noopener'; a.click()
+    SoundFX.tap()
+  })
+  $('musicCopy').addEventListener('click', async () => {
+    if (!currentAudio) return
+    try { await navigator.clipboard.writeText(currentAudio); SoundFX.notify(); Toast.show('Copied!', 'Link audio disalin', 2000) } catch { SoundFX.error() }
+  })
+  $('musicModalClose').addEventListener('click', close)
+  modal.addEventListener('click', e => { if (e.target === modal) close() })
+  return { open, close }
+})()
+$('menuMusic').addEventListener('click', () => { closeDrawer(); setTimeout(() => Music.open(), 250) })
+
+/* ═══ AI IMAGE ═══ */
+const AIImage = (() => {
+  const modal = $('aiModalOverlay')
+  const promptEl = $('aiPrompt')
+  const negEl = $('aiNegative')
+  const genBtn = $('aiGenerateBtn')
+  const grid = $('aiImageGrid')
+  const msgBox = $('aiMsg')
+  let progressInterval = null
+
+  function open() { modal.classList.add('open'); document.body.classList.add('locked'); SoundFX.tap(); setTimeout(() => promptEl.focus(), 300) }
+  function close() { modal.classList.remove('open'); document.body.classList.remove('locked'); if (progressInterval) { clearInterval(progressInterval); progressInterval = null } }
+  function showMsg(text, type = 'err') { msgBox.className = 'msg show msg--' + type; msgBox.innerHTML = `<span>${escapeHtml(text)}</span>` }
+  function hideMsg() { msgBox.className = 'msg' }
+
+  document.querySelectorAll('.ai-preset').forEach(p => {
+    p.addEventListener('click', () => { promptEl.value = p.dataset.prompt; SoundFX.tap() })
+  })
+
+  function startLoading() {
+    grid.innerHTML = `<div class="ai-loading"><div class="btn__spinner" style="width:26px;height:26px;border-width:3px;border-color:var(--acc);border-top-color:transparent"></div><div>Generating image...</div><div class="ai-loading__progress"><div class="ai-loading__fill" id="aiLoadingFill"></div></div><div style="font-size:10.5px;color:var(--txt-4);font-family:var(--mono)" id="aiLoadingPct">0%</div></div>`
+    let pct = 0
+    progressInterval = setInterval(() => {
+      if (pct < 92) {
+        pct += Math.random() * 3 + 0.5
+        if (pct > 92) pct = 92
+        const fill = $('aiLoadingFill'); const pctEl = $('aiLoadingPct')
+        if (fill) fill.style.width = pct + '%'
+        if (pctEl) pctEl.textContent = Math.floor(pct) + '%'
+      }
+    }, 700)
+  }
+  function stopLoading() { if (progressInterval) { clearInterval(progressInterval); progressInterval = null } }
+
+  async function generate() {
+    const prompt = promptEl.value.trim()
+    if (!prompt) { SoundFX.error(); showMsg('Prompt wajib diisi', 'err'); return }
+    genBtn.disabled = true
+    const orig = genBtn.innerHTML
+    genBtn.innerHTML = '<div class="btn__spinner"></div>Generating...'
+    hideMsg(); startLoading()
+    Terminal.log('AI', `Generate: "${prompt.slice(0, 50)}..."`, 'cmd')
+    Terminal.setStatus('AI generating', 'info')
+    const startTime = Date.now()
+    try {
+      const r = await fetch(`${API_BASE}/ai-image`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ prompt, negative_prompt: negEl.value.trim() || undefined }) })
+      const j = await r.json()
+      if (!j.success) throw new Error(j.message || 'Gagal generate')
+      stopLoading()
+      const d = j.data
+      const elapsed = ((Date.now() - startTime) / 1000).toFixed(1)
+      grid.innerHTML = `<div class="ai-image-card"><img src="${d.image_url}" alt="AI generated" loading="lazy"><div class="ai-image-card__actions"><button class="btn btn--primary" id="aiDownload"><svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</button><button class="btn btn--secondary" id="aiRegen"><svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 12a9 9 0 1 1-9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>Regen</button></div></div>`
+      $('aiDownload').addEventListener('click', () => { const a = document.createElement('a'); a.href = d.image_url; a.download = `oaa-ai-${Date.now()}.png`; a.target = '_blank'; a.rel = 'noopener'; a.click(); SoundFX.tap() })
+      $('aiRegen').addEventListener('click', () => generate())
+      SoundFX.levelUp(); Confetti.burst(80)
+      Toast.show('Image Ready!', `${elapsed}s`, 2500)
+      showMsg(`Berhasil dalam ${elapsed}s`, 'ok')
+      Terminal.log('OK', `AI image generated in ${elapsed}s`, 'ok')
+      Terminal.setStatus('AI Ready', 'ok')
+    } catch (e) {
+      stopLoading()
+      grid.innerHTML = `<div class="ai-loading" style="color:var(--red)">Gagal: ${escapeHtml(e.message)}</div>`
+      SoundFX.error(); showMsg(e.message, 'err')
+      Terminal.log('ERR', 'AI: ' + e.message, 'err'); Terminal.setStatus('AI Failed', 'err')
+    }
+    genBtn.disabled = false; genBtn.innerHTML = orig
+  }
+  genBtn.addEventListener('click', generate)
+  $('aiModalClose').addEventListener('click', close)
+  modal.addEventListener('click', e => { if (e.target === modal) close() })
+  return { open, close }
+})()
+$('menuAI').addEventListener('click', () => { closeDrawer(); setTimeout(() => AIImage.open(), 250) })
+
+/* ═══ FEATURE TILES CLICK ═══ */
+document.querySelectorAll('.feature-tile[data-open]').forEach(tile => {
+  tile.addEventListener('click', () => {
+    SoundFX.tap()
+    const target = tile.dataset.open
+    const map = {
+      am: () => document.querySelector('.steps-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' }),
+      capcut: () => CapCut.open(),
+      apk: () => ApkBuilder.open(),
+      music: () => Music.open(),
+      ai: () => AIImage.open(),
+      inbox: () => openInbox()
+    }
+    if (map[target]) map[target]()
+  })
 })
 
 /* ═══ SHORTCUTS ═══ */
@@ -2438,11 +2503,15 @@ document.addEventListener('keydown', (e) => {
   if (mod && e.key === 'i') { e.preventDefault(); if (inboxModal.classList.contains('open')) closeInbox(); else openInbox() }
   if (mod && e.key === 'c') { e.preventDefault(); if ($('capcutModalOverlay').classList.contains('open')) CapCut.close(); else { closeDrawer(); setTimeout(() => CapCut.open(), 200) } }
   if (mod && e.key === 'a') { e.preventDefault(); if ($('apkModalOverlay').classList.contains('open')) ApkBuilder.close(); else { closeDrawer(); setTimeout(() => ApkBuilder.open(), 200) } }
+  if (mod && e.key === 'p') { e.preventDefault(); if ($('musicModalOverlay').classList.contains('open')) Music.close(); else { closeDrawer(); setTimeout(() => Music.open(), 200) } }
+  if (mod && e.key === 'y') { e.preventDefault(); if ($('aiModalOverlay').classList.contains('open')) AIImage.close(); else { closeDrawer(); setTimeout(() => AIImage.open(), 200) } }
   if (e.key === 'Escape') {
     if (modal.classList.contains('open')) return closeModal()
     if (inboxModal.classList.contains('open')) return closeInbox()
     if ($('capcutModalOverlay').classList.contains('open')) return CapCut.close()
     if ($('apkModalOverlay').classList.contains('open')) return ApkBuilder.close()
+    if ($('musicModalOverlay').classList.contains('open')) return Music.close()
+    if ($('aiModalOverlay').classList.contains('open')) return AIImage.close()
     if (drawer.classList.contains('open')) return closeDrawer()
     if (getCurrentStep() === 2) $('b2').click()
   }
@@ -2451,11 +2520,11 @@ document.addEventListener('keydown', (e) => {
 
 /* ═══ SOUND BINDING ═══ */
 setTimeout(() => {
-  document.querySelectorAll('.btn, .step, .brand, .icon-btn, .email-tab, .drawer__item, .history__item, .inbox-item, .inbox-back, .capcut-tab, .apk-option').forEach(el => {
+  document.querySelectorAll('.btn, .step, .brand, .icon-btn, .email-tab, .drawer__item, .history__item, .inbox-item, .inbox-back, .capcut-tab, .apk-option, .ai-preset, .feature-tile, .tutorial-step').forEach(el => {
     el.addEventListener('pointerdown', () => SoundFX.tap(), { passive: true })
     el.addEventListener('mouseenter', () => SoundFX.hover(), { passive: true })
   })
-  document.querySelectorAll('input').forEach(inp => {
+  document.querySelectorAll('input, textarea').forEach(inp => {
     inp.addEventListener('focus', () => SoundFX.focus())
     inp.addEventListener('keydown', (e) => { if (e.key.length === 1 || e.key === 'Backspace') SoundFX.key() })
   })
@@ -2463,8 +2532,6 @@ setTimeout(() => {
 
 emInput.addEventListener('keypress', e => { if (e.key === 'Enter') $('b1').click() })
 lkInput.addEventListener('keypress', e => { if (e.key === 'Enter') $('b3').click() })
-
-setTimeout(() => { if (!$('p1').classList.contains('hide')) emInput.focus() }, 1800)
 </script>
 </body>
 </html>
